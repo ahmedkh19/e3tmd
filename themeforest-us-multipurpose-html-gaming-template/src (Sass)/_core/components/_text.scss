@@ -1,0 +1,33 @@
+//
+// Text
+//
+
+/* [ text ] */
+
+// Contextual colors
+
+.text-white {
+	color: rgba($white, .9);
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		color: $white;
+	}
+	a:not(.btn):not(.badge) {
+		color: rgba($white, .9);
+	}
+}
+
+.text-light {
+	color: rgba($light, .9);
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		color: $light;
+	}
+	a:not(.btn):not(.badge) {
+		color: rgba($light, .9);
+	}
+}
+
+@each $color, $value in $text-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}

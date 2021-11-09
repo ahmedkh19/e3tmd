@@ -1,0 +1,54 @@
+//
+// Alert
+//
+
+/* [ Alert ] */
+.alert {
+	border-left: 4px solid;
+}
+@each $color, $value in $alert-colors {
+  .alert-#{$color} {
+  	border-left-color: mix($body-bg, $value, 70%);
+  }
+}
+
+// No Background
+.alert-no-bg {
+	background-color: transparent;
+	color: $alert-no-bg-color;
+}
+@each $color, $value in $alert-colors {
+  .alert-no-bg.alert-#{$color} {
+  	border-left-color: mix($body-bg, $value, 30%);
+  }
+}
+
+// Solid Background
+.alert-solid-bg {
+	background-color: $alert-solid-bg-color;
+	color: $alert-no-bg-color;
+}
+@each $color, $value in $alert-colors {
+  .alert-solid-bg.alert-#{$color} {
+  	border-left-color: mix($body-bg, $value, 30%);
+  }
+}
+
+// Round
+.alert-round {
+	border-radius: $alert-round-border-radius;
+}
+
+// No Border
+.alert-no-border {
+	border-left: 0;
+}
+
+// Icon
+@each $color, $value in $alert-colors {
+  .alert-#{$color} {
+  	.alert-icon {
+  		color: mix($body-bg, $value, 70%);
+  	}
+  }
+}

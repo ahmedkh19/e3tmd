@@ -1,0 +1,22 @@
+//
+// Modal
+//
+
+/* [ modal ] */
+.modal-dialog-bottom {
+	display: flex;
+	align-items: flex-end;
+	height: 100%;
+	margin-top: 0;
+    margin-bottom: 0;
+	.modal-content {
+		margin-bottom: $modal-dialog-margin;
+	}
+}
+@include media-breakpoint-up(sm) {
+	.modal-dialog-bottom {
+	    .modal-content {
+			margin-bottom: $modal-dialog-margin-y-sm-up;
+		}
+	}
+}

@@ -1,0 +1,260 @@
+//
+// Typography
+//
+
+/* [ Typography ] */
+
+// Font Family
+body {
+  font-family: $font-basic;
+  font-size: $theme-font-size-base;
+  font-weight: 300;
+  line-height: $line-height-base;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  a {
+    color: $headings-color;
+  }
+}
+
+b, strong { font-weight: 600; }
+
+.text-unset {
+  color: inherit !important;
+  a {
+    color: inherit !important;
+  }
+}
+a.unset {
+  color: inherit !important;
+}
+ul {
+  &.unset {
+    color: inherit !important;
+    a {
+      color: inherit !important;
+    }
+  }
+  &.list-style-circle {
+    list-style-type: circle;
+  }
+  &.list-style-disc {
+    list-style-type: disc;
+  }
+  &.list-style-square {
+    list-style-type: square;
+  }
+}
+
+// lead
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $breakpoint, $length in $infix {
+      @each $step, $size in $font-lead {
+        .lead#{$infix}-#{$step} {
+          font-size: $size !important;
+        }
+      }
+    }
+  }
+}
+
+// small
+@each $step, $size in $font-small {
+  .small-#{$step} {
+    font-size: $size !important;
+  }
+}
+
+/* font weight */
+$font-weight-list: 100 200 300 400 500 600 700 800 900;
+@each $value in $font-weight-list {
+  .font-weight-#{$value},
+  .fw-#{$value} {
+    font-weight: #{$value} !important;
+  }
+}
+
+/* line-height */
+.lh-1 {
+  line-height: 1 !important;
+}
+@for $i from 2 through 9 {
+  .line-height-#{$i},
+  .lh-#{$i} {
+    line-height: 1 + $i/10 !important;
+  }
+}
+
+// letter-spacing
+$ls-list: 1 2 3 4 8 16 48;
+@each $value in $ls-list {
+  .letter-spacing-#{$value},
+  .ls-#{$value} {
+    letter-spacing: #{$value*$base-rem-size}rem !important;
+  }
+}
+
+/* text-decoration */
+.td-lt {
+  text-decoration: line-through;
+}
+
+// extra
+.text-base {
+  color: $body-color;
+}
+
+// Blockquote
+.blockquote {
+  font-style: italic;
+  p::before,
+  p::after {
+    font-size: $blockquote-font-size;
+    line-height: 1;
+    opacity: .6;
+  }
+
+  p::before {
+    content: '“';
+    margin-left: -.8125rem;
+    padding-right: .25rem;
+  }
+
+  p::after {
+    content: '”';
+    margin-right: -.8125rem;
+    padding-left: .25rem;
+  }
+
+  footer {
+    font-size: $font-size-base * .875;
+  }
+}
+
+// Text quoted
+.text-quoted {
+
+  &::before,
+  &::after {
+    opacity: .8;
+  }
+
+  &::before {
+    content: '“';
+    padding-right: .125rem;
+  }
+
+  &::after {
+    content: '”';
+    padding-left: .125rem;
+  }
+
+}
+
+// Lists
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+// Horizontal rules
+.hr-ixt {
+  position: relative;
+  &:before,
+  &:after {
+    content: "";
+    height: $hr-border-width;
+    top: 50%;
+    width: calc(50% - 25px);
+    position: absolute;
+    background-color: $hr-border-color;
+  }
+  &:before {
+    left: 0;
+  }
+  &:after {
+    right: 0;
+  }
+}
+
+// Dot-Wizard
+.dot-wizard-wrap {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: rgba($white, .5);
+}
+.dot-wizard {
+  display: block;
+  width: .5rem;
+  height: .5rem;
+  background-color: $white;
+  border-radius: 50% !important;
+}
+
+// Text-underline
+.t-underline,
+.text-underline {
+  position: relative;
+  &:after {
+    content: '';
+    opacity: .7;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-400;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    @include transition(all .2s);
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+// text nav-link
+@each $color, $value in $theme-colors {
+  .text-#{$color} {
+    .nav-link {
+      color: $value !important;
+    }
+  }
+}
+
+// font-size
+@each $size, $value in $font-sizes {
+  .font-size-#{$size},
+  .fs-#{$size} {
+    font-size: $value !important;
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+      @each $breakpoint, $length in $infix {
+        .display#{$infix}-1 {
+          font-size: $display1-size;
+          font-weight: $display1-weight;
+          line-height: $display-line-height;
+        }
+        .display#{$infix}-2 {
+          font-size: $display2-size;
+          font-weight: $display2-weight;
+          line-height: $display-line-height;
+        }
+        .display#{$infix}-3 {
+          font-size: $display3-size;
+          font-weight: $display3-weight;
+          line-height: $display-line-height;
+        }
+        .display#{$infix}-4 {
+          font-size: $display4-size;
+          font-weight: $display4-weight;
+          line-height: $display-line-height;
+        }
+      }
+    }
+}

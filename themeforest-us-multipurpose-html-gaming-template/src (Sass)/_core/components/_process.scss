@@ -1,0 +1,156 @@
+//
+// Process
+//
+
+/* [ Process ] */
+.timeline-item {
+	padding: $timeline-item-spacing-top $timeline-item-spacing $timeline-item-spacing;
+    position: relative;
+    border-left: $timeline-item-border-width solid $timeline-item-color;
+    &::before {
+    	content: attr(data-time);
+    	display: block;
+	    position: absolute;
+	    top: $timeline-item-marker-spacing-top;
+	    font-size: $timeline-item-font-size;
+	    line-height: $timeline-item-line-height;
+    }
+    &::after {
+    	content: '';
+    	display: block;
+    	width: $timeline-item-size;
+	    height: $timeline-item-size;
+	    position: absolute;
+	    top: 0;
+	    left: -( $timeline-item-size / 2 );
+	    border-radius: $timeline-item-size;
+	    border: $timeline-item-border-width solid $timeline-item-color;
+	    background-color: #0F131E;
+	    margin-left: -( $timeline-item-border-width / 2 );
+    }
+}
+
+// Centered
+.timeline-centered {
+	display: flex;
+	flex-wrap: wrap;
+	.timeline-item {
+		max-width: 50%;
+		flex: 0 0 50%;
+	}
+	.timeline-item:not(:nth-child(even)) {
+		border-left: 0;
+		border-right: $timeline-item-border-width solid $timeline-item-color;
+		text-align: right;
+		&::before {
+			right: $timeline-item-spacing;
+		}
+		&::after {
+			left: auto;
+			right: -( $timeline-item-size / 2 );
+			margin-left: auto;
+			margin-right: -( $timeline-item-border-width / 2 );
+		}
+	}
+	.timeline-item:nth-child(even) {
+		margin-left: calc(50% - #{$timeline-item-border-width});
+	}
+}
+
+// Horizontal
+.timeline-horizontal {
+	display: flex;
+	.timeline-item {
+		border-left: 0;
+		border-top: $timeline-item-border-width solid $timeline-item-color;
+		padding-top: $timeline-item-spacing-top + .5rem;
+		&::before {
+			top: $timeline-item-marker-spacing-top + .5rem;
+		}
+		&::after {
+			left: $timeline-item-spacing;
+			top: -0.5rem;
+			margin-top: -( $timeline-item-border-width / 2 );
+		}
+	}
+}
+
+// Vertical-X
+.timeline-vertical-x {
+	.timeline-item {
+		border-left: 0;
+		border-left: $timeline-item-border-width solid $timeline-item-color;
+		border-bottom: $timeline-item-border-width solid $timeline-item-color;
+		padding-top: $timeline-item-spacing-top;
+		&::before {
+			top: $timeline-item-spacing-top - ( $timeline-item-marker-spacing-top / 1.5 );
+		}
+		&::after {
+			top: $timeline-item-spacing-top;
+		}
+		&:not(:nth-child(even)) {
+			margin-right: $timeline-item-border-radius;
+			border-bottom-left-radius: $timeline-item-border-radius;
+			padding-right: 0;
+		}
+		&:not(:nth-child(even)):not(:first-child) {
+			border-top-left-radius: $timeline-item-border-radius;
+			border-top: $timeline-item-border-width solid $timeline-item-color;
+			margin-top: -$timeline-item-border-width;
+		}
+		&:nth-child(even) {
+			border-left: 0;
+			border-top-right-radius: 30px;
+			border-bottom-right-radius: 30px;
+			border-top: $timeline-item-border-width solid $timeline-item-color;
+			border-right: $timeline-item-border-width solid $timeline-item-color;
+			margin-top: -$timeline-item-border-width;
+			padding-left: 0;
+			margin-left: $timeline-item-border-radius;
+			text-align: right;
+			&:before {
+				right: $timeline-item-spacing;
+			}
+			&:after {
+   				left: auto;
+   				margin-left: 0;
+   				right: -( $timeline-item-size / 2);
+   				margin-right: -( $timeline-item-border-width / 2 );
+			}
+		}
+		&:last-child:not(:nth-child(even)) {
+			border-bottom: 0;
+    		border-bottom-left-radius: 0;
+		}
+	}
+}
+
+// Step
+[data-step] {
+	&.timeline-item {
+		&::after {
+			content: attr(data-step);
+			display: flex;
+		    align-items: center;
+		    justify-content: center;
+			width: $timeline-item-size-step;
+			height: $timeline-item-size-step;
+			left: -( $timeline-item-size-step / 2 );
+			border-radius: $timeline-item-size-step;
+			font-weight: 500;
+    		color: $primary;
+		}
+		&:nth-child(even)::after {
+			left: auto;
+		    right: -( $timeline-item-size-step / 2 );
+		}
+	}
+}
+.timeline-horizontal {
+	[data-step].timeline-item {
+		&::after {
+			top: -( $timeline-item-size-step / 2 );
+			left: 1.875rem;
+		}
+	}
+}

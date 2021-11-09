@@ -1,0 +1,141 @@
+//
+// Position
+//
+
+/* [ position ] */
+
+// Overflow
+.overflow-h,
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.overflow-x-h,
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+.overflow-y-h,
+.overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+
+// Z-index
+.z-index-auto,
+.zi-auto {
+    z-index: auto;
+}
+@for $i from -10 through 10 {
+    .z-index-#{$i},
+    .zi-#{$i} {
+        z-index: #{$i};
+    }
+}
+
+// Position
+
+// common values
+$positions: static, relative, absolute, fixed, sticky;
+
+@each $position in $positions {
+  .p-#{$position},
+  .position-#{$position} {
+    position: $position !important;
+  }
+}
+
+/* font weight */
+$position-list: 15 20 30 40 50 60 70 80 90 100;
+@each $value in $position-list {
+  .left-#{$value},
+  .l-#{$value} {
+    left: #{$value}% !important;
+  }
+  .top-#{$value},
+  .t-#{$value} {
+    top: #{$value}% !important;
+  }
+  .right-#{$value},
+  .r-#{$value} {
+    right: #{$value}% !important;
+  }
+  .bottom-#{$value},
+  .b-#{$value} {
+    bottom: #{$value}% !important;
+  }
+}
+
+.l-auto,
+.left-auto {
+  left: auto !important;
+}
+
+.t-auto,
+.top-auto {
+  top: auto !important;
+}
+
+.r-auto,
+.right-auto {
+  right: auto !important;
+}
+
+.b-auto,
+.bottom-auto {
+  bottom: auto !important;
+}
+
+@each $size, $length in $spacers {
+  // Left
+  .l-#{$size},
+  .left-#{$size} {
+    left: #{$length} !important;
+  }
+  .l--#{$size},
+  .left--#{$size} {
+    left: -#{$length} !important;
+  }
+
+  // Top
+  .t-#{$size},
+  .top-#{$size} {
+    top: #{$length} !important;
+  }
+  .t--#{$size},
+  .top--#{$size} {
+    top: -#{$length} !important;
+  }
+
+  // Right
+  .r-#{$size},
+  .right-#{$size} {
+    right: #{$length} !important;
+  }
+  .r--#{$size},
+  .right--#{$size} {
+    right: -#{$length} !important;
+  }
+
+  // Bottom
+  .b-#{$size},
+  .bottom-#{$size} {
+    bottom: #{$length} !important;
+  }
+  .b--#{$size},
+  .bottom--#{$size} {
+    bottom: -#{$length} !important;
+  }
+}
+
+// Absolute center
+.absolute-center {
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+}
+.absolute-center-X:not(.absolute-center-Y) {
+  left: 50%;
+  @include transform(translateX(-50%));
+}
+.absolute-center-Y:not(.absolute-center-X) {
+  top: 50%;
+  @include transform(translateY(-50%));
+}

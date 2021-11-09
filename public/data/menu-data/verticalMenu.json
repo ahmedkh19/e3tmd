@@ -1,0 +1,172 @@
+{
+  "menu": [
+    {
+      "name": "Home",
+      "badge": "",
+      "badgeClass": "badge badge-light-warning badge-pill ml-auto mr-1",
+      "icon": "home",
+      "slug": "dashboard-ecommerce",
+      "url": "/"
+    },
+    {
+      "navheader": "Manage",
+      "slug": ""
+    },
+    {
+      "url": "chat",
+      "name": "Chat",
+      "icon": "message-square",
+      "slug": "chat.index"
+    },
+
+    {
+      "name": "Categories",
+      "icon": "menu",
+      "slug": "categories",
+      "permission": "main_category-list",
+
+      "submenu": [
+        {
+          "name": "Main categories",
+          "icon": "circle",
+          "slug": "",
+          "permission": "main_category-list",
+
+          "submenu": [
+            {
+              "name": "View",
+              "url" : "main_categories/",
+              "slug": "main_categories.index",
+              "permission": "main_category-list"
+            },
+            {
+              "name": "Add new",
+              "url": "main_categories/create",
+              "slug": "main_categories.create",
+              "permission": "main_category-create"
+
+            }
+          ]
+        },
+        {
+          "name": "Sub categories",
+          "icon": "circle",
+          "slug": "",
+          "permission": "sub_category-list",
+          "submenu": [
+            {
+              "name": "View",
+              "url": "sub_categories/",
+              "slug": "sub_categories.index",
+              "permission": "sub_category-list"
+            },
+            {
+              "name": "Add new",
+              "url": "sub_categories/create",
+              "slug": "sub_categories.create",
+              "permission": "sub_category-create"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "Accounts",
+      "icon": "box",
+      "slug": "products",
+      "permission": "product-list",
+      "submenu": [
+        {
+          "name": "View",
+          "url" : "products/",
+          "slug": "products.index",
+          "permission": "product-list"
+        },
+        {
+          "name": "Add new",
+          "url": "products/create",
+          "slug": "products.create",
+          "permission": "product-create"
+        }
+      ]
+    },
+
+    {
+      "name": "Users",
+      "icon": "users",
+      "slug": "",
+      "permission": "user-list",
+      "submenu": [
+        {
+          "name": "Users",
+          "icon": "circle",
+          "slug": "users",
+          "permission": "user-list",
+          "submenu": [
+            {
+              "name": "View",
+              "url" : "users/",
+              "slug": "users.index",
+              "permission": "user-list"
+            },
+            {
+              "name": "Add new",
+              "url": "users/create",
+              "slug": "users.create",
+              "permission": "user-create"
+            }
+          ]
+        },
+        {
+          "name": "Roles",
+          "icon": "circle",
+          "slug": "",
+          "submenu": [
+            {
+              "name": "View",
+              "url": "roles/",
+              "slug": "roles.index",
+              "permission": "role-list"
+            },
+            {
+              "name": "Add new",
+              "url": "roles/create",
+              "slug": "roles.create",
+              "permission": "role-create"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "Notifications",
+      "icon": "bell",
+      "slug": "",
+      "permission": "send_notification-send",
+      "submenu": [
+        {
+          "name": "Send notification",
+          "url": "send_notification",
+          "slug": "send_notification",
+          "permission": "send_notification-send"
+        }
+      ]
+    },
+
+    {
+      "name": "Payments & credit",
+      "icon": "dollar-sign",
+      "slug": "",
+
+      "submenu": [
+        {
+          "name": "View",
+          "url" : "payments/",
+          "slug": "payments.index"
+        }
+      ]
+    },
+    ]
+}

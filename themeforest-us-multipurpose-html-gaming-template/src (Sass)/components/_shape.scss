@@ -1,0 +1,202 @@
+/* [ shape ] */
+
+@import "variables.scss";
+@import "components/mixins/_bootstrap_overrides.scss";
+
+// Circle Rating
+@mixin ratings-x {
+  @for $i from 1 through 20 {
+    .pacss-#{$i / 2 * 10}:before {
+      @include transform(rotate(#{$i / 2 * 36}deg));
+    }
+  }
+}
+$rating-inactive-color: $theme-bg;
+$rating_circle: 1.875rem;
+$rating_circle_wrapper: 2.625rem;
+
+.rating_circle-wrapper {
+    width: $rating_circle_wrapper;
+    height: $rating_circle_wrapper;
+    border-radius: $rating_circle_wrapper;
+    background: rgba($rating-inactive-color, .75);
+    margin: 0;
+    padding: 0;
+    position:relative;
+    overflow: hidden;
+    &:after {
+    	content: "";
+    	display: block;
+        width: $rating_circle_wrapper;
+    	height: $rating_circle_wrapper;
+        background: none;
+        border-radius: $rating_circle_wrapper;
+        position: absolute;
+        top: 0;
+        left: 0;
+        outline: 0;
+        z-index: 6;
+        box-sizing: inherit;
+        overflow: hidden;
+    }
+
+}
+
+.rating_circle-foreground {
+	display:block;
+    position: absolute;
+    margin: .375rem;
+    width: $rating_circle;
+    height: $rating_circle;
+    background: $theme-bg;
+    border-radius: $rating_circle;
+    z-index:2;
+    .rating_circle-number {
+        font-size: 80%;
+        font-weight: 500;
+        text-align: center;
+        vertical-align: middle;
+        line-height: $rating_circle;
+        display: block;
+        height: 100%;
+        color: $warning;
+    }
+}
+ .rating_circle {
+    display:block;
+    position:relative;
+    width: $rating_circle_wrapper / 2;
+    height: $rating_circle_wrapper;
+    overflow: hidden;
+    @include transform-origin(left center);
+    margin-left: $rating_circle_wrapper / 2;
+}
+.rating_circle:before {
+    content: " ";
+    width: $rating_circle_wrapper / 2;
+    height: $rating_circle_wrapper;
+    background: $warning;
+    position: absolute;
+    left: -100%;
+    border-radius: .5em 0 0 .5em;
+    @include transform-origin(right center);
+}
+@for $i from 1 through 10 {
+	.rating_circle[data-rating-total="#{$i}"]:before {
+	    @include transform(rotate(#{36*$i}deg));
+	    @if($i > 5) {
+	    	left: 0;
+	    }
+	}
+}
+@for $i from 6 through 10 {
+	.rating_circle[data-rating-total="#{$i}"] {
+		width: $rating_circle_wrapper;
+	    @include transform-origin(center center);
+	    margin-left:0;
+	}
+	.rating_circle[data-rating-total="#{$i}"]:after {
+	    left: 50%;
+    	border-radius: 0 .5em .5em 0;
+    	content: " ";
+	    position: absolute;
+	    width: $rating_circle_wrapper / 2;
+	    height: $rating_circle_wrapper;
+	    background: $warning;
+	}
+}
+
+// XL Circle Rating
+$XL-rating-inactive-color: $theme-bg;
+$XL-rating_circle: 3.7rem;
+$XL-rating_circle_wrapper: 4.2rem;
+
+.XL-rating_circle-wrapper {
+    width: $XL-rating_circle_wrapper;
+    height: $XL-rating_circle_wrapper;
+    border-radius: $XL-rating_circle_wrapper;
+    background: rgba($XL-rating-inactive-color, .75);
+    margin: 0;
+    padding: 0;
+    position:relative;
+    overflow: hidden;
+    &:after {
+        content: "";
+        display: block;
+        width: $XL-rating_circle_wrapper;
+        height: $XL-rating_circle_wrapper;
+        background: none;
+        border-radius: $XL-rating_circle_wrapper;
+        position: absolute;
+        top: 0;
+        left: 0;
+        outline: 0;
+        z-index: 6;
+        box-sizing: inherit;
+        overflow: hidden;
+    }
+
+}
+
+.XL-rating_circle-foreground {
+    display:block;
+    position: absolute;
+    margin: ( $XL-rating_circle_wrapper - $XL-rating_circle ) / 2;
+    width: $XL-rating_circle;
+    height: $XL-rating_circle;
+    background: $theme-bg;
+    border-radius: $XL-rating_circle;
+    z-index:2;
+    .rating_circle-number {
+        font-weight: 500;
+        text-align: center;
+        vertical-align: middle;
+        line-height: $XL-rating_circle;
+        display: block;
+        height: 100%;
+        color: $warning;
+    }
+}
+.XL-rating_circle {
+    display: block;
+    position: relative;
+    width: $XL-rating_circle_wrapper / 2;
+    height: $XL-rating_circle_wrapper;
+    overflow: hidden;
+    @include transform-origin(left center);
+    margin-left: $XL-rating_circle_wrapper / 2;
+}
+.XL-rating_circle:before {
+    content: " ";
+    width: $XL-rating_circle_wrapper / 2;
+    height: $XL-rating_circle_wrapper;
+    background: $warning;
+    position: absolute;
+    left: -100%;
+    border-radius: .5em 0 0 .5em;
+    @include transform-origin(right center);
+}
+@for $i from 1 through 10 {
+    .XL-rating_circle[data-rating-total="#{$i}"]:before {
+        @include transform(rotate(#{36*$i}deg));
+        @if($i > 5) {
+            left: 0;
+        }
+    }
+}
+@for $i from 6 through 10 {
+    .XL-rating_circle[data-rating-total="#{$i}"] {
+        width: $XL-rating_circle_wrapper;
+        @include transform-origin(center center);
+        margin-left:0;
+    }
+    .XL-rating_circle[data-rating-total="#{$i}"]:after {
+        left: 50%;
+        border-radius: 0 .5em .5em 0;
+        content: " ";
+        position: absolute;
+        width: $XL-rating_circle_wrapper / 2;
+        height: $XL-rating_circle_wrapper;
+        background: $warning;
+    }
+}

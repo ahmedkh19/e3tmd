@@ -1,0 +1,214 @@
+//
+// Buttons
+//
+
+/* [ Buttons ] */
+.btn {
+	letter-spacing: 1.7px;
+	text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .2em;
+  @include transition(all .3s ease-in-out);
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size, $btn-line-height, $btn-border-radius);
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+}
+
+// Alternate buttons
+@each $color, $value in $button-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+    &:hover {
+      box-shadow: $theme-btn-focus-box-shadow rgba($value, $theme-btn-focus-box-shadow-alpha);
+    }
+    &:focus {
+      box-shadow: $theme-btn-focus-box-shadow rgba($value, $theme-btn-focus-box-shadow-alpha);
+    }
+  }
+}
+
+// Extra Small
+.btn-xs {
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $font-size-xs, $btn-line-height-sm, $btn-border-radius);
+}
+
+// Small
+.btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius);
+}
+
+// Large
+.btn-lg {
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-line-height-lg, $btn-border-radius);
+}
+
+// Extra Large
+.btn-xl {
+  @include button-size($btn-padding-y-xl, $btn-padding-x-xl, $font-size-xl, $btn-line-height-lg, $btn-border-radius);
+}
+
+
+// Outline
+.btn-outline {
+  background-color: transparent !important;
+  border: 1px solid !important;
+}
+@each $color, $value in $button-colors {
+  .btn-outline-#{$color} {
+    &:hover {
+      box-shadow: $theme-btn-focus-box-shadow rgba($value, $theme-btn-focus-box-shadow-alpha);
+    }
+    &:focus {
+      box-shadow: $theme-btn-focus-box-shadow rgba($value, $theme-btn-focus-box-shadow-alpha);
+    }
+  }
+}
+
+// round
+.btn-round {
+  border-radius: 10rem;
+}
+
+// Glass
+@each $color, $value in $button-colors {
+  .btn-glass.btn-#{$color} {
+    background-color: rgba($value, .6);
+    border-color: transparent;
+    color: $white;
+    &:hover {
+      background-color: rgba($value, .9);
+    }
+  }
+}
+
+// Square
+.btn-square {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: .3125rem;
+  padding-right: .3125rem;
+  width: $btn-square-md;
+  height: $btn-square-md;
+
+  &.btn-xl {
+    width: $btn-square-xl;
+    height: $btn-square-xl;
+  }
+
+  &.btn-lg {
+    width: $btn-square-lg;
+    height: $btn-square-lg;
+  }
+
+  &.btn-sm {
+    width: $btn-square-sm;
+    height: $btn-square-sm;
+  }
+
+  &.btn-xs {
+    width: $btn-square-xs;
+    height: $btn-square-xs;
+  }
+}
+
+// Circle
+.btn-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $btn-circle-md;
+  height: $btn-circle-md;
+  padding-left: .3125rem;
+  padding-right: .3125rem;
+  border-radius: 10rem;
+
+  &.btn-xl {
+    width: $btn-circle-xl;
+    height: $btn-circle-xl;
+    font-size: $btn-font-size-base * 1.2;
+  }
+
+  &.btn-lg {
+    width: $btn-circle-lg;
+    height: $btn-circle-lg;
+    font-size: $btn-font-size-base * 1.1;
+  }
+
+  &.btn-sm {
+    width: $btn-circle-sm;
+    height: $btn-circle-sm;
+    font-size: $btn-font-size-base * .9;
+  }
+
+  &.btn-xs {
+    width: $btn-circle-xs;
+    height: $btn-circle-xs;
+    font-size: $btn-font-size-base * .7;
+  }
+}
+
+// Label
+.btn-label {
+  position: relative;
+  padding-left: 3.25rem;
+  overflow: hidden;
+  label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2.25rem;
+    padding: .3125rem 0;
+    margin-bottom: 0;
+    background-color: rgba($black, .1);
+    cursor: pointer;
+  }
+}
+
+// Social
+@each $name in 'android', 'apple', 'dribbble', 'dropbox', 'facebook', 'flickr', 'github', 'google', 'instagram', 'pinterest', 'stackoverflow', 'skype', 'tumblr', 'twitter', 'linkedin' {
+  .btn-#{$name} {
+    $color: map-get($brand-colors, $name);
+    @include button-variant($color, $color);
+  }
+}
+
+// extra
+.btn-outline.success {
+  color: $green !important;
+  border-color: $green !important;
+  &:hover {
+    color: $white !important;
+    background-color: $green !important;
+  }
+}
+
+// Buttons
+button.close {
+    &:focus {
+        outline: none;
+    }
+}
+
+// Block button
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $breakpoint, $length in $infix {
+      .btn#{$infix}-block {
+        display: block;
+        width: 100%;
+        // Vertically space out multiple block buttons
+        + .btn#{$infix}-block {
+          margin-top: $btn-block-spacing-y;
+        }
+      }
+    }
+  }
+}

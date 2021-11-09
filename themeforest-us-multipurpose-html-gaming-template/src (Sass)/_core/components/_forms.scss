@@ -1,0 +1,270 @@
+//
+// Forms
+//
+
+/* [ Forms ] */
+label {
+    font-size: $label-font-size;
+    letter-spacing: .03125rem;
+}
+
+.form-control {
+	color: rgba($input-color, .6);
+	font-size: $input-font-size;
+	font-weight: $input-font-weight;
+	@include transition(all .3s ease-out);
+	&:focus {
+		border-color: rgba($input-focus-border-color, .8);
+	    box-shadow: 0 0 1rem rgba($black, .035);
+	}
+}
+
+// Form control sizing
+.form-control-sm {
+	font-size: $form-control-font-size-sm;
+}
+
+.form-control-lg {
+	font-size: $form-control-font-size-lg;
+}
+
+// Custom
+.custom-control {
+    min-height: auto;
+    padding-left: 0;
+}
+.custom-control-label {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	&::before {
+		position: static;
+	    border: 1px solid $input-border-color;
+	    margin-right: .5rem;
+	}
+	&::after {
+		@include transform(scale(0));
+		@include transition(transform .25s);
+	}
+}
+.custom-control-input {
+	&:checked ~ .custom-control-label::after {
+	    @include box-shadow($custom-control-indicator-active-box-shadow);
+	    @include transform(scale(1));
+	}
+	&:disabled ~ .custom-control-label {
+	    opacity: $custom-control-indicator-disabled-opacity;
+	}
+}
+
+// Checkbox
+.custom-checkbox {
+	.custom-control-label {
+		&::after {
+			width: $label-width;
+		    height: $label-height;
+		    left: ( $custom-control-indicator-size - $label-width ) / 2;
+		    top: calc(50% - 6px);
+		    border: solid;
+		    border-width: 0 1px 1px 0;
+		 	border-color: $custom-control-indicator-checked-color;
+		 	@include transform(scale(0) rotate(35deg));
+		}
+	}
+	.custom-control-input {
+		&:checked ~ .custom-control-label::before {
+			background: $light;
+		}
+		&:checked ~ .custom-control-label::after {
+			color: $custom-control-indicator-active-color;
+	    	background-color: $custom-control-indicator-active-bg;
+		    @include transform(scale(1) rotate(35deg));
+		}
+	}
+}
+
+// Radio
+.custom-radio {
+	.custom-control-label::after {
+	    width: $custom-radio-indicator-size;
+	    height: $custom-radio-indicator-size;
+	    top: $custom-radio-indicator-size;
+	    left: ( $custom-control-indicator-size - $custom-radio-indicator-size ) / 2;
+	    border-radius: 50%;
+	    background-color: $custom-control-indicator-checked-color;
+	}
+	.custom-control-input {
+		&:checked ~ .custom-control-label::before {
+			background-color: $light;
+		}
+	}
+}
+
+// Toggle Switch
+.custom-switch {
+	position: relative;
+	.custom-switch-label {
+		display: -webkit-box;
+	    display: flex;
+	    -webkit-box-align: center;
+	    align-items: center;
+	    &::before {
+	    	content: '';
+		    width: $custom-switch-width;
+		    height: $custom-switch-height;
+	    	background: #3a4048;
+	    	border: 2px solid #3a4048;
+		    border-radius: 1.25rem;
+		    @include transition(.3s);
+	    }
+	    &::after {
+	    	content: '';
+		    display: block;
+		    position: absolute;
+		    top: calc(50% - #{$custom-switch-slider-size / 2});
+		    left: 4px;
+		    width: $custom-switch-slider-size;
+		    height: $custom-switch-slider-size;
+		    cursor: inherit;
+		    background: $white;
+		    border-radius: 50%;
+		    @include transition(.3s);
+	    }
+	}
+	.custom-switch-input {
+	    display: none;
+	    z-index: -5;
+	    opacity: 0;
+	    &:disabled ~ .custom-switch-label {
+	    	opacity: $custom-control-indicator-disabled-opacity;
+		}
+	}
+	.custom-switch-input:checked ~ .custom-switch-label::before {
+	    border-color: $custom-control-indicator-checked-color;
+	    background: $custom-control-indicator-checked-color;
+	}
+	.custom-switch-input:checked ~ .custom-switch-label::after {
+	    background: $white;
+	    left: 1.5rem;
+	}
+
+	// outline
+	&.custom-switch-outline {
+		.custom-switch-label {
+		    &::before {
+		    	background: transparent;
+		    	border: 2px solid #ffc107;
+		    }
+		    &::after {
+			    background: #ffc107;
+		    }
+		}
+		.custom-switch-input:checked ~ .custom-switch-label::before {
+		    border-color: lighten($custom-control-indicator-checked-color, 30%);
+		    background: transparent;
+		}
+		.custom-switch-input:checked ~ .custom-switch-label::after {
+		    border-color: lighten($custom-control-indicator-checked-color, 30%);
+		    background: $custom-control-indicator-checked-color;
+		}
+	}
+
+	// no rounded
+	&.custom-switch-rounded-no {
+		.custom-switch-label {
+		    &::before {
+			    border-radius: 0;
+		    }
+		    &::after {
+		    	border-radius: 0;
+		    }
+		}
+	}
+}
+
+// range
+input.custom-range {
+	&[type=range] {
+	    -webkit-appearance: none;
+	    width: 100%;
+	}
+	&[type=range]::-webkit-slider-runnable-track {
+	    width: 100%;
+	    height: $custom-range-height;
+	    background-color: $custom-range-runnable-track-bg;
+	    border-radius: $custom-range-border-radius;
+	    border: none;
+	}
+	&[type=range]::-webkit-slider-thumb {
+	    -webkit-appearance: none;
+	    width: $custom-range-thumb-width;
+	    height: $custom-range-thumb-height;
+	    border: none;
+	    border-radius: $custom-range-thumb-border-radius;
+	    background-color: $custom-range-thumb-bg;
+	    margin-top: -$custom-range-height;
+	}
+	// Moz
+	&[type="range"]::-moz-range-track {
+		width: 100%;
+	    height: $custom-range-height;
+	    background-color: $custom-range-runnable-track-bg;
+	    border-radius: $custom-range-border-radius;
+	    border: none;
+	}
+	&[type="range"]::-moz-range-thumb {
+		-webkit-appearance: none;
+	    width: $custom-range-thumb-width;
+	    height: $custom-range-thumb-height;
+	    border: none;
+	    border-radius: $custom-range-thumb-border-radius;
+	    background-color: $custom-range-thumb-bg;
+	    margin-top: -$custom-range-height;
+	}
+	// IE
+	&[type=range]::-ms-track {
+		width: 100%;
+	    height: $custom-range-height;
+	    color: transparent;
+	    background-color: transparent;
+	    border-width: $custom-range-height 0;
+	    border-color: transparent;
+	}
+	&[type=range]::-ms-fill-lower,
+	&[type=range]::-ms-fill-upper {
+		background-color: $custom-range-runnable-track-bg;
+		border-radius: $custom-range-border-radius;
+	}
+	&[type=range]::-ms-thumb {
+		-webkit-appearance: none;
+	   	width: $custom-range-thumb-width;
+	    height: $custom-range-thumb-height;
+	    border: none;
+	    border-radius: $custom-range-thumb-border-radius;
+	    background-color: $custom-range-thumb-bg;
+	    margin-top: 0;
+	}
+}
+
+// file browser
+.custom-file {
+	.custom-file-label,
+	.custom-file-label::after {
+		display: -webkit-box;
+	    display: flex;
+	    -webkit-box-align: center;
+	          align-items: center;
+	    -webkit-box-pack: center;
+	}
+	// rounded
+	.custom-file-label-rounded {
+		border-top-left-radius: 10rem;
+		border-bottom-left-radius: 10rem;
+	}
+	.custom-file-label-rounded,
+	.custom-file-label-rounded::after {
+		border-top-right-radius: 10rem;
+		border-bottom-right-radius: 10rem;
+	}
+}

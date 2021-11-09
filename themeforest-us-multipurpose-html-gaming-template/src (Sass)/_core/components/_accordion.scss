@@ -1,0 +1,90 @@
+//
+// Accordion
+//
+
+/* [ Accordion ] */
+.accordion {
+	.card {
+		border: $accordion-card-border-width solid $card-border-color;
+	    background-color: $white;
+	    margin-bottom: $accordion-margin;
+
+	    &:last-child {
+	      margin-bottom: 0;
+	    }
+	    .card-header {
+	    	padding: 0;
+	    	background-color: $card-cap-bg;
+	    	border-bottom: 0;
+	    	a {
+	    		display: flex;
+	    		padding: $accordion-header-spacer;
+	    	}
+	    	.icon {
+				display: flex;
+				align-items: center;
+			    margin-right: 1rem;
+			    @include transition(all .3s ease);
+	    	}
+	    	.icon * {
+	    		font-size: $accordion-icon-size;
+	    	}
+	    	.collapsed .icon {
+	    		@include transform(rotate(180deg));
+			}
+	    }
+  	}
+  	.card:first-of-type {
+  		border-bottom: $accordion-card-border-width solid $card-border-color;
+  		border-bottom-right-radius: $card-border-radius;
+  		border-bottom-left-radius: $card-border-radius;
+  	}
+  	.card:not(:first-of-type):not(:last-of-type) {
+	    border-bottom: $accordion-card-border-width solid $card-border-color;
+	    border-radius: $card-border-radius;
+	}
+}
+
+// no header
+.accordion-no-header {
+	.card {
+		.card-header {
+			background: transparent;
+		}
+		.card-body {
+			padding-top: 0;
+		}
+	}
+}
+
+// accordion-arrow-right
+.accordion-arrow-right {
+	.card {
+		.card-header {
+			.icon {
+				float: right;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+// accordion connected
+.accordion-connected {
+	.card {
+		margin-bottom: 0;
+		&:not(:first-child):not(:last-child) {
+		    border-radius: 0;
+		    border-top: 0;
+		}
+		&:first-child {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&:last-child {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			border-top: 0;
+		}
+	}
+}

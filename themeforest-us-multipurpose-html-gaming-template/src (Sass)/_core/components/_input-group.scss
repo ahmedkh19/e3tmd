@@ -1,0 +1,336 @@
+//
+// Textual addons
+//
+
+/* [ textual addons ] */
+.input-group-text {
+	font-size: $input-group-text-font-size; // Match inputs
+}
+.input-group {
+	.input-group-prepend .btn,
+	.input-group-append .btn {
+	    margin: -1px;
+	    &:focus {
+	    	box-shadow: 0 .0625rem .5625rem rgba($black, .07);
+	    }
+	}
+	.input-group-prepend .btn {
+		margin-right: 1px;
+	}
+	.input-group-append .btn {
+		margin-left: 1px;
+	}
+	.input-group-prepend,
+	.input-group-append {
+		.input-group-text {
+			border-top: 0;
+			border-bottom: 0;
+		}
+	}
+	.input-group-prepend {
+		margin-right: 0;
+	}
+	.input-group-append {
+		margin-left: 0;
+	}
+	.input-group-prepend:first-child .input-group-text {
+		border-left: 0;
+	}
+	.input-group-append:last-child .input-group-text {
+		border-right: 0;
+	}
+	.form-control {
+		border: none;
+		box-shadow: none;
+	}
+	&:not(.input-line) {
+		border: $input-border-width solid $input-border-color;
+		background: $white;
+	}
+}
+
+// Light
+.input-light {
+	.input-group {
+		border: $input-border-width solid $input-border-color;
+		@include transition(all .3s ease-out);
+		.input-group-text {
+			color: $input-group-addon-light-color;
+		}
+		.form-control {
+			border: 0;
+			box-shadow: none;
+		}
+		.input-group-prepend,
+		.input-group-append {
+			.input-group-text {
+				background: transparent;
+			}
+		}
+		.input-group-prepend .input-group-text {
+			padding-right: 0;
+			margin-right: 1px;
+		}
+		.input-group-append .input-group-text {
+			padding-left: 0;
+			margin-left: 1px;
+		}
+		&:focus-within {
+			border-color: rgba($input-focus-border-color, .8);
+		    box-shadow: 0 0 1rem rgba($black, .035);
+		}
+	}
+}
+.input-light,
+.input-light.input-rounded {
+	.input-group {
+		.input-group-prepend .input-group-text,
+		.input-group-append .input-group-text {
+			border-width: 0;
+		}
+	}
+}
+
+
+// Rounded
+.input-rounded {
+	.form-control,
+	.input-group,
+	.input-group-text {
+	 	&:not(:focus, :focus-within) {
+			border: $input-border-width solid $input-border-color;
+		}
+		.form-control {
+			border: 0;
+			&:first-child {
+				padding-left: 1rem;
+			}
+			&:last-child {
+				padding-right: 1rem;
+			}
+		}
+		.input-group-prepend {
+			.input-group-text {
+				padding-left: 1rem;
+				border-left: 0;
+				border-top: 0;
+				border-right: $input-border-width solid $input-border-color;
+				border-bottom: 0;
+			}
+		}
+		.input-group-append {
+			.input-group-text {
+				padding-right: 1rem;
+				border-left: $input-border-width solid $input-border-color;
+				border-top: 0;
+				border-right: 0;
+				border-bottom: 0;
+			}
+		}
+	}
+	.form-control,
+	.input-group,
+	.input-group-text,
+	.input-group .btn {
+		border-radius: $input-group-rounded;
+	}
+	.form-group,
+	.input-group {
+		@include transition(all .3s ease-out);
+		&:focus {
+			box-shadow: none;
+		}
+		&:focus-within {
+			box-shadow: 0 0 2rem rgba($black, .045);
+		}
+	}
+	textarea.form-control {
+    	border-radius: .125rem;
+  	}
+	&:not(.input-light) {
+		.input-group {
+			.input-group-prepend {
+				margin-right: 0;
+			}
+			.input-group-append {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+// Line
+.input-line {
+	.form-control {
+		border-color: transparent;
+		background-color: transparent;
+		border-top: 1px solid transparent;
+		border-bottom: 1px solid rgba($gray-200, .7);
+		border-radius: 0;
+		padding-left: 0;
+    	padding-right: 0;
+		&:focus {
+			border-bottom-color: rgba($primary, .5);
+			box-shadow: none;
+		}
+	}
+	.input-group {
+		border: 0;
+		background: transparent;
+	}
+	.input-group-text {
+		border-color: transparent;
+		background-color: transparent;
+	}
+	.input-group-prepend .btn,
+	.input-group-append .btn {
+		height: 100%;
+    	margin: 0;
+	}
+}
+.text-white {
+	.input-line {
+		.form-control {
+			border-bottom-color: rgba($white, .2);
+			&:focus {
+				border-bottom-color: rgba($white, .5);
+			}
+		}
+		.form-control,
+		.input-group,
+		.input-group .input-group-text {
+			color: $white;
+		}
+		input::placeholder {
+			color: rgba($white, .8);
+		}
+		input:-ms-input-placeholder {
+			color: $white;
+		}
+		input::-ms-input-placeholder {
+			color: $white;
+		}
+		input::-webkit-input-placeholder {
+			color: $white;
+		}
+		textarea::placeholder {
+			color: $white;
+		}
+		textarea:-ms-input-placeholder {
+			color: $white;
+		}
+		textarea::-ms-input-placeholder {
+			color: $white;
+		}
+		textarea::-webkit-input-placeholder {
+			color: $white;
+		}
+	}
+}
+.text-light {
+	.input-line {
+		.form-control {
+			border-bottom-color: rgba($light, .3);
+			&:focus {
+				border-bottom-color: rgba($light, .6);
+			}
+		}
+		.form-control,
+		.input-group,
+		.input-group .input-group-text {
+			color: $light;
+		}
+		input::placeholder {
+			color: rgba($light, .5);
+		}
+		input:-ms-input-placeholder {
+			color: rgba($light, .5);
+		}
+		input::-ms-input-placeholder {
+			color: rgba($light, .5);
+		}
+		input::-webkit-input-placeholder {
+			color: rgba($light, .5);
+		}
+		textarea::placeholder {
+			color: rgba($light, .5);
+		}
+		textarea:-ms-input-placeholder {
+			color: rgba($light, .5);
+		}
+		textarea::-ms-input-placeholder {
+			color: rgba($light, .5);
+		}
+		textarea::-webkit-input-placeholder {
+			color: rgba($light, .5);
+		}
+		// focus
+		input:focus::placeholder {
+			color: rgba($light, .8);
+		}
+		input:focus::-ms-input-placeholder {
+			color: rgba($light, .8);
+		}
+		input:focus::-ms-input-placeholder {
+			color: rgba($light, .8);
+		}
+		input:focus::-webkit-input-placeholder {
+			color: rgba($light, .8);
+		}
+		textarea:focus::placeholder {
+			color: rgba($light, .5);
+		}
+		textarea:focus::-ms-input-placeholder {
+			color: rgba($light, .5);
+		}
+		textarea:focus::-ms-input-placeholder {
+			color: rgba($light, .5);
+		}
+		textarea:focus::-webkit-input-placeholder {
+			color: rgba($light, .5);
+		}
+	}
+}
+
+// Transparent
+.input-transparent {
+	color: $white;
+	.form-control,
+	.input-group,
+	.input-group-text {
+		background-color: transparent;
+	}
+	.form-control,
+	.input-group,
+	.input-group .input-group-text {
+		border-color: $secondary;
+		color: $white;
+	}
+	input::placeholder {
+		color: $white;
+	}
+	input:-ms-input-placeholder {
+		color: $white;
+	}
+	input::-ms-input-placeholder {
+		color: $white;
+	}
+	input::-webkit-input-placeholder {
+		color: $white;
+	}
+	textarea::placeholder {
+		color: $white;
+	}
+	textarea:-ms-input-placeholder {
+		color: $white;
+	}
+	textarea::-ms-input-placeholder {
+		color: $white;
+	}
+	textarea::-webkit-input-placeholder {
+		color: $white;
+	}
+	option {
+	  color: $input-color !important;
+	}
+}

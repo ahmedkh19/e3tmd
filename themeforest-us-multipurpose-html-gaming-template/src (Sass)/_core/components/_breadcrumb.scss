@@ -1,0 +1,43 @@
+// 
+// Breadcrumb
+//
+
+/* [ Breadcrumb ] */
+.breadcrumb {
+	letter-spacing: $breadcrumb-letter-spacing;
+    font-weight: $breadcrumb-font-weight;
+    font-size: $breadcrumb-font-size;
+}
+
+/* Arrow */
+.breadcrumb-arrow {
+	.breadcrumb-item {
+		+ .breadcrumb-item::before {
+			content: "#{$breadcrumb-arrow-divider}";
+			font-family: 'themify';
+			font-size: 60%;
+		}
+	}
+}
+
+/* Angle */
+.breadcrumb-angle {
+	.breadcrumb-item {
+		+ .breadcrumb-item::before {
+			content: "#{$breadcrumb-angle-divider}";
+			font-family: 'themify';
+			font-size: 60%;
+		}
+	}
+}
+
+/* Angle double */
+.breadcrumb-angle-double {
+	.breadcrumb-item {
+		+ .breadcrumb-item::before {
+			content: "#{$breadcrumb-angle-double-divider}";
+			font-family: 'themify';
+			font-size: 60%;
+		}
+	}
+}

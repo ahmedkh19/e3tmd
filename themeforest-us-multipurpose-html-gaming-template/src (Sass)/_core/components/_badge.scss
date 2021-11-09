@@ -1,0 +1,40 @@
+//
+// Badge
+//
+
+/* [ Badge ] */
+
+.btn .badge {
+    font-weight: 600;
+    font-size: .6rem;
+}
+.badge-counter {
+	position: relative;
+    top: -10px;
+    left: -8px;
+    padding: ($badge-padding-y / 1.5) ($badge-padding-x / 1.5);
+    border-radius: $badge-counter-border-radius;
+    font-size: $badge-counter-font-size;
+    min-width: 1rem;
+    min-height: 1rem;
+}
+
+// Pale
+@each $color, $value in $badge-colors {
+  .badge-pale.badge-#{$color} {
+    @if $color != light {
+      color: theme-color-level($color, 2);
+    }
+    background-color: theme-color-level($color, -10);
+  }
+}
+
+// Glass
+@each $color, $value in $badge-colors {
+  .badge-glass.badge-#{$color} {
+  	@if $color == warning or $color == light {
+    	color: $white;
+    }
+    background-color: rgba($value, .6);
+  }
+}

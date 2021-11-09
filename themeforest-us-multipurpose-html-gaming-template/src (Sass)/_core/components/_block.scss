@@ -1,0 +1,259 @@
+//
+// Block
+//
+
+/* [ Block ] */
+
+// Tiles-Grid
+.tile {
+	align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @include min-height(min-content);
+	&.is-vertical {
+  	flex-direction: column;
+  }
+}
+
+// Features
+.features {
+  position: relative;
+  .features ul.features-stack {
+    margin-top: 1.25rem;
+    li {
+      margin-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: solid 1px $gray-200;
+    }
+    li:last-child {
+      padding-bottom: 0px;
+      border-bottom: none;
+    }
+    &.row li {
+      margin-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: none;
+    }
+  }
+  .feature-icon {
+    display: inline-block;
+    vertical-align: top;
+    padding: .375rem 0 0 0;
+    margin-right: 1rem;
+  }
+  .feature-img {
+    display: inline-block;
+    vertical-align: top;
+    padding: .375rem 0 0 0;
+    margin-right: 1.25rem;
+  }
+  .feature-img img {
+    width: 2.8125rem;
+  }
+  span.icon {
+    font-size: 45px;
+    color: $typography_color;
+  }
+  .feature-content {
+    display: inline-block;
+    width: 75%;
+  }
+}
+
+// Screenshots
+.screenshots {
+	figure {
+		position: relative;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			@include transition(all 300ms ease-in-out);
+		}
+		&:hover img,
+		&:focus img {
+			@include transform(1.1);
+		}
+		&:hover figcaption,
+		&:focus figcaption {
+			opacity: 1;
+		}
+		&.cs-hover figcaption {
+			opacity: 1;
+		}
+	}
+	figcaption {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(11, 10, 49, 0.5);
+		opacity: 0;
+		@include transition(all 300ms ease-in-out);
+		.caption-content {
+			width: 50%;
+			margin: auto;
+			position: absolute;
+			top: 50%; left: 50%;
+			@include transform(translate(-50%,-50%));
+			@include transition(all 300ms ease-in-out);
+		}
+	}
+}
+@media screen and (max-width: 991px) {
+	.screenshots figcaption p {
+		padding: 0 18px;
+		margin: .5em 0 0 0;
+	}
+}
+@media screen and (max-width: 670px) {
+	.screenshots figcaption p {
+		display: none;
+	}
+}
+
+// Service
+.service {
+  width: 100%;
+  min-height: 20rem;
+  text-align: center;
+  border: 1px solid rgba($black, .07);
+  @include transition(all 0.3s ease);
+  .title {
+    position: relative;
+    top: 5rem;
+    @include transition(all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55));
+  }
+  .icon-holder {
+    display: inline-block;
+    position: relative;
+    top: 100px;
+    margin-bottom: 2.5rem;
+    padding: .625rem;
+    background-color: $white;
+    @include transition(all .3s ease);
+    .icon {
+      width: 2.5rem;
+    }
+  }
+  .description {
+    width: 80%;
+    margin: 0 auto;
+    opacity: 0;
+    @include transition(all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55));
+    @include transform(scale(0));
+  }
+  &:hover {
+    .title,
+    .icon-holder {
+      top: -1.875rem;
+    }
+    .description {
+      opacity: 1;
+      @include transform(scale(1));
+    }
+  }
+}
+
+// Release box
+.release-header {
+  height: calc(100vh + 125px) !important;
+}
+.release-box {
+  margin-top: calc(-250px/2);
+  .card {
+    height: 250px;
+    border: 0;
+    overflow: hidden;
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+    &:first-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    @include media-breakpoint-up(lg) {
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: $card-border-radius;
+      }
+      &:last-child {
+        border-top-right-radius: $card-border-radius;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+    .card-text {
+      @include transition(transform .2s);
+      @include transform(translateY(3.75rem));
+    }
+    &:hover .card-text {
+      @include transform(translateY(0));
+    }
+  }
+}
+
+// Footer
+.footer {
+  padding: $footer-spacer;
+  .logo {
+    .logo-dark,
+    .logo-light {
+      width: auto;
+      height: auto;
+      max-height: 2.5rem;
+    }
+  }
+  .nav {
+    margin-right: (-$footer-spacer-x);
+    margin-left: (-$footer-spacer-x);
+    .nav-link {
+      padding-left: $footer-spacer-x;
+      padding-right: $footer-spacer-x;
+    }
+  }
+  .social-buttons {
+    @if ($grid-gutter-width / 2) > ($social-gutter-width / 2) {
+      margin-right: ($social-gutter-width / -2);
+      margin-left: ($social-gutter-width / -2);
+    }
+    a {
+      display: inline-block;
+      width: $social-button-size;
+      height: $social-button-size;
+      line-height: $social-button-size;
+      text-align: center;
+      color: inherit;
+      @include transition(.3s ease-out);
+      @if ($grid-gutter-width / 2) > ($social-gutter-width / 2) {
+        margin-right: ($social-gutter-width / 2);
+        margin-left: ($social-gutter-width / 2);
+      }
+    }
+  }
+  &.footer-dark {
+    border-color: lighten( $dark, 2% );
+    color: $light !important;
+    .nav-link {
+      color: $light !important;
+    }
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      color: $light !important;
+    }
+    a:not([class*="social-"]),
+    small {
+      color: $light !important;
+    }
+  }
+}

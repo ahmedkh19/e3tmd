@@ -1,0 +1,52 @@
+//
+// Shapes
+//
+
+/* [ shapes ] */
+
+// parallelogram
+.parallelogram {
+	-webkit-transform: skew(15deg);
+	   -moz-transform: skew(15deg);
+	     -o-transform: skew(15deg);
+}
+.parallelogram > * {
+	display: block;
+	-webkit-transform: skew(-15deg);
+	   -moz-transform: skew(-15deg);
+	     -o-transform: skew(-15deg);
+	     transform: skew(-15deg);
+}
+
+// triangle-bottomleft
+.triangle-bottomleft {
+	width: 0;
+	height: 0;
+	border-bottom: 100vh solid rgba($black, .5);
+	border-right: 100vh solid transparent;
+}
+.triangle-bottomleft:before {
+	content: "";
+	display: block;
+	background-color: rgba($black, .5);
+	width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: -100vw;
+}
+.light {
+	&.triangle-bottomleft {
+		border-bottom: 100vh solid rgba($white, .5);
+	}
+	&.triangle-bottomleft:before {
+		background-color: rgba($white, .5);
+	}
+}
+.light_A-2 {
+	&.triangle-bottomleft {
+		border-bottom: 100vh solid rgba($white, .2);
+	}
+	&.triangle-bottomleft:before {
+		background-color: rgba($white, .2);
+	}
+}

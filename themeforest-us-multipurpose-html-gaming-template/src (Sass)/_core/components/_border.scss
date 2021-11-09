@@ -1,0 +1,150 @@
+//
+// Border
+//
+
+/* [ Border ] */
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        @each $breakpoint, $length in $infix {
+            .border#{$infix} {
+                border: $border-width solid $border-color !important;
+            }
+            .border#{$infix}-top {
+                border-top: $border-width solid $border-color !important;
+            }
+            .border#{$infix}-right {
+                border-right: $border-width solid $border-color !important;
+            }
+            .border#{$infix}-bottom {
+                border-bottom: $border-width solid $border-color !important;
+            }
+            .border#{$infix}-left {
+                border-left: $border-width solid $border-color !important;
+            }
+            .border#{$infix}-0 {
+                border: 0 !important;
+            }
+            .border#{$infix}-top-0 {
+                border-top: 0 !important;
+            }
+            .border#{$infix}-right-0 {
+                border-right: 0 !important;
+            }
+            .border#{$infix}-bottom-0 {
+                border-bottom: 0 !important;
+            }
+            .border#{$infix}-left-0 {
+                border-left: 0 !important;
+            }
+        }
+    }
+}
+
+$border-weight-list: 2 3 4 5;
+@each $value in $border-weight-list {
+  .border-#{$value},
+  .br-#{$value} {
+    border: #{$value}px solid $border-color !important;
+  }
+}
+
+// Border width
+@for $i from 0 through 3 {
+  .border-width-#{$i},
+  .bw-#{$i} {
+    border-width: #{$i}px !important;
+  }
+}
+
+// border left
+@each $value in $border-weight-list {
+  .border-left-#{$value},
+  .br-l-#{$value} {
+    border-left: #{$value}px solid !important;
+  }
+}
+
+// border top
+@each $value in $border-weight-list {
+  .border-top-#{$value},
+  .br-t-#{$value} {
+    border-top: #{$value}px solid !important;
+  }
+}
+
+// border right
+@each $value in $border-weight-list {
+  .border-right-#{$value},
+  .br-r-#{$value} {
+    border-right: #{$value}px solid !important;
+  }
+}
+
+// border bottom
+@each $value in $border-weight-list {
+  .border-bottom-#{$value},
+  .br-b-#{$value} {
+    border-bottom: #{$value}px solid !important;
+  }
+}
+
+// Colors
+@each $color, $value in $theme-colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+}
+
+.border-white {
+  border-color: $white !important;
+}
+
+
+// Rounded
+.rounded-1 {
+  border-radius: .25rem !important;
+}
+.rounded-2 {
+  border-radius: .5rem !important;
+}
+.rounded-3 {
+  border-radius: 1rem !important;
+}
+.rounded-4 {
+  border-radius: 10rem !important;
+}
+.rounded-top-left-0 { 
+  border-top-left-radius: 0 !important;
+}
+.rounded-bottom-left-0 {
+  border-bottom-left-radius: 0 !important;
+}
+.rounded-top-right-0 {
+  border-top-right-radius: 0 !important;
+}
+.rounded-bottom-right-0 {
+  border-bottom-right-radius: 0 !important;
+}
+.rounded-top-left {
+  border-top-left-radius: $border-radius !important;
+}
+.rounded-bottom-left {
+  border-bottom-left-radius: $border-radius !important;
+}
+.rounded-top-right {
+  border-top-right-radius: $border-radius !important;
+}
+.rounded-bottom-right {
+  border-bottom-right-radius: $border-radius !important;
+}
+
+// Border-Color
+
+// form 
+@each $color, $value in $form-colors {
+  .form-control-#{$color}:focus {
+    border-color: $value;
+  }
+}

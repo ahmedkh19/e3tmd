@@ -1,0 +1,338 @@
+//
+// Global
+//
+
+/* [ global ] */
+html,
+body,
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  height: 100%;
+}
+img {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+:focus {
+  outline: 0;
+}
+a {
+  @include transition(.2s linear);
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+figure {
+	margin: 0;
+}
+.ov-h {
+	overflow: hidden !important;
+}
+input.light {
+	border-color: $white;
+}
+.pe-n {
+	pointer-events: none !important;
+}
+
+pre {
+	position: relative;
+	&[rel] {
+		background-color: rgba($gray-100, .4);
+		border: 1px solid rgba($gray-200, .5);
+		@include box-shadow(0 0 1rem rgba(0, 0, 0, 0.03));
+		padding: 2.8rem 1rem .8rem;
+	}
+	&[rel]::before {
+	    font-size: .9rem;
+	    content: attr(rel);
+	    color: white;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    width: 100%;
+	    padding: 1px 0;
+	    text-indent: 1rem;
+	    background-color: $primary;
+	}
+	code {
+		display: block;
+		overflow: auto;
+	}
+}
+
+.c-pointer {
+	cursor: pointer !important;
+}
+
+// Section
+.content-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+@include media-breakpoint-up(lg) {
+	.content-section {
+	    padding-top: 7rem;
+	    padding-bottom: 7rem;
+	}
+}
+
+// Container
+
+// right-fluid
+.right-fluid {
+	position: relative;
+  	z-index: -1;
+  	overflow: hidden;
+	.right-fluid-col-6 {
+		position: relative;
+		right: -13.75rem;
+		text-align: right;
+	}
+	.right-fluid-content {
+		position: relative;
+  		display: inline-block;
+		.right-fluid-img {
+			max-width: 56.25rem;
+	 		width: auto;
+		}
+		.zoom-img {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			top: 50%;
+			left: -75px;
+			padding: 0;
+			transform: translateY(-50%);
+			overflow: hidden;
+		}
+	}
+}
+@include media-breakpoint-up(lg) {
+	.right-fluid { 
+		position: absolute;
+		.right-fluid-col-6 {
+			padding-left: calc(50% - 130px); // calc(220-75-15)
+			top: 50%;
+    		transform: translateY(-50%);
+		}
+	}
+
+}
+
+// hr
+@each $brand, $size in $hr-sizes {
+	.hr-#{$brand} {
+		min-width: #{$size}rem;
+	}
+}
+
+// hr-text
+.hr-text,
+.hr-text-left {
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+	align-items: center;
+	justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    &:before,
+    &:after {
+        border-top: 1px solid rgba($black, .07);
+        content: '';
+        position: relative;
+        width: 45%;
+    }
+    &:before {
+        right: 1.5%;
+    }
+    &:after {
+        left: 1.5%;
+    }
+}
+.hr-text-left {
+    &:before {
+        width: 6%;
+    }
+    &:after {
+        display: none;
+    }
+}
+
+/* Shadow */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+	    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+		@for $i from 1 through 6 {
+		  .shadow#{$infix}-#{$i} {
+		  	@include box-shadow(0 0 #{$i*4}px rgba(0, 0, 0, .06));
+		  }
+		}
+	}
+}
+
+/* Hover Shadow */
+@for $i from 1 through 6 {
+  .hover-shadow-#{$i}:hover {
+    @include box-shadow(0 0 #{$i*4}px rgba(0, 0, 0, .06));
+  }
+}
+
+// Transition
+.transition {
+  transition: 0.3s ease-out;
+}
+
+/* Social */
+// hover
+@each $brand, $color in $brand-colors {
+	.social-#{$brand}:hover,
+	a.social-#{$brand}:hover {
+		color: $color !important;
+	}
+}
+
+// Heading
+.section-header {
+	margin: 0 auto 3.6rem;
+	max-width: 92%;
+	small {
+		text-transform: uppercase;
+		color: $typography_color;
+		letter-spacing: 1px;
+		opacity: .5;
+	}
+	.section-header hr {
+		width: 6%;
+	}
+	&.fl-l {
+		width: 100%;
+		margin: 0;
+	}
+}
+@include media-breakpoint-up(md) {
+	.section-header {
+		max-width: 70%;
+	}
+}
+.header {
+	position: relative;
+}
+
+// Search
+[data-animation="search"] {
+    position: relative;
+    display: flex;
+	input[type="text"] {
+		width: 0;
+		padding-right: 1rem;
+		margin-left: auto;
+		border: 0;
+		font-size: $nav-font-size;
+		cursor: pointer;
+		@include transition(width .4s cubic-bezier(0.000, 0.900, 0.000, 1.000));
+		&:focus {
+			width: 100%;
+			cursor: text;
+		}
+	}
+	.icon-search-animation {
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    display: flex;
+	    justify-content: flex-end;
+	    align-items: center;
+	    line-height: 1;
+	    pointer-events: none;
+	}
+}
+
+.sidebar-fixed {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+}
+.sidebar-fixed,
+.sidebar-sm-fixed,
+.sidebar-md-fixed,
+.sidebar-lg-fixed,
+.sidebar-xl-fixed {
+	z-index: 1000;
+	padding: 1rem .625rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+	&.sidebar-left {
+		left: 0;
+	}
+	&.sidebar-right {
+		right: 0;
+	}
+}
+@include media-breakpoint-up(lg) {
+	.sidebar-fixed,
+	.sidebar-sm-fixed,
+	.sidebar-md-fixed,
+	.sidebar-lg-fixed,
+	.sidebar-xl-fixed {
+		padding: 1.25rem;
+	}
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  	@include media-breakpoint-up($breakpoint) {
+	    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+	    @each $breakpoint, $length in $infix {
+			.sidebar#{$infix}-fixed {
+				position: fixed !important;
+				top: 0;
+				bottom: 0;
+			}
+	    }
+  	}
+}
+
+/* scrollbar */
+.sl-bar {
+	&::-webkit-scrollbar {
+      width: 8px;
+	}
+	&::-webkit-scrollbar-track {
+      background-color: $cararra;
+      @include border-radius(10px, 10px, 10px, 10px);
+	}
+	&::-webkit-scrollbar-thumb {
+      @include border-radius(10px, 10px, 10px, 10px);
+      background: rgba($light_gray, .9);
+	}
+	&::-webkit-scrollbar-thumb:window-inactive {
+      background: rgba($light_gray, .5);
+	}
+}
+
+// Scroll To Element
+[data-scroll] {
+	cursor: pointer;
+}
+
+/* opacity */
+.opacity-1,
+.o-1 {
+	opacity: 1 !important;
+}
+$opacity-list: 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95;
+@each $value in $opacity-list {
+  .opacity-#{$value},
+  .o-#{$value} {
+    opacity: #{$value/100} !important;
+  }
+}

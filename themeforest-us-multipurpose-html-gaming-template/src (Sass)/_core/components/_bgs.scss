@@ -1,0 +1,192 @@
+//
+// Background
+//
+
+/* [ Background ] */
+
+.bc-t,
+.bg-color-transparent {
+	background-color: transparent !important;
+}
+.ba-f,
+.bg-attachment-fixed {
+	background-attachment: fixed !important;
+}
+
+// bg-repeat
+.br-n,
+.bg-repeat-no-repeat {
+	background-repeat: no-repeat !important;
+}
+.br-r,
+.bg-repeat-repeat {
+	background-repeat: repeat !important;
+}
+.br-rx,
+.bg-repeat-repeat-x {
+	background-repeat: repeat-x !important;
+}
+.br-ry,
+.bg-repeat-repeat-y {
+	background-repeat: repeat-y !important;
+}
+
+// bg-position
+.bp-c,
+.bg-position-center {
+	background-position: center !important;
+}
+.bp-l,
+.bg-position-left {
+	background-position: left !important;
+}
+.bp-t,
+.bg-position-top {
+	background-position: top !important;
+}
+.bp-r,
+.bg-position-right {
+	background-position: right !important;
+}
+.bp-b,
+.bg-position-bottom {
+	background-position: bottom !important;
+}
+
+// bg-size
+.bs-c,
+.bg-size-cover {
+	background-size: cover !important;
+}
+.bs-cont,
+.bg-size-contain {
+	background-size: contain !important;
+}
+
+.bc-dk:hover,
+.bc-dk:focus,
+.bc-dk:active {
+  color: #ffffff !important;
+}
+
+// bg
+.bg-primary-end {
+	background-color: $primary-end !important;
+}
+.bc-blue_t {
+	background-color: $blue_t !important;
+}
+.bc-blue_j {
+	background-color: $blue_j !important;
+}
+.bc-green {
+	background-color: $green !important;
+}
+.bg-light_cherry {
+	background-color: $light_cherry !important;
+	&:hover {
+		background-color: desaturate( $light_cherry, 30% ) !important;
+	}
+}
+
+.bg-gray {
+	background-color: $gray_t !important;
+}
+.bg-gray-start {
+	background-color: $gray_l !important;
+}
+.bg-raisin_black {
+	background-color: $raisin_black !important;
+}
+.bg-woodsmoke {
+ 	background-color: $woodsmoke !important;
+}
+.bg-desert {
+	background-color: $desert_sand !important;
+}
+.bg-black_haze {
+	background-color: $black_haze !important;
+}
+.bg-lumber {
+	background-color: $lumber !important;
+}
+.bg-dark-end {
+	background-color:  #010101 !important;
+}
+
+// Pale
+@each $color, $value in $theme-colors {
+  .bg-pale-#{$color} {
+    background-color: theme-color-level($color, -10);
+  }
+}
+
+// dark (alpha)
+$alpha-list: 90, 80, 70, 60, 50, 40, 30, 20, 10;
+@each $alpha in $alpha-list {
+	.bg-dark_A-#{$alpha} {
+		@include bc-alpha($black, $alpha / 100);
+	}
+}
+// light (alpha)
+@each $alpha in $alpha-list {
+	.bg-light_A-#{$alpha} {
+		@include bc-alpha($white, $alpha / 100);
+	}
+}
+
+// linear gradient
+@each $color, $value in $gradient-colors {
+  .bg-gradient-#{$color} {
+  	@include linear-gradient(to bottom, mix($body-bg, $value, 20%), $value 100%);
+  }
+}
+@each $color, $value in $gradient-colors {
+  .bg-gradientX-#{$color} {
+  	@include linear-gradient(to left, mix($body-bg, $value, 20%), $value 100%);
+  }
+}
+
+// extra gradient
+.bg-gradient-progress-primary {
+	@include linear-gradient(to right, mix($body-bg, $primary, 25%) 0%, $primary 100%);
+}
+.bg-gradient-progress-secondary {
+	@include linear-gradient(to right, $primary 0%, mix($black, $primary, 15%) 100%);
+}
+.bg-gradient-progress-complete {
+	@include linear-gradient(to right, $deep_lemon 0%, $ginger 100%);
+}
+
+.bg-gradient-picton {
+	@include linear-gradient(to right, #C195D3 0%, #4FB4E8 100%);
+}
+.bg-gradient-hotpink {
+	@include linear-gradient(to right, #ff69b4 0%, #ff6347 100%);
+}
+.bg-gradient-glitter {
+	@include linear-gradient(to right, #e7e8f0 0%, #eef1f7 100%);
+}
+.bg-gradient-azure_dark {
+	@include linear-gradient(to bottom, #004b80 0%, $black 100%);
+}
+
+// btn-hover
+.btn {
+	&.bc-blue_t {
+		@include bg-hover($blue_t);
+	}
+	&.bc-blue_j {
+		@include bg-hover($blue_j);
+	}
+	// outline
+	&.btn-outline.c-arsenic {
+		@include bg-hover-outline($arsenic, $white);
+	}
+	&.btn-outline.c-blue_j {
+		@include bg-hover-outline($blue_j, $white);
+	}
+	&.btn-outline.c-white {
+		@include bg-hover-outline($white, $typography_color);
+	}
+}

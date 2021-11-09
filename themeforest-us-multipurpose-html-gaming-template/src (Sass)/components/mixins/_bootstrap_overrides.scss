@@ -1,0 +1,132 @@
+// [ grid ]
+//
+// gutters-y
+@mixin row-y-gutters($size) {
+  $size: $size/2;
+  margin-top: -$size;
+  margin-bottom: -$size;
+  > .col,
+  > [class*="col-"] {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+}
+
+// transition
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+          transition: $transition;
+}
+// transition-timing-function
+@mixin transition-timing-function($transition-timing-function) {
+	-webkit-transition-timing-function: $transition-timing-function;
+            transition-timing-function: $transition-timing-function;
+}
+// transition-duration
+@mixin transition-duration($transition-duration) {
+	-webkit-transition-duration: $transition-duration;
+            transition-duration: $transition-duration;
+}
+// transition-property
+@mixin transition-property($transition-property...) {
+	-webkit-transition-property: $transition-property;
+            transition-property: $transition-property;
+}
+// transition-delay
+@mixin transition-delay($transition-delay) {
+	-webkit-transition-delay: $transition-delay;
+            transition-delay: $transition-delay;
+}
+// flex-wrap
+@mixin flex-wrap($flex-wrap) {
+	-webkit-flex-wrap: $flex-wrap;
+            flex-wrap: $flex-wrap;
+}
+// justify-content
+@mixin justify-content ($justify-content) {
+	-webkit-justify-content: $justify-content;
+            justify-content: $justify-content;
+}
+// transform
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+	   -moz-transform: $transform;
+	    -ms-transform: $transform;
+		 -o-transform: $transform;
+            transform: $transform;
+}
+// transform-origin
+@mixin transform-origin($transform-origin) {
+	-webkit-transform-origin: $transform-origin;
+            transform-origin: $transform-origin;
+}
+// box-shadow
+@mixin box-shadow ($box-shadow) {
+	-webkit-box-shadow: $box-shadow;
+            box-shadow: $box-shadow;
+}
+
+// bg-hover
+@mixin bg-hover($baseColor) {
+    background-color: $baseColor;
+    &:hover {
+    	background-color: darken($baseColor, 7%);
+    }
+}
+@mixin bg-hover-outline($baseColor, $color) {
+    &:hover {
+    	background-color: $baseColor !important;
+    	border-color: $baseColor !important;
+    	color: $color !important;
+    }
+}
+
+// aspect-ratio
+@mixin aspect-ratio($width, $height) {
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+}
+
+// color (alpha)
+@mixin c-alpha($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  color: $rgba;
+}
+
+// background color (alpha)
+@mixin bc-alpha($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: $rgba !important;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+}
+
+// animation
+@mixin animation($animation-name, $animation-duration, $animation-fill-mode) {
+    -webkit-animation-name: $animation-name;
+            animation-name: $animation-name;
+    -webkit-animation-duration: $animation-duration;
+            animation-duration: $animation-duration;
+    -webkit-animation-fill-mode: $animation-fill-mode;
+            animation-fill-mode: $animation-fill-mode;
+}
+
+// border-radius
+@mixin border-radius($border-radius...) {
+  -webkit-border-radius: $border-radius;
+     -moz-border-radius: $border-radius;
+          border-radius: $border-radius;
+}
+
+// min-height
+@mixin min-height($min-height) {
+    min-height: -webkit-$min-height;
+    min-height: -moz-$min-height;
+    min-height: $min-height;
+}

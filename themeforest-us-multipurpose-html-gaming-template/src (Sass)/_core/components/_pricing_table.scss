@@ -1,0 +1,146 @@
+//
+// Pricing table
+//
+
+/* [ pricing_table ] */
+.pricing_table {
+  display: -webkit-flex;
+  display: flex;
+  @include flex-wrap(wrap);
+  @include justify-content(center);
+  width: 100%;
+  margin: 0 auto 3em;
+}
+
+.pricing_item {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  text-align: center;
+  -webkit-flex: 0 1 330px;
+	flex: 0 1 330px;
+	border-top-left-radius: 1.25rem;
+	border-top-right-radius: 1.25rem;
+	border-bottom-left-radius: .625rem;
+	border-bottom-right-radius: .625rem;
+}
+
+.pricing_feature-list {
+  text-align: left;
+}
+
+.pricing_deco {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+/* palden */
+.pricing--palden {
+	.pricing_item {
+		cursor: default;
+		background: $primary;
+		box-shadow: 0 0 10px rgba(46, 59, 125, 0.23);
+		margin: 1em;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+  .pricing--palden {
+	  .pricing_item {
+	    margin: 3em -0.5em;
+	  }
+  	.pricing_item--featured {
+	    margin: 0;
+	    z-index: 10;
+	    box-shadow: 0 0 20px rgba(46, 59, 125, 0.23);
+  	}
+  }
+}
+
+.pricing--palden {
+	.pricing_deco {
+		position: relative;
+		background: $white;
+	}
+	.pricing_deco-img {
+	  position: absolute;
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 160px;
+	}
+	.pricing_item--featured .pricing__deco {
+	  padding: 5em 0 8.885em 0;
+	}
+	.pricing_title {
+		display: block;
+		padding: 4rem 2rem;
+	  margin: 0;
+	  text-transform: uppercase;
+		letter-spacing: 5px;
+		color: $white;
+	}
+	.deco-layer {
+	  -webkit-transition: -webkit-transform 0.5s;
+	  transition: transform 0.5s;
+	}
+	.pricing_item:hover .deco-layer--1 {
+	  -webkit-transform: translate3d(15px,0,0);
+	  transform: translate3d(15px,0,0);
+	}
+	.pricing_item:hover .deco-layer--2 {
+	  -webkit-transform: translate3d(-15px,0,0);
+	  transform: translate3d(-15px,0,0);
+	}
+	.icon {
+	  font-size: 2.5em;
+	}
+	.pricing_price {
+	  font-size: 5rem;
+	  font-weight: 600;
+	  padding: 0;
+	  color: $primary;
+	  margin-bottom: -2px;
+	  line-height: 0.75;
+	}
+	.pricing_currency {
+	  font-size: 2.4rem;
+	  vertical-align: top;
+	  color: $primary;
+	}
+	.pricing_period {
+	  font-size: 0.15em;
+	  padding: 0 0 0 0.5em;
+	  color: rgba(0,0,0,0.4);
+	  font-style: italic;
+	}
+	.pricing_sentence {
+	  font-weight: bold;
+	  margin: 0 0 1em 0;
+	  padding: 0 0 0.5em;
+	}
+	.pricing_feature-list {
+		margin-bottom: 5.625rem;
+		padding-top: 2rem;
+		padding-left: 0;
+		list-style: none;
+		display: inline-block;
+	}
+	.pricing_action {
+		border: solid 3px $white;
+		color: $white;
+		&:hover {
+			background-color: $white;
+			color: $primary;
+		}
+	  margin: auto 1rem 1.75rem 1rem;
+	  border-radius: 1.875rem;
+	  @include transition(background-color .3s);
+	}
+}

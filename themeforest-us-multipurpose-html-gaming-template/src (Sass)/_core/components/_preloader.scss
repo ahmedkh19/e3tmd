@@ -1,0 +1,22 @@
+//
+// Preloader
+//
+
+/* [ preloader ] */
+body.preloader {
+    overflow: hidden;
+    .preloaderWrapper {
+    	content: "";
+    	height: 100%;
+	    width: 100%;
+	    background: #FFF;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    z-index: 9999999;
+	    background-image: url(../img/preloader.svg);
+	    background-position: center center;
+	    background-repeat: no-repeat;
+	    background-size: 80px;
+    }
+}

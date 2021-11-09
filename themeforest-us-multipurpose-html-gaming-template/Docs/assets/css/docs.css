@@ -1,0 +1,270 @@
+mark {
+	padding: .2em;
+	background-color: #fcf8e3;
+}
+abbr[title] {
+	cursor: help;
+	border-bottom: 1px dotted #818a91;
+}
+code {
+	padding: .2rem .4rem;
+	font-size: 90%;
+	color: #bd4147;
+	background-color: #f9f2f4;
+	border-radius: .25rem;
+}
+pre {
+	position: relative;
+
+	overflow-x: auto;
+	overflow: auto;
+
+	-moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+
+  -ms-word-break: normal;
+    	word-break: normal;
+
+  -webkit-hyphens: none;
+     -moz-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
+
+	padding: 0;
+
+	background-color: #f9f2f4;
+
+	line-height: 1.5;
+}
+pre[rel]::before {
+	font-size: 0.9rem;
+  content: attr(rel);
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 1px 0;
+  text-indent: 15px;
+
+  background-color: #5c5252;
+}
+pre code {
+	font: normal 15px/1.5 monospace;
+
+	display: block;
+  overflow: auto;
+  padding: 15px;
+}
+pre code span {
+	color: #2f6f9f;
+}
+pre code span.comment {
+	color: #95A5B3;
+}
+cite {
+	display: inline-block;
+
+	padding: 10px;
+
+	font: normal 700 16px/normal 'Roboto',sans-serif;
+
+	letter-spacing: 5px;
+	text-transform: uppercase;
+
+	background: rgba(210, 40, 30, .8);
+}
+code .important {
+	color: red;
+}
+code .note {
+	color: #66c888;
+}
+code .bold {
+	font-weight: bold;
+}
+code .note-ovl {
+	background-color: #66c888;
+  color: #fff;
+}
+.nte-special {
+	margin: 20px 0;
+
+	padding: 15px 20px;
+
+	background-color: #ebf9f9;
+
+	border-left: solid 7px #66c888;
+
+	color: #43515c;
+}
+.nte-special ul {
+	padding: 0 0 7px 0;
+
+	font-size: 18px;
+}
+.nte-special ul li {
+	display: inline-block;
+
+	position: relative;
+
+  margin: 0 16px 0 0;
+
+  font-size: 24px;
+      line-height: 1;
+}
+.nte-special ul li a {
+	width: 25px;
+	height: 30px;
+}
+.nte-special ul li:after {
+	content: attr(data-version);
+  position: absolute;
+  font-size: 10px;
+  color: #bad8b0;
+
+  bottom: 0;
+
+  font-family: inherit;
+  font-weight: bold;
+  left: 100%;
+}
+.nte-special ul li.spt a {
+	color: #66c888;
+}
+.cite-dark {
+	background: rgb(33, 36, 46);
+}
+.pr-tps {
+	padding: 15px 20px;
+
+	background-color: #ebf9f9;
+}
+.post-ct {
+	text-align: right;
+}
+div.important {
+	border-left: solid 7px #d2281e;
+	background-color: #ebf9f9;
+}
+div.important span,
+div.important i {
+	color: #d2281e;
+}
+.note {
+	border-left: solid 7px #66c888;
+	background-color: #ebf9f9;
+}
+.note span,
+.note i {
+	color: #66c888;
+}
+.help-info--article-actions button {
+	margin-left: 0;
+	min-width: 100px;
+	font-size: 12px;
+}
+.help-info--container {
+    padding: 20px;
+    margin: 20px 0;
+}
+.help-info--container p {
+    margin-bottom: 0;
+}
+.help-info--container span, .help-info--container i {
+    font-size: 35px;
+    margin-right: 10px;
+}
+.ylo-clr {
+	color: #a9a9a9;
+	background: #a9a9a9;
+}
+.gry-clr {
+	color: #66c888;
+	background: #66c888;
+}
+.nte-special {
+	margin: 20px 0;
+
+	padding: 15px 20px;
+
+	background-color: #ebf9f9;
+
+	border-left: solid 7px #66c888;
+
+	color: #43515c;
+}
+.nte-special ul {
+	padding: 0 0 7px 0;
+
+	font-size: 18px;
+}
+.nte-special ul li a {
+	width: 25px;
+	height: 30px;
+}
+.nte-special ul li:after {
+	content: attr(data-version);
+  position: absolute;
+  font-size: 10px;
+  color: #bad8b0;
+
+  bottom: 0;
+
+  font-family: inherit;
+  font-weight: bold;
+  left: 100%;
+}
+.nte-special ul li.spt a {
+	color: #66c888;
+}
+.spt-info {
+	display: none;
+
+	position:absolute;
+	top:30px;
+	left: 50%;
+
+	font-size: 10px;
+
+	margin-top: 2px;
+	padding: 5px;
+
+  background: #414a51;
+  color: #f0f0f0;
+
+  -webkit-transform: translateX(-50%);
+  				transform: translateX(-50%);
+
+  white-space: nowrap;
+}
+.spt-info:before {
+	bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-bottom-color: #414a51;
+    border-width: 5px;
+    margin-left: -5px;
+}
+.spt-bs:hover + .spt-info {
+	display: block !important;
+
+	z-index: 10;
+}
+.nte-special ul li.spt-from a {
+	color: rgba(102, 200, 136, 0.5);
+}
+.nte-special ul li:first-child {
+  margin: 0;
+}
+.browser-support {
+	padding-right: 17px;
+}

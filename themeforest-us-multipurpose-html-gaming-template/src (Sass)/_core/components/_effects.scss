@@ -1,0 +1,83 @@
+//
+// Effects
+//
+
+/* [ Effects ] */
+.effect-wrapper .content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Grayscale */
+.effect-grayscale.hover {
+  @include transition(filter 900ms linear);
+}
+.effect-grayscale.hover:hover {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+/* Layla */
+.effect-layla {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+figure.effect-layla::before,
+figure.effect-layla::after {
+  position: absolute;
+  content: '';
+  opacity: 0;
+}
+
+figure.effect-layla::before {
+  top: 50px;
+  right: 30px;
+  bottom: 50px;
+  left: 30px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  @include transform(scale(0,1));
+  @include transform-origin(0 0);
+}
+figure.effect-layla::after {
+  top: 30px;
+  right: 50px;
+  bottom: 30px;
+  left: 50px;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  @include transform(scale(1,0));
+  @include transform-origin(100% 0);
+}
+figure.effect-layla::before,
+figure.effect-layla::after {
+  @include transition(opacity .35s, transform .35s);
+}
+
+.effect-wrapper:hover figure.effect-layla::before,
+.effect-wrapper:hover figure.effect-layla::after {
+  opacity: 1;
+  @include transform(scale(1));
+}
+
+.effect-wrapper:hover figure.effect-layla::after {
+  @include transition-delay(.15s);
+}
+
+// Zoom images
+.fx--zoom-media-item {
+  overflow: hidden;
+  .fx--zoom-media {
+      @include transition(all .5s);
+  }
+  &:hover {
+    .fx--zoom-media {
+      @include transform(scale(1.1));
+    }
+  }
+}

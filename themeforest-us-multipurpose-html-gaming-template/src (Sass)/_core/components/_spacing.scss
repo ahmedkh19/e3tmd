@@ -1,0 +1,51 @@
+//
+// Spacing
+//
+
+/* [ spacing ] */
+
+// margin
+.m-0 {
+  margin: 0 !important;
+}
+.m-0-auto {
+  margin: 0 auto !important;
+}
+
+// padding %
+$pn-per-list: 10 15 20 25 30 35 40 45 50;
+@each $value in $pn-per-list {
+  .px-#{$value}-per {
+    padding-right: #{$value}% !important;
+    padding-left: #{$value}% !important;
+  }
+}
+
+// extra
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $size, $length in $spacers {
+      .mx#{$infix}--#{$size} {
+        margin-left:  -#{$length} !important;
+        margin-right: -#{$length} !important;
+      }
+      .my#{$infix}--#{$size} {
+        margin-top:  -#{$length} !important;
+        margin-bottom: -#{$length} !important;
+      }
+      .ml#{$infix}--#{$size} {
+        margin-left:  -#{$length} !important;
+      }
+      .mr#{$infix}--#{$size} {
+        margin-right: -#{$length} !important;
+      }
+      .mt#{$infix}--#{$size} {
+        margin-top:  -#{$length} !important;
+      }
+      .mb#{$infix}--#{$size} {
+        margin-bottom: -#{$length} !important;
+      }
+    }
+  }
+}

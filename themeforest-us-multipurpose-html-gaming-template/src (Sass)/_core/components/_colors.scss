@@ -1,0 +1,73 @@
+//
+// Colors
+//
+
+/* [ colors ] */
+.text-arsenic {
+  color: $arsenic !important;
+}
+.text-green {
+  color: $green !important;
+  &.btn-outline {
+    border-color: $green !important;
+    &:hover {
+      color: $white !important;
+      background-color: $green !important;
+    }
+  }
+}
+.text-blue {
+  color: $blue !important;
+}
+.text-red {
+  color: $red !important;
+}
+.text-dark {
+  color: $black !important;
+}
+.text-light {
+  h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+  	color: $light !important;
+  }
+  .section-header small {
+    color: $light !important;
+  }
+}
+.text-lynch {
+  color: $typography_color !important;
+}
+.text-light_cherry {
+  color: $light_cherry !important;
+}
+.text-woodsmoke {
+  color: $woodsmoke !important;
+}
+.text-dogwood_rose {
+  color: $dogwood_rose !important;
+}
+.text-blue_j {
+  color: $blue_j !important;
+}
+.text-light_gray {
+  color: $light_gray !important;
+}
+
+// dark (alpha)
+$alpha-list: 90, 80, 70, 60, 50, 40, 30, 20, 10;
+@each $alpha in $alpha-list {
+  .text-dark_A-#{$alpha} {
+    @include c-alpha($black, $alpha / 100);
+  }
+}
+
+// light (alpha)
+@each $alpha in $alpha-list {
+	.text-light_A-#{$alpha} {
+		@include c-alpha($white, $alpha / 100);
+	}
+}

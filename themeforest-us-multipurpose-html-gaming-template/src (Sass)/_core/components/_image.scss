@@ -1,0 +1,11 @@
+//
+// Image
+// 
+
+/* [ image ] */
+@each $size, $length in $images {
+  .img-#{$size} {
+    max-width: #{$length};
+    width: 100%;
+  }
+}

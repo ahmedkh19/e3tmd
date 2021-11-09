@@ -1,0 +1,660 @@
+// Variables
+
+// font-family
+$font-basic: 'Open Sans', sans-serif !default;
+$font-title: 'Montserrat', sans-serif !default;
+
+// font-size
+$base-pixel-size : 16 !default;
+$base-rem-size   : .0625 !default;
+
+$font-size-base   : 1rem !default;
+$line-height-base : 1.9 !default;
+
+$font-size-11 : .6875rem !default;
+$font-size-2  : .8rem !default;
+$font-size-3  : .8125rem !default;
+$font-size-4  : .875rem !default;
+
+$btn-font-size-base: .6875rem !default;
+
+$line-height-sm: 1.7;
+$line-height-lg: 2.2;
+
+// bg
+$gray_l: #fbf9f9 !default;
+$gray_t: #f7f7f7 !default;
+$gray_d: #a1a5ab !default;
+$green_p: #1db955 !default; // Pigment Green
+$blue_t: #2dcaff !default;
+$blue_j: #55a0f7 !default; // Blue Jeans
+
+// Colors
+// basic
+$red    : #da2f69;
+$green  : #26d847;
+$blue   : #00a8ff;
+$black  : #000000;
+$white  : #ffffff;
+$yellow : #ffc107;
+$cyan   : #17a2b8;
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #3a4048;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$primary:       $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          #151515;
+
+$primary-end:   #0022ff !default; // Bluebonnet
+
+// theme
+$theme-bg: #0F131E !default;
+$theme-color: #eaf8ff !default;
+$theme-font-size-base: .9375rem !default;
+
+// typography-color
+$typography_color   : #717171 !default;
+$typography_nav     : lighten($typography_color, 15%) !default;
+$theme_color        : #00a8ff !default;
+$nav_color          : #0c89ff !default;
+
+$blockquote-small-color: lighten($gray-600, 25%);
+$blockquote-font-size: 1.5rem !default;
+
+// extra
+$arsenic      : #3a4048 !default;
+$azure        : #0c89ff !default;
+$cararra      : #ebebeb !default;
+$black_li     : transparentize($black, .9) !default;
+$raisin_black : #212121 !default;
+$white_da     : transparentize($white, .2) !default;
+$light_cherry : #da2f69 !default;
+$woodsmoke    : #101010 !default;
+$desert_sand  : #E0C8B0 !default;
+$deep_lemon   : #f7c616 !default;
+$black_haze   : #F6F6F6 !default;
+$lumber       : #fae3ca !default;
+$light_gray   : #bbbbbb !default;
+$dogwood_rose : #cb1c6d !default;
+$regal_blue   : #0d4965 !default;
+$barley_corn  : #a0965b !default;
+$sushi        : #84b940 !default;
+$supernova    : #F8C901 !default;
+$ginger       : #d88029 !default;
+
+// extra gradient
+$gradient-colors: () !default;
+$gradient-colors: map-merge((
+  "primary":    $azure,
+  "secondary":  $arsenic,
+  "success":    $green,
+  "warning":    $supernova,
+  "danger":     $dogwood_rose,
+  "light":      $white,
+  "dark":       $black
+), $gradient-colors);
+
+// Spacing
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge((
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: ($spacer * .75),
+  4: $spacer,
+  5: ($spacer * 1.25),
+  6: ($spacer * 1.5),
+  7: ($spacer * 2),
+  8: ($spacer * 3),
+  9: ($spacer * 5),
+  10: ($spacer * 7),
+  11: ($spacer * 9),
+  12: ($spacer * 11),
+  13: ($spacer * 13)
+), $spacers);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: ();
+$sizes: map-merge((
+	 5: 5%,
+	10: 10%,
+	15: 15%,
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto
+  ), $sizes
+);
+
+// Body
+$body-color: $theme-color;
+
+// Carousel indicators
+$carousel_indicators: #647b96;
+$carousel_size: .5rem;
+
+// Accordion
+$accordion-margin: 1rem !default;
+$accordion-header-spacer: 1.25rem 1.25rem !default;
+$accordion-header-bg: rgba($black, .01) !default;
+$accordion-icon-size: .75rem !default;
+$accordion-card-border-width: 1px !default;
+
+// Modals
+$modal-lg: 800px;
+$modal-md: 550px;
+$modal-sm: 350px;
+$modal-header-border-color: rgba($gray-200, .6);
+
+// Alerts
+$alert-round-border-radius: .25rem !default;
+$alert-no-bg-color: $theme-color !default;
+$alert-solid-bg-color: $gray-100 !default;
+$alert-border-radius: 0;
+$alert-border-width: 0;
+
+$alert-border-level: -9.7 !default;
+
+$alert-colors: () !default;
+$alert-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+), $alert-colors);
+
+// animation
+$card-animation-transition: .4s ease-out;
+
+// Badges
+$badge-font-size: 80%;
+$badge-font-weight: 300;
+$badge-padding-y: .3125rem;
+$badge-padding-x: .4375rem;
+$badge-border-radius: .125rem;
+
+$badge-counter-border-radius: 10rem !default;
+$badge-counter-font-size: .6875rem !default;
+
+$badge-colors: () !default;
+$badge-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+), $badge-colors);
+
+// Progress bar
+$progress-bar-transition: width 2.5s ease;
+
+// Breadcrumb
+$breadcrumb-bg                   :   $gray-100;
+$breadcrumb-font-size            :   .8125rem !default;
+$breadcrumb-font-weight          :   400 !default;
+$breadcrumb-letter-spacing       :   .125rem !default;
+$breadcrumb-arrow-divider        :   "\e628" !default;
+$breadcrumb-angle-divider        :   "\e649" !default;
+$breadcrumb-angle-double-divider :   "\e661" !default;
+
+// Tables
+$table-accent-bg:    rgba($gray-200, .35);
+$table-head-bg:      rgba($gray-200, .40);
+$table-border-color: rgba($gray-200, .6);
+$table-hover-bg:     rgba($gray-200, .40);
+
+// Buttons + Forms
+$input-btn-padding-y:         .375rem;
+$input-btn-padding-x:         .75rem;
+$input-btn-line-height:       $line-height-base;
+
+$input-btn-padding-y-sm:      .375rem;
+$input-btn-padding-x-sm:      .5rem;
+$input-btn-line-height-sm:    $line-height-sm;
+
+$input-btn-padding-y-lg:      .375rem;
+$input-btn-padding-x-lg:      1rem;
+$input-btn-line-height-lg:    $line-height-lg;
+
+// Buttons
+$button-colors: () !default;
+$button-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+), $button-colors);
+
+$btn-focus-width: 0;
+$btn-line-height: 1.9;
+$btn-border-radius : .15rem;
+
+$theme-btn-focus-box-shadow: 0 .0625rem .5625rem !default;
+$theme-btn-focus-box-shadow-alpha: .3 !default;
+
+$btn-focus-box-shadow: $theme-btn-focus-box-shadow rgba($black, $theme-btn-focus-box-shadow-alpha);
+
+// Extra Small
+$btn-padding-y-xs     : .25rem;
+$btn-padding-x-xs     : .75rem;
+$font-size-xs         : .625rem;
+
+// Small
+$btn-padding-y-sm     : .375rem;
+$btn-padding-x-sm     : 1.25rem;
+$font-size-sm         : .6875rem;
+
+// Medium
+$btn-padding-y        : .4375rem;
+$btn-padding-x        : 1.625rem;
+$font-size            : .6875rem;
+
+// Large
+$btn-padding-y-lg     : .4375rem;
+$btn-padding-x-lg     : 2rem;
+$font-size-lg         : .75rem;
+
+// Extra Large
+$btn-padding-y-xl     : .625rem;
+$btn-padding-x-xl     : 2.25rem;
+$font-size-xl         : .8125rem;
+
+// Button Square
+$btn-square-xs: 1.625rem;
+$btn-square-sm: 2rem;
+$btn-square-md: 2.25rem;
+$btn-square-lg: 2.5rem;
+$btn-square-xl: 2.875rem;
+
+// Button Circle
+$btn-circle-xs: 2.5rem;
+$btn-circle-sm: 3rem;
+$btn-circle-md: 3.5rem;
+$btn-circle-lg: 4rem;
+$btn-circle-xl: 4.5rem;
+
+// Cards
+$card-border-width: 0;
+$card-cap-bg: darken($white, 2%);
+$card-border-color: darken($white, 5%);
+
+$card-colors: () !default;
+$card-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       #1d1d1d
+), $card-colors);
+
+// Components
+$border-color: lighten($gray-300, 6%);
+
+$border-radius: .25rem;
+
+// countdown
+$countdown-sm-size: $font-size-base * 2.125;
+$countdown-lg-size: $font-size-base * 2.5;
+
+// Forms
+$custom-control-indicator-size: 1.125rem !default;
+$custom-control-indicator-disabled-opacity: .5 !default;
+
+$form-control-font-size-sm: $font-size-base * .8125;
+$form-control-font-size-lg: $font-size-base;
+
+// Fonts
+$font-size-lg:                ($font-size-base * .8125);
+$font-size-sm:                ($font-size-base * .625);
+
+$h1-font-size:                $font-size-base * 2.625;
+$h2-font-size:                $font-size-base * 2.125;
+$h3-font-size:                $font-size-base * 1.75;
+$h4-font-size:                $font-size-base * 1.5;
+$h5-font-size:                $font-size-base * 1.125;
+$h6-font-size:                $font-size-base * 1.0625;
+
+$headings-font-family:        $font-title;
+$headings-line-height:        1.5 !default;
+$headings-color:              #3a4048;
+
+$lead-font-size:              ($font-size-base * 1.125);
+
+$hr-margin-y:                 $spacer * 2;
+
+// font lead
+$font-lead: (
+  1:  ($font-size-base * 1.0625),
+  2:  ($font-size-base * 1.1875),
+  3:  ($font-size-base * 1.4375),
+  4:  ($font-size-base * 1.625),
+  5:  ($font-size-base * 1.875),
+  6:  ($font-size-base * 2.375),
+  7:  ($font-size-base * 3.0625),
+  8:  ($font-size-base * 3.75),
+  9:  ($font-size-base * 4.6875),
+  10: ($font-size-base * 5)
+) !default;
+
+// font small
+$small-font-size: 80%;
+$font-small: (
+  1:  ($font-size-base * .9375),
+  2:  ($font-size-base * .875),
+  3:  ($font-size-base * .8125),
+  4:  ($font-size-base * .75),
+  5:  ($font-size-base * .6875),
+  6:  ($font-size-base * .625),
+  7:  ($font-size-base * .5625),
+  8:  ($font-size-base * .5),
+  9:  ($font-size-base * .4375),
+  10: ($font-size-base * .375)
+) !default;
+
+// font size
+$font-sizes: (
+  1:  ($font-size-base * .5),
+  2:  ($font-size-base * .75),
+  3:  ($font-size-base * .8125),
+  4:  ($font-size-base * 1),
+  5:  ($font-size-base * 1.125),
+  6:  ($font-size-base * 1.25),
+  7:  ($font-size-base * 1.5),
+  8:  ($font-size-base * 1.75),
+  9:  ($font-size-base * 1.875),
+  10: ($font-size-base * 2)
+) !default;
+
+$hr-border-color:  rgba($black, .05);
+
+// Hr
+$hr-sizes: () !default;
+$hr-sizes: map-merge((
+  sm: 2,
+  md: 3,
+  lg: 5,
+), $hr-sizes);
+
+// Width
+$width-size: 1rem;
+$width-sizes: ();
+$width-sizes: map-merge((
+  xs: ($width-size * 6.25),
+  sm: ($width-size * 12.5),
+  md: ($width-size * 18.75),
+  lg: ($width-size * 25),
+  xl: ($width-size * 37.5)
+), $width-sizes);
+
+// Height
+$height-size: 1rem;
+$height-sizes: ();
+$height-sizes: map-merge((
+  xs: ($height-size * 6.25),
+  sm: ($height-size * 12.5),
+  md: ($height-size * 18.75),
+  lg: ($height-size * 25),
+  xl: ($height-size * 37.5)
+), $height-sizes);
+
+// Images
+$image-size: 1rem;
+$images: ();
+$images: map-merge((
+  xs: ($image-size * 2),
+  sm: ($image-size * 3),
+  md: ($image-size * 4),
+  lg: ($image-size * 6),
+  xl: ($image-size * 9)
+), $images);
+
+// Forms
+$input-padding-y:                       $input-btn-padding-y;
+$input-padding-x:                       $input-btn-padding-x;
+$input-line-height:                     $input-btn-line-height;
+
+$input-padding-y-sm:                    $input-btn-padding-y-sm;
+$input-padding-x-sm:                    $input-btn-padding-x-sm;
+$input-line-height-sm:                  $input-btn-line-height-sm;
+
+$input-padding-y-lg:                    $input-btn-padding-y-lg;
+$input-padding-x-lg:                   	$input-btn-padding-x-lg;
+$input-line-height-lg:                  $input-btn-line-height-lg;
+
+$input-height-inner:                    ($theme-font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2);
+$input-height-inner-sm:                 ($form-control-font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2);
+$input-height-inner-lg:                 ($form-control-font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2);
+
+$custom-control-indicator-bg: $light;
+$custom-checkbox-indicator-icon-checked: none;
+$custom-control-indicator-active-bg: $light;
+
+$custom-control-indicator-checked-color: $primary;
+$custom-control-indicator-checked-disabled-bg: transparent;
+
+$custom-control-indicator-focus-box-shadow: none;
+
+$custom-checkbox-indicator-border-radius: 0;
+
+$form-colors: () !default;
+$form-colors: map-merge((
+  "primary":    $azure,
+  "secondary":  $arsenic,
+  "success":    $green,
+  "warning":    $supernova,
+  "danger":     $dogwood_rose,
+  "light":      $white,
+  "dark":       $black
+), $form-colors);
+
+// label
+$label-font-size: .8125rem;
+$label-width: .3125rem;
+$label-height: .625rem;
+
+// radio
+$custom-radio-indicator-size:  .5rem;
+
+// range
+$custom-range-runnable-track-bg: rgba($gray-200, .8) !default;
+$custom-range-thumb-bg: $primary !default;
+$custom-range-height: 5px !default;
+$custom-range-border-radius: 3px !default;
+$custom-range-thumb-width: .9375rem !default;
+$custom-range-thumb-height: .9375rem !default;
+$custom-range-thumb-border-radius: 50% !default;
+
+// input group
+$input-color: $gray-600 !default;
+$input-font-size: $theme-font-size-base !default;
+$input-font-weight: 300 !default;
+$input-placeholder-color: $gray-400;
+$input-border-color: $gray-200;
+$input-group-text-font-size: .875rem !default;
+$input-group-addon-light-color: rgba($input-color, .35) !default;
+$input-group-addon-color: lighten($input-color, 30%);
+$input-group-addon-bg: $gray-100;
+$input-group-rounded: 10rem !default;
+
+// switch
+$custom-switch-width: 2.5rem;
+$custom-switch-height: 1.25rem;
+$custom-switch-slider-size: .75rem;
+
+// grid
+$grid-gutter-width: 30px !default;
+
+// Navs
+$navbar-nav-link-padding-x: 1.125rem;
+$nav-link-padding-y: 0;
+$nav-link-padding-x: 1rem;
+$nav-font-size: .8rem !default;
+$navbar-toggler-font-size: $font-size-base * 1.125;
+$nav-height: 3.625rem + ( $nav-link-padding-y * 2 ) !default;
+$logo-height: .8rem !default;
+$nav-pills-link-active-bg: $gray-200;
+$nav-pills-link-active-color: $typography_color;
+$navbar-light-color: rgba($black, .5);
+
+$nav-tabs-border-color: lighten($gray-200, 2%);
+$nav-tabs-link-hover-border-color: transparent;
+
+// nav dark
+$navbar-dark-color: rgba($white, .7);
+$navbar-dark-hover-color: rgba($white, .95);
+$navbar-dark-active-color: $white;
+$navbar-dark-disabled-color: rgba($white, .4);
+
+// nav-bold-style
+$nav-bold-style-weight : 600;
+$nav-bold-style-size   : .8125rem;
+
+// custom navbar
+$mega-navbar-height: 143px;
+
+// Dropdowns
+$dropdown-lg-min-width: 20rem;
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 1.25rem;
+$dropdown-menu-box-shadow: 0 .1875rem .5625rem rgba($black, .03);
+$dropdown-menu-submenu-arrow-size: .1875rem !default;
+$dropdown-menu-submenu-arrow-weight: .0625rem !default;
+$dropdown-menu-submenu-arrow-color: $typography_nav !default;
+$dropdown-font-size: .8125rem !default;
+$dropdown-link-color: $navbar-light-color;
+
+// Pagination
+$pagination-color: $body-color;
+$pagination-border-color: $gray-200;
+$pagination-focus-box-shadow: none;
+$pagination-focus-outline: 0;
+
+$pagination-hover-bg: $gray-100;
+
+$pagination-left-spacing: .1875rem !default;
+$pagination-right-spacing: .1875rem !default;
+
+// tabs
+$nav-tabs-link-padding-y: .5rem !default;
+$nav-tabs-link-padding-x: 1rem !default;
+
+$nav-tabs-border-color: $gray-200;
+
+$nav-tabs-link-active-bg: $white;
+
+$nav-tabs-link-active-border-color         : lighten($gray-200, 2%) lighten($gray-200, 2%) $nav-tabs-link-active-bg;
+$nav-tabs-topline-link-active-border-color : $primary lighten($gray-200, 2%) $nav-tabs-link-active-bg;
+
+// Off-Canvas
+$offcanvas-z-index: 1280;
+
+// Overlay
+$overlay-color: #101010;
+
+// Sidebar
+$p-collapsing-sidebar: 17rem !default;
+$p-collapsing-sidebar-collapse: 5rem !default;
+
+// Process
+$timeline-item-border-width       : .125rem;
+$timeline-item-size               : 1rem;
+$timeline-item-size-step          : 2rem;
+$timeline-item-color              : $primary;
+$timeline-item-font-size          : .8125rem;
+$timeline-item-spacing            : 1.875rem;
+$timeline-item-spacing-top        : 2.8125rem;
+$timeline-item-marker-spacing-top : .75rem;
+$timeline-item-border-radius      : 2rem;
+
+// social-buttons
+$social-button-size: 2rem;
+$social-gutter-width: 8px;
+
+// chat
+$chat-dialogue-item: 17px !default;
+$chat-dialogue-space: 22px !default;
+$chat-dialogue-space-left: 9px !default;
+$chat-dialogue-padding: 1rem !default;
+$chat-dialogue-item-space: 1.25rem !default;
+$chat-user-status: 1.125rem !default;
+$chat-user-status-border: .125rem !default;
+
+// footer
+$footer-spacer       : 1.25rem 0 !default;
+$footer-spacer-x     : 15px !default;
+$footer-spacer-y     : .5rem !default;
+$footer-border-color : lighten($typography_color, 50%) !default;
+
+
+// text
+$text-colors: () !default;
+$text-colors: map-merge((
+  "default":    $theme-color,
+  "gray":       $gray-500,
+), $text-colors);
+
+// Social icons
+//
+$brand-colors: () !default;
+$brand-colors: map-merge((
+	"android":       #7CB72D,
+	"apple":         #7D7D7D,
+	"behance":       #1769FF,
+	"dribbble":      #FF4790,
+	"dropbox":       #007DE4,
+	"envato":        #81B441,
+	"facebook":      #3B5998,
+	"flickr":        #FE0083,
+	"github":        #211F20,
+	"google":        #DD4C39,
+	"gplus":         #DD4C39,
+	"instagram":     #F71D5A,
+	"lastfm":        #E4141E,
+	"linkedin":      #0077B5,
+	"medium":        #14C767,
+	"pinterest":     #D73532,
+	"quora":         #A6250F,
+	"reddit":        #FF4500,
+	"rss":           #EF8321,
+	"stackoverflow": #F47A20,
+	"skype":         #00AFF0,
+	"snapchat":      #FFFC01,
+	"soundcloud":    #FF5510,
+	"spotify":       #1ED760,
+	"telegram":      #28A6E1,
+	"tumblr":        #35465C,
+	"twitter":       #1DA1F2,
+	"vimeo":         #1AB7EA,
+	"whatsapp":      #00E676,
+	"xing":          #005A5F,
+	"youtube":       #FE0000,
+), $brand-colors);

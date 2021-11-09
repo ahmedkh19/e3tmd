@@ -1,0 +1,100 @@
+/* ------------------------------------------------------------------
+ * Name         : Wicodus - HTML Template
+ * File         : core.scss
+ * Author       : ScanThemes
+ * Author URI   : scanthemes@gmail.com
+ *
+ * All Rights Reserved.
+ * --------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------
+
+	[Table of contents]
+
+		- Bootstrap 4 library
+		- Accordion
+		- Alert
+		- Animations
+		- Aspect_ratio
+		- Badge
+		- Bgs
+		- Breadcrumb
+		- Buttons
+		- Border
+		- Block
+		- Card
+		- Carousel
+		- Colors
+		- Countdown
+		- Forms
+		- Global
+		- Grid
+		- Image
+		- Input-group
+		- Modal
+		- Nav
+		- Shapes
+		- Sizing
+		- Pagination
+		- Position
+		- Preloader
+		- Pricing table
+		- Process
+		- Shapes
+		- Effects
+		- Overlay
+		- Tab
+		- Tables
+		- Text
+		- Theme
+		- Typography
+		- Plugins
+			-- Slick
+
+------------------------------------------------------------------------ */
+
+/*---------------------------------------------------------------------- */
+
+@import "variables.scss";
+
+/* [ Bootstrap 4 library ] */
+
+@import "components/bootstrap/bootstrap.scss";
+@import "components/mixins/_bootstrap_overrides.scss";
+@import "components/mixins/_buttons.scss";
+@import "components/mixins/_linear_gradient.scss";
+@import "components/_accordion.scss";
+@import "components/_alert.scss";
+@import "components/_animations.scss";
+@import "components/_aspect_ratio.scss";
+@import "components/_badge.scss";
+@import "components/_bgs.scss";
+@import "components/_breadcrumb.scss";
+@import "components/_buttons.scss";
+@import "components/_border.scss";
+@import "components/_block.scss";
+@import "components/_card.scss";
+@import "components/_carousel.scss";
+@import "components/_colors.scss";
+@import "components/_countdown.scss";
+@import "components/_forms.scss";
+@import "components/_global.scss";
+@import "components/_grid.scss";
+@import "components/_image.scss";
+@import "components/_input-group.scss";
+@import "components/_modal.scss";
+@import "components/_nav.scss";
+@import "components/_sizing.scss";
+@import "components/_pagination.scss";
+@import "components/_position.scss";
+@import "components/_preloader.scss";
+@import "components/_spacing.scss";
+@import "components/_pricing_table.scss";
+@import "components/_process.scss";
+@import "components/_shapes.scss";
+@import "components/_effects.scss";
+@import "components/_overlay.scss";
+@import "components/_tab.scss";
+@import "components/_tables.scss";
+@import "components/_text.scss";
+@import "components/_theme.scss";
+@import "components/_typography.scss";

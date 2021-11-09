@@ -1,0 +1,45 @@
+//
+// Aspect ratio
+//
+
+/* [ Aspect ratio ] */
+
+// 1:1 aspect ratio
+.ar-1_1,
+.aspect-ratio-1_1 {
+	@include aspect-ratio(1, 1);
+}
+// 3:2 aspect ratio
+.ar-3_2,
+.aspect-ratio-3_2 {
+	@include aspect-ratio(3, 2);
+}
+// 4:3 aspect ratio
+.ar-4_3,
+.aspect-ratio-4_3 {
+	@include aspect-ratio(4, 3);
+}
+// 8:5 aspect ratio
+.ar-8_5,
+.aspect-ratio-8_5 {
+	@include aspect-ratio(8, 5);
+}
+// 8:9 aspect ratio
+.ar-8_9,
+.aspect-ratio-8_9 {
+	@include aspect-ratio(8, 9);
+}
+// 16:9 aspect ratio
+.ar-16_9,
+.aspect-ratio-16_9 {
+	@include aspect-ratio(16, 9);
+}
+
+.ar-body,
+.aspect-ratio-body {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,30 @@
+//
+// Pagination
+//
+
+/* [ pagination ] */
+.page-link {
+    margin-left: $pagination-left-spacing;
+    margin-right: $pagination-right-spacing;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.pagination-connected {
+	.page-link {
+		margin-left: -$pagination-border-width;
+    	margin-right: 0;
+	}
+}
+
+// Sizes
+
+// small
+.pagination-sm {
+	.page-link {
+		min-width: 1.875rem;
+		min-height: 1.875rem;
+	}	
+}

@@ -1,0 +1,47 @@
+//
+// Tables
+//
+
+/* [ tables ] */
+.table {
+  	th {
+        font-weight: 500;
+  	}
+  	thead th {
+  	    vertical-align: bottom;
+  	    border-bottom: (1 * $table-border-width) solid $table-border-color;
+  	}
+  	tbody + tbody {
+  	    border-top: (1 * $table-border-width) solid $table-border-color;
+  	}
+    &.table-align-middle {
+        thead th {
+            vertical-align: middle;
+        }
+    }
+}
+.table-dark {
+  th,
+  td,
+  thead th {
+    border-color: $table-dark-border-color;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $table-dark-accent-bg;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
+      @include hover {
+        background-color: $table-dark-hover-bg;
+      }
+    }
+  }
+}
