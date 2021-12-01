@@ -35,7 +35,6 @@
     <div class="header-profile-sidebar">
       <div class="avatar box-shadow-1 avatar-border avatar-xl">
         <img src="{{ asset('images/portrait/small/avatar-s-7.jpg') }}" alt="user_avatar" height="70" width="70" />
-        <span class="avatar-status-busy avatar-status-lg"></span>
       </div>
       <h4 class="chat-user-name">Kristopher Candy</h4>
       <span class="user-post">UI/UX Designer 👩🏻‍💻</span>

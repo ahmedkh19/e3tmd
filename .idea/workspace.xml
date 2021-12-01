@@ -22,7 +22,50 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="" />
+    <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ConversationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ConversationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MainCategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MainCategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SubCategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SubCategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/ViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/ViewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Withdraw.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Withdraw.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ProductSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ProductSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/SettingDatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SettingDatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/menu-data/verticalMenu.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/data/menu-data/verticalMenu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/front/assets/img/content/game-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/front/assets/img/content/slider/game-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/core/app-menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/core/app-menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/core/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/core/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/menu-data/verticalMenu.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/menu-data/verticalMenu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/chat/app-chat-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/chat/app-chat-sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/chat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/chat/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/chat/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/chat/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/payments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/payments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/roles/permissions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/roles/permissions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/store.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/store.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/conversations/conversation-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/conversations/conversation-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/conversations/conversation-message-own.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/conversations/conversation-message-own.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/conversations/conversation-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/conversations/conversation-message.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/panels/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/panels/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,7 +272,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/seeders" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/content/roles/permissions" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -238,18 +281,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/front/assets/img/content/slider" />
       <recent name="$PROJECT_DIR$/resources/views/content" />
       <recent name="$PROJECT_DIR$/app/Events/Notifications" />
       <recent name="$PROJECT_DIR$/app/Events" />
       <recent name="$PROJECT_DIR$/app/Events/Conversations" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/content/roles/permissions" />
+      <recent name="$PROJECT_DIR$/resources/views/content/settings" />
+      <recent name="$PROJECT_DIR$/resources/views/content" />
       <recent name="$PROJECT_DIR$/database/seeders" />
       <recent name="$PROJECT_DIR$/resources/views/content/payments" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-      <recent name="$PROJECT_DIR$/public/images/payments" />
-      <recent name="$PROJECT_DIR$/E3tamd-main" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.SendMessageNotificationToUser.php">
@@ -368,7 +411,17 @@
       <workItem from="1636192919036" duration="2155000" />
       <workItem from="1636310756677" duration="1239000" />
       <workItem from="1636398876340" duration="1472000" />
-      <workItem from="1636465404186" duration="1902000" />
+      <workItem from="1636465404186" duration="2906000" />
+      <workItem from="1636830396863" duration="160000" />
+      <workItem from="1637050818778" duration="605000" />
+      <workItem from="1637219350873" duration="612000" />
+      <workItem from="1637746399978" duration="3139000" />
+      <workItem from="1637913836083" duration="2614000" />
+      <workItem from="1638254018925" duration="920000" />
+      <workItem from="1638257305073" duration="143000" />
+      <workItem from="1638257481743" duration="21232000" />
+      <workItem from="1638363634668" duration="6408000" />
+      <workItem from="1638372569799" duration="4412000" />
     </task>
     <servers />
   </component>
@@ -388,62 +441,23 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2665" y="187" width="429" height="664" key="#com.intellij.ide.util.MemberChooser" timestamp="1628026333669">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2665" y="187" width="429" height="664" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628026333669" />
     <state x="0" y="0" width="1910" height="1032" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1635318709219">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="0" y="0" width="1910" height="1032" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1635318709219" />
-    <state x="2435" y="0" width="871" height="1032" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628027621544" />
-    <state x="693" y="262" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1635971840200">
+    <state x="693" y="262" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1638367095225">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="693" y="262" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1635971840200" />
-    <state x="2613" y="274" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1629165180580" />
+    <state x="693" y="262" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1638367095225" />
     <state x="743" y="262" width="424" height="491" key="FileChooserDialogImpl" timestamp="1634986270014">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="743" y="262" width="424" height="491" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1634986270014" />
-    <state x="2663" y="274" width="424" height="491" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628877438574" />
-    <state width="1920" height="278" key="GridCell.Tab.0.bottom" timestamp="1628033269600">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1920" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628033269600" />
-    <state width="1920" height="278" key="GridCell.Tab.0.center" timestamp="1628033269599">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1920" height="278" key="GridCell.Tab.0.center/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628033269599" />
-    <state width="1920" height="278" key="GridCell.Tab.0.left" timestamp="1628033269599">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1920" height="278" key="GridCell.Tab.0.left/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628033269599" />
-    <state width="1920" height="278" key="GridCell.Tab.0.right" timestamp="1628033269599">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1920" height="278" key="GridCell.Tab.0.right/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628033269599" />
-    <state x="523" y="209" width="1079" height="600" key="NewPhpClassDialog" timestamp="1629350531359">
+    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1638375698772">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="523" y="209" key="NewPhpClassDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1629350531359" />
-    <state x="755" y="418" width="399" height="164" key="NewPhpFileDialog" timestamp="1629350519719">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="755" y="418" width="399" height="164" key="NewPhpFileDialog/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1629350519719" />
-    <state x="2706" y="270" width="337" height="498" key="refactoring.ChangeSignatureDialog" timestamp="1627999806752">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2706" y="270" width="337" height="498" key="refactoring.ChangeSignatureDialog/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1627999806752" />
-    <state x="2544" y="233" key="run.anything.popup" timestamp="1628382983325">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2544" y="233" key="run.anything.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1628382983325" />
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1636194491709">
-      <screen x="0" y="0" width="1920" height="1032" />
-    </state>
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1636194491709" />
-    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1635323368697" />
+    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1638375698772" />
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1638285728818" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -452,6 +466,16 @@
           <url>file://$PROJECT_DIR$/routes/web.php</url>
           <line>2</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/seeders/PermissionTableSeeder.php</url>
+          <line>54</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/panels/footer.blade.php</url>
+          <line>9</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

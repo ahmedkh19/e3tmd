@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+
   <div class="auth-wrapper auth-v1 px-2">
     <div class="auth-inner py-2">
       <!-- Login v1 -->
@@ -16,7 +17,7 @@
 
         <div class="card-body">
           <a href="javascript:void(0);" class="brand-logo">
-            <img style="width: 180px; height: 50px" src="{{asset('images/logo/logo.png')}}" >
+            <img id="logoImg"  style="width: 180px; height: 50px" src="{{asset('images/logo/light.png')}}" >
           </a>
 
           <h4 class="card-title mb-1">@lang('data.Welcome to i3tmd!') 👋</h4>

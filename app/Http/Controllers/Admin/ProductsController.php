@@ -20,16 +20,30 @@ use DataTables;
 use Illuminate\Support\Str;
 class ProductsController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:product-create', ['only' => ['create','store']]);
+        $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:product-delete', ['only' => ['destroy']]);
+    }
+
+
     public function index()
     {
-        $products = Product::select('id','slug','price', 'created_at')->paginate(15);
-        return view('content.products.index', compact('products'));
+//        $products = Product::select('id','slug','price', 'created_at')->paginate(15);
+//        return view('content.products.index', compact('products'));
+        return view('content.products.index');
     }
 
     public function ajax(Request $request)
     {
         if ($request->ajax()) {
-            $products = Product::orderBy('id','DESC')->get();
+
+            if (auth()->user()->hasRole(['Owner', 'Products-Editor'])) {
+                $products = Product::orderBy('id','DESC')->get();
+            } else
+            $products = Product::orderBy('id','DESC')->where('user_id' , auth()->id())->get();
             return Datatables::of($products)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
@@ -214,9 +228,11 @@ class ProductsController extends Controller
                     } else {
 
                         $bid->win_status = true;
+                        $product->price = $bid->bid_amount;
                         $bid->update();
-                        
-                        return redirect()->back()->with('bid_success', __('data.Accepted successfully'));
+                        $product->update();
+                        $conv = new ConversationsController();
+                        return redirect()->route('chat.show', $conv->create2($bid->product_id, $bid->user_id , $product->user_id))->with('success', __('data.Accepted successfully'));
 
                     }
 
@@ -384,7 +400,7 @@ class ProductsController extends Controller
 
 
             DB::commit();
-            return redirect()->back()->with(['success' => 'تم ألاضافة بنجاح']);
+            return redirect()->back()->with(['success' => __('data.Added successfully')]);
         } catch(\Exception $ex){
             return redirect()->back()->with(['error', __('data.An error occurred, please try again later')]);
 
@@ -397,6 +413,9 @@ class ProductsController extends Controller
         //get specific categories and its translations
         $categories = Category::where("is_active",'1')->parent()->get();
         $product = Product::find($id);
+        if ($product->user_id != auth()->id() && !auth()->user()->hasRole(['Owner', 'Products-Editor']))
+            return redirect()->route('products.index')->with(['error' => __('data.This account is unavailable')]);
+
         if (!$categories || !$product)
             return redirect()->back()->with(['error' => __('data.This account is unavailable')]);
 
@@ -541,6 +560,9 @@ class ProductsController extends Controller
 
         try {
             $product = Product::find($id);
+            if ($product->user_id != auth()->id())
+                return redirect()->route('products.index')->with(['error' => __('data.This account is unavailable')]);
+
             if ($product):
                 $product->delete(); // delete first before return
                 return redirect()->route('products.index')->with(['success' => 'تم الحذف بنجاح']);

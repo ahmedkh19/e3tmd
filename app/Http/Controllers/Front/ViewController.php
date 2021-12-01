@@ -13,11 +13,11 @@ class ViewController extends Controller
             ->where('ip','=',$ip)
             ->where('product_id','=',$product_id)
             ->first();
-        
+
         if ($query) {
             return false; // exists don't do anything
         }
-        
+
         DB::table('views')->insert([
             'ip' => $ip,
             'product_id' => $product_id

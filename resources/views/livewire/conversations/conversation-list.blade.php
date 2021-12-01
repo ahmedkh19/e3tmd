@@ -1,8 +1,8 @@
 <div>
    @forelse($conversations as $conversation)
+
     <li class="{{ \Str::contains(request()->path(), $conversation->uuid) ? 'active' : '' }}">
             <span class="avatar"><img src="{{ asset('uploads/images/products/' . $conversation->product->main_image) }}" height="42" width="42" alt="Generic placeholder image" />
-              <span class="avatar-status-offline"></span>
             </span>
             <a href="{{ route('chat.show', $conversation) }}" class="chat-info flex-grow-1">
                 <h5 class="mb-0">{{ $conversation->name != '' ? $conversation->name : $conversation->users()->pluck('name')->join(', ') }}</h5>
@@ -33,6 +33,5 @@
     <li class="no-results">
         <h6 class="mb-0">@lang('data.No Chats Found')</h6>
     </li>
-
    @endforelse
 </div>

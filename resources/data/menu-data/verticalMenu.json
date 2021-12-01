@@ -6,7 +6,7 @@
       "badgeClass": "badge badge-light-warning badge-pill ml-auto mr-1",
       "icon": "home",
       "slug": "dashboard-ecommerce",
-      "url": "/"
+      "url": "/dashboard"
     },
     {
       "navheader": "Manage",
@@ -167,6 +167,15 @@
           "slug": "payments.index"
         }
       ]
+    },
+
+    {
+      "name": "Settings",
+      "icon": "settings",
+      "slug": "settings",
+      "url": "settings/",
+      "permission": "settings-list"
     }
+
   ]
 }

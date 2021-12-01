@@ -45,7 +45,8 @@ class PermissionTableSeeder extends Seeder
             'withdraw-list', // 28
             'withdraw-create', // 29
             'withdraw-edit', // 30
-            'withdraw-delete', // 31
+            'withdraw-delete', // 31 (Refund)
+            'settings-list', // 32 (Include edit - delete)
         ];
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);

@@ -67,6 +67,7 @@ Route::group(['middleware' => ['auth']], function () {
  * 200 : Payment Success
  * 300 : Balance is not enough
  * 500 : Undefined error
+ * 600 : You have already purchased the product
  */
 Route::get('create_payment/{customer_id},{vendor_id},{product_id},{total}', function($customer_id , $vendor_id , $product_id , $total) {
     try {
@@ -76,8 +77,15 @@ Route::get('create_payment/{customer_id},{vendor_id},{product_id},{total}', func
         $vendor_id = $EncryptionClass->decryptAES($vendor_id, env('AES_ENCRYPTION_KEY'));
         $product_id = $EncryptionClass->decryptAES($product_id, env('AES_ENCRYPTION_KEY'));
         $total = $EncryptionClass->decryptAES($total, env('AES_ENCRYPTION_KEY'));
+        $product = Product::find($product_id);
+        $buyer = User::find($customer_id);
+        if ($buyer->balance < $product->price) {
+            return Response::json(['status' => 300, 'error' => true], 300);
+        }
 
-        if ( Product::find($product_id) && User::find($vendor_id) ) {
+        if ($product->isSold) return Response::json(['status' => 600, 'error' => true], 600);
+
+        if ( Product::find($product_id) && User::find($vendor_id)) {
             $payment = new Transaction();
             $payment->customer_id = $customer_id;
             $payment->vendor_id = $vendor_id;
@@ -90,7 +98,6 @@ Route::get('create_payment/{customer_id},{vendor_id},{product_id},{total}', func
             $payment->total_vendor = $total_vendor;
             //Optional
 
-            $product = Product::find($product_id);
             $product->isSold = true;
             $product->update();
             if ( $payment->save() ) {

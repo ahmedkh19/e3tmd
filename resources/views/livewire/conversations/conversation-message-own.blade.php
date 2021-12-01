@@ -4,8 +4,10 @@
     <div class="chat">
         <div class="chat-avatar">
             <span class="avatar box-shadow-1 cursor-pointer">
+                                            <?php $avatar = \App\Models\User::find( auth()->id() )->avatar ? \App\Models\User::find( auth()->id() )->avatar: 'user.jpg'; ?>
+
               <img
-                      src="{{ asset('images/portrait/small/avatar-s-11.jpg') }}"
+                      src="{{ asset('uploads/images/avatars/' . $avatar)  }}"
                       alt="avatar"
                       height="36"
                       width="36"

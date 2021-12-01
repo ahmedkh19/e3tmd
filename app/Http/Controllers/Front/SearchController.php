@@ -34,7 +34,7 @@ class SearchController extends Controller
         if ($type == 'users') {
 
             $query = User::where('name','LIKE',"%$search%")->skip($skip)->limit(12)->get();
-            
+
             $pagenate = User::where('name','LIKE',"%$search%")->count();
 
             foreach ( $query as $user ) {
@@ -44,15 +44,15 @@ class SearchController extends Controller
         } else {
 
             $id_in = [];
-            
+
             $first_query = ProductTranslation::where('name','LIKE',"%$search%")->get();
-            
+
             foreach($first_query as $product) {
                 $id_in[] = $product->product_id;
             }
-        
+
             $query = Product::whereIn("id",$id_in)->skip($skip)->limit(12)->get();
-            
+
             $pagenate = Product::whereIn("id",$id_in)->count();
 
             foreach ( $query as $account ) {
@@ -68,7 +68,7 @@ class SearchController extends Controller
             }
 
         }
-        
+
         $pagenate = ceil($pagenate/12);
 
         return view("front.search")

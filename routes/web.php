@@ -25,6 +25,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\SendNotificationController;
 use App\Http\Controllers\Admin\PaymentsController;
+use App\Http\Controllers\Admin\SettingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -122,6 +123,11 @@ Route::group(
         Route::post('send_notification', [SendNotificationController::class, 'store'])->name('send_notification.store');
         /* Route Send Notification */
 
+        /* Route Settings */
+        Route::get('settings', [SettingsController::class, 'index'])->name('settings');
+        Route::put('settings', [SettingsController::class, 'update'])->name('settings.update');
+        /* Route Settings */
+
         /* Route Conversations/Chat */
 
         Route::get('chat', [ConversationsController::class, 'index'])->name('chat.index');
@@ -147,6 +153,7 @@ Route::group(
         Route::get('withdrawFunds/requestRefund/{id}', [PaymentsController::class, 'withdrawRefund'])->name('payments.withdrawRefund');
         Route::get('withdrawFunds/requestsAjax', [PaymentsController::class, 'withdrawRequestsAjax'])->name('payments.withdrawRequestsAjax');
         Route::get('withdrawFunds/detailsAjax/{id}', [PaymentsController::class, 'withdrawDetailsAjax'])->name('payments.withdrawDetailsAjax');
+        Route::get('transactionsAjax', [PaymentsController::class, 'transactionsAjax'])->name('payments.transactionsAjax');
 
 
         Route::get('payments/ajax', [PaymentsController::class, 'ajax'])->name('payments-ajax');

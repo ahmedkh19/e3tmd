@@ -37,13 +37,19 @@
       </tr>
 
       <tr>
+        @include('content.roles.permissions.withdraw')
+      </tr>
+
+      <tr>
         @include('content.roles.permissions.middleman')
       </tr>
 
       <tr>
         @include('content.roles.permissions.notifications')
       </tr>
-
+      <tr>
+        @include('content.roles.permissions.settings')
+      </tr>
       </tbody>
     </table>
   </div>

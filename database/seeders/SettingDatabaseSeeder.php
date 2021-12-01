@@ -34,6 +34,10 @@ class SettingDatabaseSeeder extends Seeder
             [
                 'key' => 'withdraw_min',
                 'value' => 3
+            ],
+            [
+                'key' => 'slider_images',
+                'value' => '[]'
             ]
         ];
 

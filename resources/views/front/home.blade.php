@@ -4,7 +4,7 @@
 @section('content')
     <!-- header -->
     <header id="header" class="header h-fullscreen text-light">
-      <div class="media-container parallax-window" data-parallax="scroll" data-image-src="{{ asset('front/assets/img/content/game-bg.jpg') }}"></div>
+      <div class="media-container parallax-window" data-parallax="scroll" data-image-src="{{ asset('front/assets/img/content/slider/game-bg.jpg') }}"></div>
       <div class="overlay pe-n bg-dark_A-40"></div>
       <div class="overlay d-flex align-items-center">
         <div class="container text-center">
@@ -36,7 +36,7 @@
               <div>
                 <h2>{{ __('front.about') }}</h2>
                 <hr class="w-10 border-warning border-top-2 o-90">
-                <p class="lead-2">يقدم موقع اعتمد خدمات بيع حسابات الألعاب بشتى أنواعها بالإضافة الى إمكانية بيع حسابات مواقع التواصل الاجتماعي او الأسماء المميزة مع توفير الأمان والخصوصية لكل من بيانات المشتري او البائع وتوفير خيارات كثيرة لعرض حسابك كالمزاد والبيع المباشر وغيرها مع توفير طرق متنوعة للدفع.</p>
+                <p class="lead-2">{{__('data.Who')}}</p>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
       <section id="characters" class="characters content-section latest-articles text-light">
         <div class="container">
           <header class="section-header text-center">
-            <h2>الأقسام المميزة</h2>
+            <h2>{{__('data.Special categories')}}</h2>
             <hr class="w-10 border-warning border-top-2 o-90">
           </header>
           <div class="row">
@@ -57,9 +57,8 @@
                 <img style="height:160px;" class="rounded mb-4 svg-white" src="{{ asset('front/assets/img/poker-cards.svg') }}" alt="characters">
                 <figure class="border border-secondary p-4">
                   <figcaption>
-                    <h5 class="mt-1 text-unset"><a>أخرى</a></h5>
+                    <h5 class="mt-1 text-unset"><a>{{__('data.Other')}}</a></h5>
                     <hr class="my-4 border-secondary">
-                    <q>هذا النص يمكن استبداله بنص اخر بديل</q>
                   </figcaption>
                 </figure>     
               </article>
@@ -70,9 +69,8 @@
                 <img style="height:160px; color:white" class="rounded mb-4 svg-white" src="{{ asset('front/assets/img/user.svg') }}" alt="characters">
                 <figure class="border border-secondary p-4">
                   <figcaption>
-                    <h5 class="mt-1 text-unset"><a>حسابات مواقع التواصل</a></h5>
+                    <h5 class="mt-1 text-unset"><a>{{__('data.Social media accounts')}}</a></h5>
                     <hr class="my-4 border-secondary">
-                    <q>هذا النص يمكن استبداله بنص اخر بديل</q>
                   </figcaption>
                 </figure>
               </article>
@@ -82,9 +80,8 @@
                 <img style="height:160px;" class="rounded mb-4 svg-white" src="{{ asset('front/assets/img/playstation.svg') }}" alt="characters">
                 <figure class="border border-secondary p-4">
                   <figcaption>
-                    <h5 class="mt-1 text-unset"><a>حسابات العاب الكونسل وال PC</a></h5>
+                    <h5 class="mt-1 text-unset"><a>{{__('data.Console and PC game accounts')}}</a></h5>
                     <hr class="my-4 border-secondary">
-                    <q>هذا النص يمكن استبداله بنص اخر بديل</q>
                   </figcaption>
                 </figure>     
               </article>
@@ -94,9 +91,8 @@
                 <img style="height:160px;" class="rounded mb-4 svg-white" src="{{ asset('front/assets/img/games.svg') }}" alt="characters">
                 <figure class="border border-secondary p-4">
                   <figcaption>
-                    <h5 class="mt-1 text-unset"><a>حسابات العاب الجوال</a></h5>
+                    <h5 class="mt-1 text-unset"><a>{{__('data.Mobile game accounts')}}</a></h5>
                     <hr class="my-4 border-secondary">
-                    <q>هذا النص يمكن استبداله بنص اخر بديل</q>
                   </figcaption>
                 </figure>     
               </article>
@@ -145,9 +141,9 @@
       <section id="contact" class="content-section latest-articles text-light">
         <div class="container">
           <header class="section-header text-center">
-            <h2>Contact Us</h2>
+            <h2>{{__('data.Contact Us')}}</h2>
             <hr class="w-10 border-warning border-top-2 o-90">
-            <p class="lead-2">للشكاوى والاقتراحات يرجى التواصل معنا </p>
+            <p class="lead-2">{{__('data.For complaints and suggestions, please contact us')}}</p>
           </header>
           <div class="row gutters-y align-items-center">
             <div class="col-lg-10 mx-auto">
@@ -167,7 +163,7 @@
                   <div class="form-group">
                     <textarea class="form-control form-control-lg" rows="4" placeholder="Your Message" name="message" required=""></textarea>
                   </div>
-                  <button class="btn btn-lg btn-warning" type="submit">Send it over</button>
+                  <button class="btn btn-lg btn-warning" type="submit">{{__('data.Send it over')}}</button>
               </form>
             </div>
 

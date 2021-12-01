@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\DB;
 use DataTables;
 class SubCategoriesController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:sub_category-list|sub_category-create|sub_category-edit|sub_category-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:sub_category-create', ['only' => ['create','store']]);
+        $this->middleware('permission:sub_category-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:sub_category-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

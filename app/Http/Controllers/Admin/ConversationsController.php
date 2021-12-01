@@ -12,9 +12,11 @@ use App\Models\User;
 use App\Notifications\SendMessageNotificationToUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Spatie\Permission\Traits\HasRoles;
 
 class ConversationsController extends Controller
 {
+    use HasRoles;
     public function index(Request $request)
     {
         $pageConfigs = [
@@ -23,7 +25,13 @@ class ConversationsController extends Controller
             'pageClass' => 'chat-application',
         ];
 
-        $conversations = $request->user()->conversations;
+        if (auth()->user()->hasRole(['Owner'])) {
+            $conversations = Conversation::all();
+        } else {
+            $conversations = $request->user()->conversations;
+
+        }
+
         return view('/content/chat/index', [
             'pageConfigs' => $pageConfigs
         ], compact('conversations'));
@@ -37,8 +45,13 @@ class ConversationsController extends Controller
             'pageClass' => 'chat-application',
         ];
 
-        $this->authorize('show', $conversation);
-        $conversations = $request->user()->conversations;
+        if (!auth()->user()->hasRole(['Owner'])) {
+            $this->authorize('show', $conversation);
+            $conversations = $request->user()->conversations;
+
+        } else
+            $conversations = Conversation::all();
+
 
         return view('/content/chat/show', [
             'pageConfigs' => $pageConfigs
@@ -76,6 +89,34 @@ class ConversationsController extends Controller
 
         return redirect()->route('chat.show', $conversation);
     }
+
+    // Bids
+    public function create2($product_id,$user_id, $to_id)
+    {
+        $product = Product::find($product_id);
+        if (!$product) return false;
+        if ($user_id == $to_id) return false;
+        $conversation_2 = Conversation::where('user_id' , $user_id)->where('product_id', $product_id)->first();
+        if ($conversation_2) {
+            return redirect()->route('chat.show', $conversation_2);
+        }
+        $name = $product->name;
+        if (empty($name)) $name = 'test';
+        if (strlen($name) > 25) {
+            $name = mb_substr($product->name, 0, 25, 'utf-8') . "...";
+        }
+        $conversation = Conversation::create([
+            "name" => $name,
+            'uuid' => Str::uuid(),
+            'user_id' => $user_id,
+            'product_id' => $product_id
+        ]);
+
+        $conversation->users()->sync([$to_id, $user_id]);
+
+        return $conversation;
+    }
+
 
     public function confirmAccountData($id)
     {
@@ -160,7 +201,7 @@ class ConversationsController extends Controller
 
                 $product->account_username = $request->account_username;
                 $product->account_email_website = $request->account_email_website;
-                $product->update(['slug' => 'test2']);
+               $product->update();
 
                 //Notification
                 $usersIn = $conversation->users()->get();
@@ -177,7 +218,7 @@ class ConversationsController extends Controller
             return redirect()->back()->with(['error' => __('data.An error occurred, please try again later')]);
 
         } catch (\Exception $ex) {
-            return redirect()->back()->with(['error' => __('data.An error occurred, please try again later')]);
+            return redirect()->back()->with(['error' => __('data.An error occurred, please try again later') . $ex]);
 
         }
     }
@@ -205,7 +246,7 @@ class ConversationsController extends Controller
 
                 $product->account_username = $request->account_username;
                 $product->account_email_website = $request->account_email_website;
-                $product->update(['slug' => 'test2']);
+               // $product->update(['slug' => 'test2']);
 
                 //Notification
                 $usersIn = $conversation->users()->get();

@@ -10,7 +10,7 @@
       <section class="content-section top_sellers carousel-spotlight ig-carousel pt-0 text-light">
         <div class="container">
           <header class="header">
-            <h2>Most popular products</h2>
+            <h2>{{__('data.Most popular products')}}</h2>
           </header>
           <div class="position-relative">
             <div class="row">
@@ -18,10 +18,10 @@
                 <!-- nav tabs -->
                 <ul class="spotlight-tabs spotlight-tabs-dark nav nav-tabs border-0 mb-5 position-relative flex-nowrap" id="most_popular_products-carousel-01" role="tablist">
                   <li class="nav-item text-fnwp position-relative">
-                    <a class="nav-link active show" id="mp-2-01-tab" data-toggle="tab" href="#mp-2-01-c" role="tab" aria-controls="mp-2-01-c ma-2-01-c" aria-selected="true">Accounts</a>
+                    <a class="nav-link active show" id="mp-2-01-tab" data-toggle="tab" href="#mp-2-01-c" role="tab" aria-controls="mp-2-01-c ma-2-01-c" aria-selected="true">{{__('data.Accounts')}}</a>
                   </li>
                   <li class="nav-item text-fnwp position-relative"> 
-                    <a class="nav-link" id="mp-2-02-tab" data-toggle="tab" href="#mp-2-02-c" role="tab" aria-controls="mp-2-02-c ma-2-02-c" aria-selected="false">Bids</a>
+                    <a class="nav-link" id="mp-2-02-tab" data-toggle="tab" href="#mp-2-02-c" role="tab" aria-controls="mp-2-02-c ma-2-02-c" aria-selected="false">{{__('data.Bids')}}</a>
                   </li>
                 </ul>
                 <!-- /.nav tabs -->
@@ -80,7 +80,7 @@
                       <!-- /.item -->
                       @endforeach
                     @else
-                      <p style="margin: auto;">لا يوجد حسابات</p>
+                      <p style="margin: auto;">{{__('data.No accounts')}}</p>
                     @endif
 
                     </div>
@@ -141,7 +141,7 @@
                       <!-- /.item -->
                       @endforeach
                     @else
-                      <p style="margin: auto;">لا يوجد حسابات</p>
+                      <p style="margin: auto;">{{__('data.No accounts')}}</p>
                     @endif
 
                     </div>
@@ -158,7 +158,7 @@
                     <li onclick="pagination( 'new', 'prev')" class="page-item">
                         <a class="page-link" aria-label="Previous">
                         <span class="ti-angle-left small-7" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">{{__('data.Previous')}}</span>
                         </a>
                     </li>
                     @for ($i = 1; $i <= $new_products['pages'] && $i <= 3; $i++)
@@ -167,7 +167,7 @@
                     <li onclick="pagination( 'new', 'next')" class="page-item">
                         <a class="page-link" aria-label="Next">
                         <span class="ti-angle-right small-7" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">{{__('data.Next')}}</span>
                         </a>
                     </li>
                     </ul>
@@ -182,7 +182,7 @@
                     <li onclick="pagination( 'bid', 'prev')" class="page-item">
                         <a class="page-link" aria-label="Previous">
                         <span class="ti-angle-left small-7" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">{{__('data.Previous')}}</span>
                         </a>
                     </li>
                     @for ($i = 1; $i <= $bids_products['pages'] && $i <= 3; $i++)
@@ -191,7 +191,7 @@
                     <li onclick="pagination( 'bid', 'next')" class="page-item">
                         <a class="page-link" aria-label="Next">
                         <span class="ti-angle-right small-7" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">{{__('data.Next')}}</span>
                         </a>
                     </li>
                     </ul>
@@ -203,12 +203,12 @@
               <div class="col-lg-4">
                 <div class="filters border border-secondary rounded p-4">
                   <div class="input-transparent">
-                    <input type="text" id="filter_search" value="" class="form-control my-3" placeholder="search"/>
+                    <input type="text" id="filter_search" value="" class="form-control my-3" placeholder="{{__('data.Search')}}"/>
                   </div>
                   <ul class="sidebar-nav-light-hover list-unstyled mb-0 text-unset small-3 fw-600">
                     <li class="nav-item text-light transition mb-2 active">
                       <a href="" aria-expanded="false" data-toggle="collapse" class="nav-link py-2 px-3 text-uppercase  collapsed collapser collapser-active nav-link-border">
-                          <span class="p-collapsing-title">Price</span>
+                          <span class="p-collapsing-title">{{__('data.Price')}}</span>
                       </a>
                       <div class="collapse nav-collapse show">
                           <ul class="list-unstyled py-2">
@@ -216,11 +216,11 @@
                               <div class="nav-link py-1 px-3">
                                     <div class="custom-control custom-checkbox">
                                       <input type="radio" name="filter_price_order" id="filter_desc">
-                                      <label for="filter_desc">من الاعلي للادني</label>
+                                      <label for="filter_desc">{{__('data.High to low')}}</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
                                       <input type="radio" name="filter_price_order" id="filter_asc">
-                                      <label for="filter_asc">من الادني للاعلي</label>
+                                      <label for="filter_asc">{{__('data.Low to high')}}</label>
                                     </div>
                               </div>
                             </li>
@@ -244,35 +244,36 @@
                     </li>
                     <li class="nav-item text-light transition mb-2">
                       <a href="" aria-expanded="false" data-toggle="collapse" class="nav-link py-2 px-3 text-uppercase  collapsed collapser nav-link-border">
-                          <span class="p-collapsing-title">Platform</span>
+                          <span class="p-collapsing-title">{{__('data.Platform')}}</span>
                       </a>
                       <div class="collapse nav-collapse">
                           <ul class="list-unstyled py-2">
                             <li class="nav-item">
                               <div class="nav-link py-2 px-3">
                                   <div class="custom-control custom-checkbox">
-                                      <label><input type="checkbox" id="filter_playstation" value="p" checked> Playstation</label>
+                                      <label><input type="checkbox" id="filter_playstation" value="p" checked>
+                                          {{__('data.Playstation')}}</label>
                                   </div>
                               </div>
                             </li>
                             <li class="nav-item">
                               <div class="nav-link py-2 px-3">
                                   <div class="custom-control custom-checkbox">
-                                      <label><input type="checkbox" id="filter_xbox" value="x" checked> Xbox</label>
+                                      <label><input type="checkbox" id="filter_xbox" value="x" checked> {{__('data.Xbox')}}</label>
                                   </div>
                               </div>
                             </li>
                             <li class="nav-item">
                               <div class="nav-link py-2 px-3">
                                   <div class="custom-control custom-checkbox">
-                                      <label><input type="checkbox" id="filter_smartphone" value="s" checked> Smartphone</label>
+                                      <label><input type="checkbox" id="filter_smartphone" value="s" checked> {{__('data.Smartphone')}}</label>
                                   </div>
                               </div>
                             </li>
                             <li class="nav-item">
                               <div class="nav-link py-2 px-3">
                                   <div class="custom-control custom-checkbox">
-                                      <label><input type="checkbox" id="filter_other" value="o" checked> Other</label>
+                                      <label><input type="checkbox" id="filter_other" value="o" checked> {{__('data.Other')}}</label>
                                   </div>
                               </div>
                             </li>
@@ -281,7 +282,7 @@
                     </li>
                     <li class="nav-item text-light transition mb-2">
                       <a href="" aria-expanded="false" data-toggle="collapse" class="nav-link py-2 px-3 text-uppercase  collapsed collapser nav-link-border">
-                          <span class="p-collapsing-title">Categories</span>
+                          <span class="p-collapsing-title">{{__('data.Categories')}}</span>
                       </a>
                       <div class="collapse nav-collapse">
                           <ul class="list-unstyled py-2">
@@ -326,7 +327,7 @@
                           @endforeach @else
                             <li class="nav-item">
                               <div class="nav-link py-2 px-3" style="text-align:center;">
-                                  <label>لا يوجد تصنيفات</label>
+                                  <label>{{__('data.There are no categories')}}</label>
                               </div>
                             </li>
                           @endif

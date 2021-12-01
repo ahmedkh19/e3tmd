@@ -21,4 +21,9 @@ class Withdraw extends Model
         'isCompleted' => 'boolean',
         'isRefunded' => 'boolean',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(Category::class, 'product_categories');
+    }
 }

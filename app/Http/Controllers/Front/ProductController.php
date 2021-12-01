@@ -18,7 +18,7 @@ class ProductController extends Controller
         $product = Product::where("slug","=",$slug)->first();
 
         if ( $product ) {
-        
+
             if ( ViewController::check_view($request->ip(), $product->id) ) {
                 // not exsits in views table
                 $product->viewed = $product->viewed + 1;
@@ -33,7 +33,7 @@ class ProductController extends Controller
                 ->limit(9)
                 ->get();
             /************/
-            
+
             /************/
             $highest_bid = DB::table("bids")
                 ->where("product_id","=",$product->id)
@@ -49,7 +49,7 @@ class ProductController extends Controller
             foreach(DB::table("product_categories")->whereIn("category_id",$cat_in)->get() as $row) {
                 // get ID's of accounts with the same categories
                 $id_in[] = $row->product_id;
-            } 
+            }
             $similar_posts = Product::where("id","!=",$product->id)
                 ->whereIn("id",$id_in)
                 ->limit(9)
@@ -58,6 +58,7 @@ class ProductController extends Controller
 
             $author = User::where('id','=',$product->user_id)->first();
 
+            if ($product->status == 1)
             return view('front.product')
                 ->with("product",$product)
                 ->with("product_images", $product_images)
@@ -65,6 +66,7 @@ class ProductController extends Controller
                 ->with("author_others", $author_others)
                 ->with("highest_bid", $highest_bid)
                 ->with("author", $author);
+            else return abort(404);
         } else {
             return abort(404);
         }

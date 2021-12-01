@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Setting;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\UserBank;
 use App\Models\Withdraw;
@@ -29,14 +31,20 @@ class PaymentsController extends Controller
 
     public function withdrawRequestsAjax(Request $request)
     {
-        if (auth()->user()->hasPermissionTo('withdraw-edit')) {
+        if (auth()->user()->hasPermissionTo('withdraw-list')) {
 
             if ($request->ajax()) {
-                $withdraws = Withdraw::orderBy('id', 'DESC')->where('isRefunded', false)->where('isCompleted', false);
+                $withdraws = Withdraw::orderBy('id', 'DESC')
+                    ->where('isRefunded', false)
+                    ->where('isCompleted', false)
+                ;
                 return Datatables::of($withdraws)
                     ->addIndexColumn()
+                    ->addColumn('username', function ($row) {
+                        return User::find($row->vendor_id)->username;
+                    })
                     ->addColumn('action', function ($row) {
-                        $showDetails = '<a href="#" onclick="withdrawDetails('.$row->id.')" data-toggle="modal" data-target="#withdrawDetailsModel" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">' . __("data.Show details") . '</a>';
+                        $showDetails = '<a href="#" onclick="withdrawDetails('.$row->vendor_id.')" data-toggle="modal" data-target="#withdrawDetailsModel" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">' . __("data.Show details") . '</a>';
                         $refund = '<a href="' . route('payments.withdrawRefund', $row->id) . '" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">' . __("data.Refund") . '</a>';
                         $complete =  '<a href="' . route('payments.withdrawComplete', $row->id) . '" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">' . __("data.Complete") . '</a>';
                         return $showDetails . $refund . $complete;
@@ -51,15 +59,47 @@ class PaymentsController extends Controller
 
     }
 
+    public function transactionsAjax(Request $request)
+    {
+        if ($request->ajax()) {
+            if (auth()->user()->hasPermissionTo('product-create')) {
+                $transactions = Transaction::orderBy('payment_id', 'DESC')->where('vendor_id', auth()->id());
+                $vendor = true;
+            } else {
+                $vendor = false;
+                $transactions = Transaction::orderBy('payment_id', 'DESC')->where('customer_id', auth()->id());
+            }
+
+            return Datatables::of($transactions)
+                ->addColumn('product_name', function ($row) {
+                    $product = Product::find($row->product_id);
+                    return $product->name;
+                })
+                ->addColumn('amount', function ($row) use ($vendor) {
+                    if ($vendor) {
+                        return $row->total_vendor;
+                    } else {
+                        return $row->total;
+                    }
+                })
+                ->make(true);
+        }
+        return false;
+    }
+
+
     public function withdrawDetailsAjax($withdraw_id)
     {
+        if (auth()->user()->hasPermissionTo('withdraw-edit')) {
+
             $withdraw = Withdraw::find($withdraw_id);
-            $bank = UserBank::where('user_id' , $withdraw->id)->first();
+            $bank = UserBank::where('user_id', $withdraw->id)->first();
             return response()->json([
                 'full_name' => $bank->full_name,
                 'bank' => $bank->bank,
                 'iban_number' => $bank->iban_number,
             ]);
+        } else return false;
     }
     public function withdrawComplete( $id)
     {
@@ -90,7 +130,7 @@ class PaymentsController extends Controller
 
     public function withdrawRefund(Request $request, $id)
     {
-        if (auth()->user()->hasPermissionTo('withdraw-edit')) {
+        if (auth()->user()->hasPermissionTo('withdraw-delete')) {
             $withdraw = Withdraw::find($id);
             if ($withdraw) {
                 try {
@@ -114,7 +154,8 @@ class PaymentsController extends Controller
                 }
 
             }
-        }
+        }  return \redirect()->back()->with(['error' => __('data.You do not have permission to do this action')]);
+
     }
 
     public function withdraw(Request $request)
@@ -164,7 +205,7 @@ class PaymentsController extends Controller
 
             if (!$amount || Setting::getMinAmount() > $amount) return \redirect()->back();
 
-            if (auth()->user()->can('product-create')) return \redirect()->back();
+            if (!auth()->user()->can('withdraw-create')) return \redirect()->back();
             $postFields = [
                 'NotificationOption' => 'Lnk',
                 'InvoiceValue'       => $amount,

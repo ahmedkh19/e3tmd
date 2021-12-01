@@ -32,10 +32,10 @@
               <div style="border:1px solid;margin-top: 10px;text-align:center;">
                <div style="padding: 10px 0">
                    <i class="fa fa-hourglass"></i>
-                   <i class="col-3"><span class="day_time">00</span> Days</i>
-                   <i class="col-3"><span class="hr_time">00</span> Hours</i>
-                   <i class="col-3"><span class="min_time">00</span> Minutes</i>
-                   <i class="col-3"><span class="sec_time">00</span> Seconds</i>
+                   <i class="col-3"><span class="day_time">00</span> {{ __('data.Days') }}</i>
+                   <i class="col-3"><span class="hr_time">00</span> {{__('data.Hours')}}</i>
+                   <i class="col-3"><span class="min_time">00</span> {{__('data.Minutes')}}</i>
+                   <i class="col-3"><span class="sec_time">00</span> {{__('data.Seconds')}}</i>
                    <i class="fa fa-hourglass"></i>
                </div>
               </div>
@@ -75,7 +75,7 @@
                       </div>
                     </div>
                     <div id="about" class="about mb-8">
-                      <h6 class="mb-4 fw-400 text-uppercase">وصف الحساب</h6>
+                      <h6 class="mb-4 fw-400 text-uppercase">{{__('data.Account Details')}}</h6>
                       <hr class="border-secondary my-2">
                       <div>
                         <div class="collapse readmore" id="collapseSummary">
@@ -88,7 +88,7 @@
                     </div>
                     @if (count($author_others))
                     <div class="mb-6">
-                      <h6 class="mb-0 fw-400 text-uppercase">المزيد من هذا البائع</h6>
+                      <h6 class="mb-0 fw-400 text-uppercase">{{__('data.More from this seller')}}</h6>
                       <hr class="border-secondary my-2">
                       <div>
                         <div class="owl-carousel carousel_sm" data-carousel-items="1, 2, 3, 3" data-carousel-margin="10" data-carousel-nav="false" data-carousel-dots="true">
@@ -164,46 +164,46 @@
                             </div>
                             @endif
                           @else
-                            <a class="discount">تم انتهاء المزاد</a>
+                            <a class="discount">{{__('data.Auction ended')}}</a>
                           @endif
                         @endif
                     @else
-                      <a class="discount">تم البيع!</a>
+                      <a class="discount">{{__('data.Sold')}}!</a>
                     @endif
                   </div>
                 </div>
 
               </div>
               <div class="bg-dark_A-20 p-4">
-                <h6 class="mb-3">معلومات الحساب</h6>
+                <h6 class="mb-3">{{__('data.Account Information')}}</h6>
                 <hr class="border-secondary mt-2 mb-4">
                 <ul class="list-unstyled mb-3">
                   <li>
-                    <span class="platform">Platform:</span>
+                    <span class="platform">{{__('data.Platform')}}:</span>
                     @if ($product->os)
                       @if(Str::contains($product->os,'x'))
-                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fab fa-xbox"></i> Xbox</span>
+                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fab fa-xbox"></i> {{__('data.Xbox')}}</span>
                       @endif
                       @if(Str::contains($product->os,'p'))
-                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fab fa-playstation"></i> Playstation</span>
+                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fab fa-playstation"></i> {{__('data.Playstation')}}</span>
                       @endif
                       @if(Str::contains($product->os,'s'))
-                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fa fa-mobile"></i> Smartphone</span>
+                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fa fa-mobile"></i> {{__('data.Smartphone')}}</span>
                       @endif
                     @else
-                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fa fa-desktop"></i> Other</span>
+                        <span class="platform-item btn btn-sm btn-outline-warning"><i class="fa fa-desktop"></i> {{__('data.Other')}}</span>
                     @endif
                   </li>
                 </ul>
                 <ul class="list-unstyled mb-3">
                   <li class="developer-wrapper">
-                    <span class="platform">التاجر :</span> 
+                    <span class="platform">{{__('data.Seller')}} :</span>
                     <a href="{{ URL( '/user/' . $author->username) }}" class="developer-item btn btn-sm btn-secondary">{{ $author->name }}</a>
                   </li>
                 </ul>
                 <ul class="list-unstyled small-2 mb-3">
                   <li class="developer-wrapper">
-                    <span class="platform">التصنيفات :</span> 
+                    <span class="platform">{{__('data.Categories')}} :</span>
                     <div>
                     @foreach ( $product->categories as $category )
                       <hr class="my-2 border-secondary">
@@ -226,7 +226,7 @@
       <section class="container text-light">
         <div class="border border-secondary py-5 px-2">
           <div class="mx-3 mb-6">
-            <h6 class="mb-4 fw-400 text-uppercase">عروض مشابهة</h6>
+            <h6 class="mb-4 fw-400 text-uppercase">{{__('data.Similar offers')}}</h6>
             <hr class="border-secondary my-2">
           </div>
           <div class="owl-carousel" data-carousel-items="1, 3, 6">
@@ -251,7 +251,7 @@
     <br>
     @if ( $product->pricing_method == 'Auction' )
     <script>
-        let countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime($product->auction_end)); }}").getTime();
+        let countDownDate = new Date("{{ date('M d, Y H:i:s', strtotime($product->auction_end)) }}").getTime();
 
         let x = setInterval( function() {
 

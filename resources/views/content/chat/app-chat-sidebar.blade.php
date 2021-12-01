@@ -107,12 +107,7 @@
   <!-- Sidebar header start -->
   <div class="chat-fixed-search">
     <div class="d-flex align-items-center w-100">
-      <div class="sidebar-profile-toggle">
-        <div class="avatar avatar-border">
-          <img src="{{ asset('images/portrait/small/avatar-s-11.jpg') }}" alt="user_avatar" height="42" width="42" />
-          <span class="avatar-status-online"></span>
-        </div>
-      </div>
+
       <div class="input-group input-group-merge ml-1 w-100">
         <div class="input-group-prepend">
           <span class="input-group-text round"><i data-feather="search" class="text-muted"></i></span>
@@ -135,4 +130,5 @@
   <!-- Sidebar Users end -->
 </div>
 <!--/ Chat Sidebar area -->
+
 @endsection

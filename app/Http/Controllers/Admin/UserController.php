@@ -15,6 +15,14 @@ use DataTables;
 class UserController extends Controller
 {
 
+    function __construct()
+    {
+        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:user-create', ['only' => ['create','store']]);
+       // $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         return view('content.users.index');
@@ -80,10 +88,14 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $userInformation = UserInformation::where('user_id', '=', $id)->first();
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
-        return view('content.users.edit',compact('user','roles','userRole'), compact('userInformation'));
+
+        if ($user->hasRole(['Owner']) || $id === auth()->id() || $user->hasPermissionTo('user-edit')) {
+            $userInformation = UserInformation::where('user_id', '=', $id)->first();
+            $roles = Role::pluck('name','name')->all();
+            $userRole = $user->roles->pluck('name','name')->all();
+            return view('content.users.edit',compact('user','roles','userRole'), compact('userInformation'));
+
+        } else return abort(404);
     }
 
 

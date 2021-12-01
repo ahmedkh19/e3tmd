@@ -355,7 +355,7 @@ class ProductSeeder extends Seeder
             'description' => 'Clash Royale Clash Royale Clash Royale Clash Royale'
         ]);
         /* ******************************************** */
-        
+
         /* ******************************************** */
         Product::create([
             'user_id' => 1,

@@ -165,10 +165,9 @@
      </div>
   </section>
   @include('content.alerts.success')
-  @include('content.alerts.errors')
   <div class="row">
 
-
+    @can('withdraw-list')
     <div class="col-md-12">
       <h1 style="text-align: center">@lang('data.Withdraw Requests')</h1>
 
@@ -194,16 +193,17 @@
         </div>
       </div>
     </div>
+    @endcan
 
     <div class="col-md-12">
-      <h1 style="text-align: center">Transactions(Soon)</h1>
+      <h1 style="text-align: center">Transactions</h1>
       <div class="card-content collapse show">
         <div class="card-body card-dashboard">
           <table class="table display nowrap table-striped table-bordered scroll-horizontal dataTable" id="Transactions">
             <thead class="">
             <tr>
-              <th>@lang('data.Name')</th>
-              <th>@lang('data.Measures')</th>
+              <th>@lang('data.Product name')</th>
+              <th>@lang('data.Total')</th>
             </tr>
             </thead>
             <tbody>
@@ -317,10 +317,10 @@
         "language": {
           "url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/{{ LaravelLocalization::getCurrentLocaleName() }}.json"
         },
-        ajax: "{{ route('roles-ajax') }}",
+        ajax: "{{ route('payments.transactionsAjax') }}",
         columns: [
-          {data: 'name', name: 'name'},
-          {data: 'action', name: 'action', orderable: false, searchable: false},
+          {data: 'product_name', name: 'product_name', orderable: true, searchable: true},
+          {data: 'amount', name: 'total',  searchable: true},
         ]
       });
     });
@@ -337,7 +337,7 @@
         },
         ajax: "{{ route('payments.withdrawRequestsAjax') }}",
         columns: [
-          {data: 'vendor_id', name: 'vendor_id', searchable: true},
+          {data: 'username', name: 'username', searchable: true},
           {data: 'amount', name: 'total', searchable: true},
           {data: 'isCompleted', name: 'isCompleted', searchable: false},
           {data: 'isRefunded', name: 'isRefunded', searchable: false},

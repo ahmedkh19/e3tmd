@@ -11,9 +11,9 @@ class HomeController extends Controller
     public function index()
     {
         $accounts = [];
-        
+
         $query = Product::where("isPaid","=","1")->limit(15)->get();
-        
+
         foreach ($query as $product) {
             $accounts[] = $product;
         }

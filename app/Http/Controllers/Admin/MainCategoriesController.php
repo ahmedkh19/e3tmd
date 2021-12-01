@@ -14,13 +14,13 @@ use DataTables;
 class MainCategoriesController extends Controller
 {
 
-//    function __construct()
-//    {
-//        $this->middleware('permission:main_categories-list|main_categories-create|main_categories-edit|main_categories-delete', ['only' => ['index','show']]);
-//        $this->middleware('permission:main_categories-create', ['only' => ['create','store']]);
-//        $this->middleware('permission:main_categories-edit', ['only' => ['edit','update']]);
-//        $this->middleware('permission:main_categories-delete', ['only' => ['destroy']]);
-//    }
+    function __construct()
+    {
+        $this->middleware('permission:main_category-list|main_category-create|main_category-edit|main_category-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:main_category-create', ['only' => ['create','store']]);
+        $this->middleware('permission:main_category-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:main_category-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

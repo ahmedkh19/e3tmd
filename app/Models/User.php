@@ -93,6 +93,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function hasRead(Conversation $conversation)
     {
-        return $this->conversations->find($conversation->id)->pivot->read_at;
+        if (auth()->user()->hasRole(['Owner'])) {
+            return false;
+
+        } else return $this->conversations->find($conversation->id)->pivot->read_at;
     }
 }

@@ -27,9 +27,9 @@ class UserController extends Controller
                 $user->background_url = asset('front/assets/img/bg/bg_a.jpg');
             }
             $user->information = UserInformation::where("user_id","=",$user->id)->first();
-            
+
             $comments = UserComments::where("to","=",$user->id)->limit(20)->get();
-            
+
             $cancomment = true;
             if (!\Auth::check()) {
                 $cancomment = false;
@@ -40,9 +40,9 @@ class UserController extends Controller
             if ($cancomment && UserComments::where("commenter_id","=",\Auth::user()->id)->where("to","=",$user->id)->first()) {
                 $cancomment = false;
             }
-            
+
             $accounts_count = Product::where("user_id","=",$user->id)->count();
-            
+
             $accounts = Product::where("user_id","=",$user->id)->limit(10)->get();
 
             return view("front.user")
@@ -55,7 +55,7 @@ class UserController extends Controller
             return abort(404);
         }
     }
-    
+
     public function comment(Request $request, $userid)
     {
         if (\Auth::check()) {
@@ -83,7 +83,7 @@ class UserController extends Controller
     }
 
     public function paginate_accounts(Request $request)
-    {   
+    {
         if ($request->locale == 'ar') {
             \App::setLocale('ar');
         }

@@ -21,11 +21,11 @@ class CategoryController extends Controller
                 ->with("error_category", "this category does not exists")
                 ->with("categoryname", $categoryslug);
         }
-        
+
         $categoryname = $query[0]->name;
 
         $query = DB::table("product_categories")->where('category_id','=',$query[0]->id)->get();
-        
+
         if (!count($query)) {
             return view('front.category')
                 ->with("error_category", "No results found")
@@ -33,33 +33,33 @@ class CategoryController extends Controller
         }
 
         $results = [];
-        
+
         foreach ( $query as $product ) {
             $id_in[] = $product->product_id;
         }
 
         $page = intval($request->page) && $request->page > 0 ? intval($request->page): 1;
-        
+
         $skip = ($page * 12) - 12;
-        
+
         $query = Product::whereIn("id",$id_in)->skip($skip)->limit(12)->get();
-        
+
         foreach($query as $account) {
-                $x = '';
-                foreach($account->categories as $category) {
-                    $x .= ', ' . $category->name;
-                }
-                if ($x) {
-                    $x = substr($x,2);
-                }
-                $account->categories = $x;
-                $results[] = $account;
+            $x = '';
+            foreach($account->categories as $category) {
+                $x .= ', ' . $category->name;
+            }
+            if ($x) {
+                $x = substr($x,2);
+            }
+            $account->categories = $x;
+            $results[] = $account;
         }
 
         $pagenate = Product::whereIn("id",$id_in)->count();
 
         $pagenate = ceil($pagenate/12);
-        
+
         return view('front.category')
             ->with("categoryname",$categoryname)
             ->with("categoryslug",$categoryslug)

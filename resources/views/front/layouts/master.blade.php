@@ -153,7 +153,7 @@
           <div class="row gutters-y">
               <div class="col-6 col-lg-3">
                 <a href="#" class="logo d-block mb-4"><img src="{{ asset('images/logo/logo.png') }}" alt="{{ __('front.e3tamd') }}" class="logo-dark"></a>
-                <p>منصة اعتمد لخدمات بيع حسابات الألعاب بشتي أنواعها مع توفير الأمان والخصوصية لكل من بيانات المشتري والبائع.</p>
+                <p>{{__('data.P2')}}</p>
                 <div class="social-buttons">
                   <a class="social-twitter" href="#"><i class="fab fa-twitter"></i></a>
                   <a class="social-dribbble" href="#"><i class="fab fa-dribbble"></i></a>
@@ -167,10 +167,10 @@
               <div class="col-6 col-lg-2">
                 <h6 class="text-uppercase fw-600 mb-4">About</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="about.html">Our team</a>
-                  <a class="nav-link" href="about.html">Careers</a>
-                  <a class="nav-link" href="about.html">Cookie Policy</a>
-                  <a class="nav-link" href="about.html">Privacy Policy</a>
+                  <a class="nav-link" href="#">Our team</a>
+                  <a class="nav-link" href="#">Careers</a>
+                  <a class="nav-link" href="#">Cookie Policy</a>
+                  <a class="nav-link" href="#">Privacy Policy</a>
                   
                 </div>
               </div>
@@ -178,10 +178,10 @@
               <div class="col-6 col-lg-2">
                 <h6 class="text-uppercase fw-600 mb-4">Help</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                  <a class="nav-link" href="contact.html">Support</a>
-                  <a class="nav-link" href="contact.html">Terms & conditions</a>
-                  <a class="nav-link" href="contact.html">Refund policy</a>
+                  <a class="nav-link" href="#">Contact Us</a>
+                  <a class="nav-link" href="#">Support</a>
+                  <a class="nav-link" href="#">Terms & conditions</a>
+                  <a class="nav-link" href="#">Refund policy</a>
                 </div>
               </div>
               

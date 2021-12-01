@@ -19,19 +19,19 @@ class ShopController extends Controller
             ->with('new_products', $this->new_products())
             ->with('bids_products', $this->bids_products());
     }
-    
+
     public function new_products()
     {
         /**
          * get products order by new orders
-         * 
+         *
          * @return array
          */
 
         $x = [];
-        
+
         $count = Product::where('pricing_method','=','fixed')->count();
-        
+
         $x['pages'] = ceil($count / 5);
 
         $products = Product::limit(5)
@@ -39,19 +39,19 @@ class ShopController extends Controller
             ->get();
 
         $x['products'] = $products;
-        return $x;     
+        return $x;
     }
 
     public function bids_products()
     {
         /**
          * get products order by new orders and paginate pages
-         * 
+         *
          * @return array
          */
 
         $x = [];
-        
+
         $count = Product::where('pricing_method','=','auction')->count();
 
         $x['pages'] = ceil($count / 5);
@@ -61,24 +61,24 @@ class ShopController extends Controller
             ->get();
 
         $x['products'] = $products;
-        return $x;    
+        return $x;
     }
 
     public function get_accounts(Request $request)
     {
-    
+
         if ($request->locale == 'ar') {
             \App::setLocale('ar');
         }
 
         $type = $request->input("type");
-        
+
         $page = $request->input("page") ? $request->input("page") : 1 ;
-        
+
         $skip = (intval($page) * 5) - 5;
-      
+
         $data = [];
-        
+
         if ( $type == 'new' ) {
 
             $query = Product::where('pricing_method','=','fixed');
@@ -96,15 +96,15 @@ class ShopController extends Controller
 
             /******* price filter *******/
             if ($request->input("price_order")) {
-            
+
                 if ($request->input("price_order") == 'asc') {
                     $query = $query->orderBy('price', 'asc');
                 } else if ($request->input("price_order") == 'desc') {
                     $query = $query->orderBy('price', 'desc');
                 }
-                
+
             }
-            
+
             if ($request->input("min_price")) {
                 $query = $query->where('price', ">=", $request->input("min_price"));
             }
@@ -112,7 +112,7 @@ class ShopController extends Controller
                 $query = $query->where('price', "<=", $request->input("max_price"));
             }
             /******* !price filter *******/
-            
+
             /******* categories filter *******/
             if ($request->input("categories") && is_array($request->input("categories"))) {
                 $xarray = []; // ID's of posts with matched category
@@ -129,7 +129,7 @@ class ShopController extends Controller
                 $query = $query->whereIn('id',$xarray);
             }
             /******* !categories filter *******/
-            
+
             /******* PLATFORM filter *******/
             if ($request->input("os") && is_array($request->input("os"))) {
                 $os = '';
@@ -164,7 +164,7 @@ class ShopController extends Controller
                 ->limit(5)->get();
 
             $products = [];
-            
+
             foreach ($query as $product) {
                 $hold = [];
 
@@ -231,7 +231,7 @@ class ShopController extends Controller
                 $query = $query->where('start_bid_amount', "<=", $request->input("max_price"));
             }
             /******* !price filter *******/
-            
+
             /******* categories filter *******/
             if ($request->input("categories") && is_array($request->input("categories"))) {
                 $xarray = []; // ID's of posts with matched category
@@ -323,7 +323,7 @@ class ShopController extends Controller
         return $data;
 
     }
-    
+
     public function best_deals()
     {
         return Product::where('isPaid','=','1')->limit(15)->get();

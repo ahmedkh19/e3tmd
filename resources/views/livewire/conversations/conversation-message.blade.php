@@ -3,7 +3,9 @@
     <div class="chat chat-left">
         <div class="chat-avatar">
             <span class="avatar box-shadow-1 cursor-pointer">
-              <img src="{{ asset('images/portrait/small/avatar-s-7.jpg') }}" alt="avatar" height="36" width="36" />
+                            <?php $avatar = $message->user->avatar ? $message->user->avatar: 'user.jpg'; ?>
+
+              <img src="{{ asset('uploads/images/avatars/' . $avatar) }}" alt="avatar" height="36" width="36" />
             </span>
         </div>
         <div class="chat-body">
