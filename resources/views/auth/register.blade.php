@@ -24,7 +24,7 @@
         @include('content.alerts.success')
         @include('content.alerts.errors')
         <a href="javascript:void(0);" class="brand-logo">
-          <img style="width: 180px; height: 50px" src="{{asset('images/logo/logo.png')}}" >
+          <img style="width: 180px; height: 50px" src="{{asset('images/logo/light.png')}}" >
         </a>
 
         <h4 class="card-title mb-1">@lang('data.Adventure starts here') 🚀</h4>
