@@ -49,7 +49,7 @@ class RegisterController extends Controller
     {
       // return $request;
         try {
-            $Role = 'Admin';
+            $Role = 'Member';
             $user = New User();
             $user->name = $request->name;
             $user->email = $request->email;
