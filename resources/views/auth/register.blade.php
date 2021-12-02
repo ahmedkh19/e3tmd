@@ -172,7 +172,7 @@
             <div class="custom-control custom-checkbox">
               <input class="custom-control-input" type="checkbox" id="register-privacy-policy" tabindex="4" />
               <label class="custom-control-label" for="register-privacy-policy">
-                @lang('data.I agree to') <a href="javascript:void(0);">@lang('data.privacy policy & terms')</a>
+                @lang('data.I agree to') <a target="_blank" href="{{ asset('uploads/pdf/Terms&Privacy.pdf') }}">@lang('data.privacy policy & terms')</a>
               </label>
             </div>
           </div>
