@@ -26,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,7 +384,7 @@
       <workItem from="1638257481743" duration="21232000" />
       <workItem from="1638363634668" duration="6408000" />
       <workItem from="1638372569799" duration="5801000" />
-      <workItem from="1638477798424" duration="1226000" />
+      <workItem from="1638477798424" duration="2697000" />
     </task>
     <servers />
   </component>
@@ -415,11 +416,11 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="743" y="262" width="424" height="491" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1634986270014" />
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1638375698772">
-      <screen x="0" y="0" width="1920" height="1032" />
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1638480336600">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1638375698772" />
-    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1638285728818" />
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1638480336600" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

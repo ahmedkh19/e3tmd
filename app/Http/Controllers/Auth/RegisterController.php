@@ -62,11 +62,15 @@ class RegisterController extends Controller
                 'password.required' => __('data.Password Is Required For Your Information Safety, Thank You'),
                 'mobile.required' => __('data.Please Provide Your phone number For Better Communication, Thank You'),
                 'mobile.unique' => __('data.Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You'),
+                'mobile.validation' => __('data.Please enter a valid number below'),
             ]
         );
         // return $request;
         try {
-            $Role = 'Member';
+            if ($request->role === 'Member' || $request->role === 'Vendor')
+                $Role = $request->role;
+            else
+                return redirect()->back()->with(['error', __('data.An error occurred, please try again later')]);
             $user = New User();
             $user->name = $request->name;
             $user->email = $request->email;

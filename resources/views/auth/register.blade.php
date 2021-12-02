@@ -84,6 +84,17 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
           <p id="output">@lang('data.Please enter a valid number below')</p>
+
+          <div class="form-group">
+            <label for="role" class="form-label">@lang('data.Role')</label><br>
+            <input type="radio" id="vendor" name="role" value="Vendor">
+            <label for="vendor">{{__('data.Vendor')}}</label><br>
+            <input type="radio" id="member" name="role" value="Member">
+            <label for="member">{{__('data.Member')}}</label><br>
+          </div>
+          @error("role")
+          <span class="text-danger">{{$message}}</span>
+          @enderror
           <script>
             window.addEventListener('load',()=>{
               document.querySelector('#register_mobile').parentElement.style.width = '100%';

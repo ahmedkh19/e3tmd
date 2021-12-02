@@ -59,6 +59,8 @@ return [
   "please check the bank information then try again."=> "please check the bank information then try again.",
   "There is a new withdraw request from : "=> "There is a new withdraw request from : ",
   "Refunded"=> "Refunded",
+  "Vendor"=> "Vendor",
+  "Member"=> "Member",
   "Bank name"=> "Bank name",
   "Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You"=> "Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You",
   "Please Provide Your phone number For Better Communication, Thank You"=> "Please Provide Your Phone Number For Better Communication, Thank You",
