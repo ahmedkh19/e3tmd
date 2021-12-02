@@ -47,7 +47,24 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-      // return $request;
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+                'username' => 'required|string|alpha_dash|max:255|unique:users,username',
+                'mobile' => 'required|unique:users,mobile|phone:country',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required'
+            ],
+            [
+                'name.required'    => __('data.The name is required'),
+                'email.unique'      => __('data.Sorry, This Email Address Is Already Used By Another User. Please Try With Different One, Thank You'),
+                'password.required' => __('data.Password Is Required For Your Information Safety, Thank You'),
+                'mobile.required' => __('data.Please Provide Your phone number For Better Communication, Thank You'),
+                'mobile.unique' => __('data.Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You'),
+            ]
+        );
+        // return $request;
         try {
             $Role = 'Member';
             $user = New User();
