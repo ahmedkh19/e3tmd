@@ -62,7 +62,7 @@ class RegisterController extends Controller
                 'password.required' => __('data.Password Is Required For Your Information Safety, Thank You'),
                 'mobile.required' => __('data.Please Provide Your phone number For Better Communication, Thank You'),
                 'mobile.unique' => __('data.Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You'),
-                'mobile.validation' => __('data.Please enter a valid number below'),
+                'mobile.phone' => __('data.Sorry, This Phone Number Is Incorrect, Please Check The Phone Number Format And Try Again, Thank You'),
             ]
         );
         // return $request;

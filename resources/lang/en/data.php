@@ -61,6 +61,7 @@ return [
   "Refunded"=> "Refunded",
   "Vendor"=> "Vendor",
   "Member"=> "Member",
+  "Sorry, This Phone Number Is Incorrect, Please Check The Phone Number Format And Try Again, Thank You"=> "Sorry, This Phone Number Is Incorrect, Please Check The Phone Number Format And Try Again, Thank You",
   "Bank name"=> "Bank name",
   "Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You"=> "Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You",
   "Please Provide Your phone number For Better Communication, Thank You"=> "Please Provide Your Phone Number For Better Communication, Thank You",
