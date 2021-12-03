@@ -239,7 +239,7 @@
                   <input type="checkbox" class="custom-control-input" name="remember_me" checked="" id="rememberMeCheck">
                   <label class="custom-control-label" for="rememberMeCheck">Remember me</label> 
                 </div>
-                <a class="small-3" href="#">Forgot password?</a>
+                <a class="small-3" href="{{ route('reset-password') }}">Forgot password?</a>
               </div>
               <div class="form-group mt-6">
                 <button class="btn btn-block btn-warning" type="submit">Login</button>

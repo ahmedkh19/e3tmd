@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             DB::table('views')->delete();
         })->daily();
+        $schedule->command('auth:clear-resets')->everyFifteenMinutes();
     }
 
     /**
