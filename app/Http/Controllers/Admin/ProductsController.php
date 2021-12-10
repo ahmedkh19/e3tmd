@@ -340,7 +340,7 @@ class ProductsController extends Controller
                 $product->commission = $Commission;
                 $product->price = $price;
             } else if ($pricing_method === 'Fixed' && $plan === 'Paid') {
-                BalanceDeduction(auth()->user()->id, $Ad_price);
+                if ( !BalanceDeduction(auth()->user()->id, $Ad_price)) return redirect()->back()->with(['error', __('data.You do not have enough credit to add the account, please add credit to be able to complete the process')]);
                 $product->price = $price;
                 $product->isPaid = 1;
 
@@ -349,7 +349,7 @@ class ProductsController extends Controller
                 $product->start_bid_amount = $request->start_bid_amount;
                 $product->auction_start = $request->auction_start;
                 $product->auction_end = $request->auction_end;
-                BalanceDeduction(auth()->user()->id, $Ad_price);
+                if ( !BalanceDeduction(auth()->user()->id, $Ad_price)) return redirect()->back()->with(['error', __('data.You do not have enough credit to add the account, please add credit to be able to complete the process')]);
                 $product->isPaid = 1;
             } else {
                 return redirect()->back()->with(['error', __('data.An error occurred, please try again later')]);

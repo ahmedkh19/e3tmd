@@ -7,6 +7,7 @@ return [
   "Withdraw funds"=> "Withdraw funds",
   "You have to request at least : "=> "You have to request at least : ",
   "Amount"=> "Amount",
+  "You do not have enough credit to add the account, please add credit to be able to complete the process"=> "You do not have enough credit to add the account, please add credit to be able to complete the process",
   "Show details"=> "Show details",
   "Complete"=> "Complete",
   "Completed"=> "Completed",
