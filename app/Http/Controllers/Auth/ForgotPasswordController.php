@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Http\Request;
+
+
 
 class ForgotPasswordController extends Controller
 {
@@ -18,16 +22,16 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
 
-    public function showLinkRequestForm(){
-      $pageConfigs = [
-        'bodyClass' => "bg-full-screen-image",
-        'blankPage' => true
-      ];
+    public function showLinkRequestForm( Request $request ) {
 
-      return view('/auth/passwords/email', [
-        'pageConfigs' => $pageConfigs
-      ]);
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink($request->only('email'));
+
+
+      return redirect()->route('login')
+      ->with("from_forgot_password","اذا كان هناك حساب ممثال لما تم ادخاله فقد ارسلنا اليك رسالة باعادة تعيين كلمة السر");
+
     }
 }

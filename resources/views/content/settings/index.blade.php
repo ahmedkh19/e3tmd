@@ -34,6 +34,13 @@
       width: 100px;
       margin : 20px
     }
+    .remove_img {
+      background-color: #a74444;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 2px 7px 3px 7px;
+    }
   </style>
 @endsection
 
@@ -108,30 +115,57 @@
               </div>
               <label>صور السلايدر</label>
 
-              @error("slider_images.*")
-              <p><span class="text-danger">برجاء التأكد من اختيار صورة</span></p>
-              @enderror
+              <div class="form-group col-md-12">
+                  <label class="form-label">
+                      <img id="images" width="100px" style="cursor: pointer" height="100px" src="{{ asset('front/assets/img/plus.png') }}" />
+                      <input id='account_images' accept=".jpg, .jpeg, .png" type='file' class="d-none" />
+                </label>
 
-              <div id="slider_images_div" class="input-group mb-2">
-
+                <output id="images_result" class="row">
+                                
                 @foreach (json_decode($settings[4]->value) as $image)
-
-                  <div class="form-group" style="position:relative;margin:10px">
-                    <span class="Programsclose">X</span>
-                    <img src="{{ URL::to('front/assets/img/content/slider/' . $image) }}" width="100">
-                    <input class="hidden" name="keep_images[]" value="{{ $image }}">
-                  </div>
-
+                    <div>
+                       <span class="remove_img position-absolute" onclick="this.parentNode.remove();">x</span>
+                       <img src="{{ URL( 'front/assets/img/content/slider/' . $image ) }}" class="thumbnail" />
+                       <input type="hidden" name="keep_images[]" value="{{ $image }}">
+                    </div>
                 @endforeach
-
-                <div id="slider_images_before" class="form-group">
-                  <label class="cursor-pointer border shadow-lg px-1 py-1">
-                    <img src="{{ URL::to('/images/icons/add.png') }}" style="width:80px;">
-                    <input id="slider_images" type="file" accept="image/*" class="hidden">
-                  </label>
-                </div>
-
+                </output>
+                
+                @error("slider_images.*")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
               </div>
+              
+              <script>
+                  var AccountImages = document.getElementById('account_images');
+                  var IMAGES_RESULT = document.getElementById('images_result');
+                  if (AccountImages) {
+                      AccountImages.addEventListener("change", function() {
+                        const [file] = AccountImages.files
+                        if (file) {
+                            var NewDiv = document.createElement("div");
+                            var NewSpan = document.createElement("span");
+                            NewSpan.innerHTML = "x";
+                            NewSpan.classList.add("remove_img","position-absolute");
+                            NewSpan.setAttribute("onclick","this.parentNode.remove();");
+                            NewDiv.append(NewSpan);
+                            var NewImage = document.createElement("img");
+                            NewImage.src = URL.createObjectURL(file);
+                            NewImage.classList.add("thumbnail");
+                            NewDiv.append(NewImage);
+                            var NewInput = document.createElement("input");
+                            NewInput.name = "slider_images[]";
+                            NewInput.type = "file";
+                            NewInput.setAttribute("accept","image/*");
+                            NewInput.setAttribute("hidden","");
+                            NewInput.files = AccountImages.files;
+                            NewDiv.append(NewInput);
+                            IMAGES_RESULT.append(NewDiv);
+                        }
+                      });
+                   }
+              </script>
 
               <div class="col-12 d-flex flex-sm-row flex-column mt-2">
                 <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">{{__('data.Confirm')}}</button>
@@ -147,51 +181,3 @@
   </section>
 @endsection
 
-@section('page-script')
-  <script>
-
-    //muilt imgs
-    let remove_img = document.querySelectorAll('.remove_img');
-    let remove_img_arr = Array.from(remove_img)
-
-    window.onload = function() {
-      //Check File API support
-      if (window.File && window.FileList && window.FileReader) {
-        var filesInput = document.getElementById("files");
-        filesInput.addEventListener("change", function(event) {
-          var files = event.target.files; //FileList object
-          var output = document.getElementById("result");
-          for (var i = 0; i < 15; i++) {
-            var file = files[i];
-            //Only pics
-            if (!file.type.match('image'))
-              continue;
-            var picReader = new FileReader();
-            picReader.addEventListener("load", function(event) {
-              var picFile = event.target;
-              var div = document.createElement("div");
-              div.innerHTML = "<span class='text-danger position-absolute remove_img' class='remove_img'>x</span><img class='thumbnail' src='" + picFile.result + "'" +
-                      "title='" + picFile.name + "'/>";
-              output.insertBefore(div, null);
-              remove_img_arr.push(div.firstChild);
-              console.log(div.firstChild);
-              console.log(remove_img_arr);
-              remove_img_arr.forEach(element => {
-                element.addEventListener('click',()=>{
-                  console.log(2)
-                  element.parentElement.remove()
-                })
-              });
-            });
-            //Read the image
-            picReader.readAsDataURL(file);
-          }
-        });
-      } else {
-        console.log("Your browser does not support File API");
-      }
-    }
-
-  </script>
-
-@endsection

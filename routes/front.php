@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\SearchController;
 use App\Http\Controllers\Front\UserController;
 use App\Http\Controllers\Front\CategoryController;
 use App\Http\Controllers\AddBidController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ Route::group([
 
     Route::get('/shop', [ShopController::class, 'index'])->name('shop');
     Route::get('/product/{slug}', [ProductController::class, 'index'])->name('product.info');
+
+    Route::get('/reset-password', function(){
+        return view("auth.auth-forgot-password-v2");
+    })->name('reset-password');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('reset-password.do');
 
     /*
     Route::get('/about', function() {

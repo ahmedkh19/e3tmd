@@ -25,6 +25,12 @@
           @include('content.alerts.success')
           @include('content.alerts.errors')
 
+          @if(Session::get('from_forgot_password'))
+          <div style="border: 1px solid #3ab73a; text-align:center; border-radius: 10px;">
+            <span>{{Session::get('from_forgot_password')}}</span>
+          </div>
+          @endif
+
           <form class="auth-login-form mt-2" action="{{ route('login.do') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -44,7 +50,7 @@
             <div class="form-group">
               <div class="d-flex justify-content-between">
                 <label for="login-password">@lang('data.Password')</label>
-                <a href="{{url('auth/forgot-password-v1')}}">
+                <a href="{{ route('reset-password') }}">
                   <small>@lang('data.Forgot Password?')</small>
                 </a>
               </div>

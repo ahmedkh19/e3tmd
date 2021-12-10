@@ -22,10 +22,10 @@ class SettingsController extends Controller
         $request->validate([
             'slider_images.*' => 'mimes:jpg,jpeg,png',
         ]);
+        
         // return $request;
         try {
             DB::beginTransaction();
-
             $images = Setting::where('key', '=', 'slider_images')->first();
             $commission = Setting::where('key', '=', 'commission')->first();
             $ad_price = Setting::where('key', '=', 'ad_price')->first();
