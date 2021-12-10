@@ -52,6 +52,9 @@ class ConversationsController extends Controller
         } else
             $conversations = Conversation::all();
 
+        if (!$conversation->product) {
+            return 'الحساب محذوف';
+        }
 
         return view('/content/chat/show', [
             'pageConfigs' => $pageConfigs
