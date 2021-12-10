@@ -53,7 +53,7 @@ class ConversationsController extends Controller
             $conversations = Conversation::all();
 
         if (!$conversation->product) {
-            return 'الحساب محذوف';
+            return redirect()->route('chat.index')->with(['error', 'الحساب محذوف']);
         }
 
         return view('/content/chat/show', [
