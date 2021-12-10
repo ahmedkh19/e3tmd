@@ -25,7 +25,8 @@
             <i data-feather="menu" class="font-medium-5"></i>
           </div>
           <div class="avatar avatar-border user-profile-toggle m-0 mr-1">
-            <img src="{{ asset('uploads/images/products/' . $conversation->product->main_image) }}" alt="avatar" height="36" width="36" />
+            <?php $product_image = $conversation->product->main_image ? asset('uploads/images/products/' . $conversation->product->main_image): asset('/uploads/images/avatars/user.jpg' ); ?>
+            <img src="{{ $product_image  }}" alt="avatar" height="36" width="36" />
           </div>
           <a style="color:#d0d2d6" href="{{ route('product.info', $conversation->product->slug) }}" class="mb-0">{{ $conversation->name != '' ? $conversation->name : $conversation->users->pluck('name')->join(', ') }}</a>
         </div>

@@ -2,7 +2,9 @@
    @forelse($conversations as $conversation)
 
     <li class="{{ \Str::contains(request()->path(), $conversation->uuid) ? 'active' : '' }}">
-            <span class="avatar"><img src="{{ asset('uploads/images/products/' . $conversation->product->main_image) }}" height="42" width="42" alt="Generic placeholder image" />
+        <?php $product_image = $conversation->product->main_image ? asset('uploads/images/products/' . $conversation->product->main_image): asset('/uploads/images/avatars/user.jpg' ); ?>
+
+        <span class="avatar"><img src="{{ $product_image }}" height="42" width="42" alt="Generic placeholder image" />
             </span>
             <a href="{{ route('chat.show', $conversation) }}" class="chat-info flex-grow-1">
                 <h5 class="mb-0">{{ $conversation->name != '' ? $conversation->name : $conversation->users()->pluck('name')->join(', ') }}</h5>
