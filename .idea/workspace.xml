@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ConversationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ConversationsController.php" afterDir="false" />
-    </list>
+    <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -382,7 +380,7 @@
       <workItem from="1638363634668" duration="6408000" />
       <workItem from="1638372569799" duration="5801000" />
       <workItem from="1638477798424" duration="4942000" />
-      <workItem from="1639122695194" duration="1037000" />
+      <workItem from="1639122695194" duration="1437000" />
     </task>
     <servers />
   </component>
@@ -414,10 +412,10 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="743" y="262" width="424" height="491" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1634986270014" />
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1639123642815">
+    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1639124099918">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1639123642815" />
+    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1639124099918" />
     <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1638481761633" />
   </component>
   <component name="XDebuggerManager">
@@ -437,6 +435,15 @@
           <url>file://$PROJECT_DIR$/resources/views/panels/footer.blade.php</url>
           <line>9</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php</url>
+          <line>90</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\Admin\PaymentsController" />
+            <option name="methodName" value="withdrawDetailsAjax" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
