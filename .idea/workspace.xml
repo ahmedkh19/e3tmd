@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/content/chat/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/chat/show.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -382,7 +380,7 @@
       <workItem from="1638363634668" duration="6408000" />
       <workItem from="1638372569799" duration="5801000" />
       <workItem from="1638477798424" duration="4942000" />
-      <workItem from="1639122695194" duration="120000" />
+      <workItem from="1639122695194" duration="434000" />
     </task>
     <servers />
   </component>

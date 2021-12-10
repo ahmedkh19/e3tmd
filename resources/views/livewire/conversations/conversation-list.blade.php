@@ -2,7 +2,7 @@
    @forelse($conversations as $conversation)
 
     <li class="{{ \Str::contains(request()->path(), $conversation->uuid) ? 'active' : '' }}">
-        <?php $product_image = $conversation->product->main_image ? asset('uploads/images/products/' . $conversation->product->main_image): asset('/uploads/images/avatars/user.jpg' ); ?>
+        <?php $product_image = isset($conversation->product->main_image) ? asset('uploads/images/products/' . $conversation->product->main_image): asset('/uploads/images/avatars/user.jpg' ); ?>
 
         <span class="avatar"><img src="{{ $product_image }}" height="42" width="42" alt="Generic placeholder image" />
             </span>
