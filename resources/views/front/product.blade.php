@@ -9,7 +9,7 @@
       <!-- /.overlay -->
 
       <!-- content area -->
-      <div class="content-section text-light pt-8">
+      <div class="content-section text-light pt-8" style="padding-bottom: 2rem;">
         <div class="container">
           <div class="row gutters-y">
             <div class="col-12">
@@ -86,36 +86,6 @@
                         @endif
                       </div>
                     </div>
-                    @if (count($author_others))
-                    <div class="mb-6">
-                      <h6 class="mb-0 fw-400 text-uppercase">{{__('data.More from this seller')}}</h6>
-                      <hr class="border-secondary my-2">
-                      <div>
-                        <div class="owl-carousel carousel_sm" data-carousel-items="1, 2, 3, 3" data-carousel-margin="10" data-carousel-nav="false" data-carousel-dots="true">
-                        @foreach ($author_others as $post)
-                          <!-- item -->
-                          <div class="item">
-                            <a href="{{ $post->slug }}">
-                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(/uploads/images/products/{{ $post->main_image }});">
-                                <div class="position-absolute w-100 l-0 b-0 bg-dark_A-80 text-light">
-                                  <div class="px-4 py-3 lh-1">
-                                    <h6 class="mb-1 small-1 text-light text-uppercase">{{ $post->name }}</h6>
-                                    <div class="price d-flex flex-wrap align-items-center">
-                                      <span class="discount_final text-warning small-2">
-                                      @if ($post->price) {{ $post->price . currency($post->currency,false) }} @else {{ $post->start_bid_amount . currency($post->currency,false) }} <i class="fas fa-clock"></i> @endif
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <!-- !item -->
-                        @endforeach
-                        </div>
-                      </div>
-                    </div>
-                    @endif
                   </div>
                 </div>
               </div>
@@ -222,6 +192,30 @@
       <!-- /.content area -->
 
       <!-- featured -->
+      @if (count($author_others))
+      <section class="container text-light" style="margin-bottom: 2rem;">
+        <div class="border border-secondary py-5 px-2">
+          <div class="mx-3 mb-6">
+            <h6 class="mb-4 fw-400 text-uppercase">{{__('data.More from this seller')}}</h6>
+            <hr class="border-secondary my-2">
+          </div>
+          <div class="owl-carousel" data-carousel-items="1, 3, 6">
+          @foreach ($author_others as $post)
+            <!-- item -->
+            <div class="item mx-3">
+              <a href="{{ $post->slug }}"><img style="height:150px" src="/uploads/images/products/{{ $post->main_image }}" alt="Game" class="mb-3"></a>
+              <a href="{{ $post->slug }}" class="text-uppercase fw-500 small-2 mb-0">{{ $post->name }}</a>
+              <span class="d-block small text-warning">@if ($post->price) {{ $post->price . currency($post->currency,false) }} @else {{ $post->start_bid_amount . currency($post->currency,false) }} <i class="fas fa-clock"></i> @endif</span>
+            </div>
+            <!-- /.item -->
+          @endforeach
+          </div>
+        </div>
+      </section>
+      @endif
+      <!-- /.featured -->
+
+      <!-- featured -->
       @if (count($similar_posts))
       <section class="container text-light">
         <div class="border border-secondary py-5 px-2">
@@ -233,7 +227,7 @@
           @foreach ($similar_posts as $post)
             <!-- item -->
             <div class="item mx-3">
-              <img style="height:150px" src="/uploads/images/products/{{ $post->main_image }}" alt="Game" class="mb-3">
+              <a href="{{ $post->slug }}"><img style="height:150px" src="/uploads/images/products/{{ $post->main_image }}" alt="Game" class="mb-3"></a>
               <a href="{{ URL( '/product/' . $post->slug) }}" class="text-uppercase fw-500 small-2 mb-0">{{ $post->name }}</a>
               <span class="time d-block small-4">{{ substr($post->created_at, 0, 10 ) }}</span>
               <span class="d-block small text-warning"><i class="far fa-eye"></i> {{ $post->viewed }}</span>
