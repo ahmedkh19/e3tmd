@@ -37,6 +37,8 @@ use App\Http\Controllers\Admin\SettingsController;
 |
 */
 
+Auth::routes(['verify' => true]);
+
 /* Webhook */
 //I disabled the Csrf from (VerifyCsrfToken) file
 Route::post('qrcode', function (Request $request) {
@@ -74,6 +76,8 @@ Route::group(
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('register', [RegisterController::class, 'store'])->name('register.do');
     /* Register */
+    
+    Route::get('login/resendVerification', [LoginController::class, 'resend_verification'])->middleware("throttle:3,1440");
 
     /* Frontend */
 

@@ -12,6 +12,7 @@ use Symfony\Component\Console\Input\Input;
 use Validator;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -55,6 +56,21 @@ class LoginController extends Controller
         Auth::logout(); // log the user out of our application
         return redirect()->route('login');
     }
+    
+    public function resend_verification(Request $request) {
+        if ( $request->email && filter_var( $request->email , FILTER_VALIDATE_EMAIL ) ) {
+            $user = User::where('email', '=', $request->email)->first();
+            if ( $user ) {
+                if ( $user->hasVerifiedEmail() ) {
+                    return redirect()->route('login');
+                }
+                $user->sendEmailVerificationNotification();
+            }
+            return redirect()->route('login')->with(['success' => "Sent if email existed in our database, Check your Email"]);
+        } else {
+            return redirect()->route('login')->with(['error' => "Email is not Valid"]);
+        }
+    }
 
     // Login
     public function doLogin(LoginRequest $request){
@@ -66,6 +82,12 @@ class LoginController extends Controller
 
         // attempt to do the login
         if (Auth::attempt($userdata, $remember_me)) {
+            if ( ! Auth::user()->hasVerifiedEmail() ) {
+                Auth::logout();
+                $resend_url = "/login/resendVerification?email=" . $userdata["email"];
+                $error = "Email Not Verified yet, Check Your Email <a href=\"$resend_url\">Resend again</a>";
+                return redirect()->route('login')->with(['error' => $error]);
+            }
             return redirect()->route('dashboard-ecommerce');
         }
         return redirect()->route('login')->with(['error' => __('data.Login Failed')]);

@@ -54,7 +54,8 @@ class RegisterController extends Controller
                 'username' => 'required|string|alpha_dash|max:255|unique:users,username',
                 'mobile' => 'required|unique:users,mobile|phone:country',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required'
+                'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+                'policy' => 'required'
             ],
             [
                 'name.required'    => __('data.The name is required'),
@@ -63,6 +64,7 @@ class RegisterController extends Controller
                 'mobile.required' => __('data.Please Provide Your phone number For Better Communication, Thank You'),
                 'mobile.unique' => __('data.Sorry, This Phone Number Is Already Used By Another User. Please Try With Different One, Thank You'),
                 'mobile.phone' => __('data.Sorry, This Phone Number Is Incorrect, Please Check The Phone Number Format And Try Again, Thank You'),
+                'password.regex'    => "make sure at least it have a one char, one cap and one number",
             ]
         );
         // return $request;
@@ -83,8 +85,9 @@ class RegisterController extends Controller
 
 
             $user->assignRole($Role);
+            $user->sendEmailVerificationNotification();
             return redirect()->route('login')
-                ->with('success', 'User created successfully');
+                ->with('success', 'User created successfully, Check your email to confirm the Account');
         } catch (\Exception $ex) {
             return redirect()->back()
                 ->with('error', __('data.An error occurred, please try again later:' . $ex));

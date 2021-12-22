@@ -42,6 +42,7 @@
                     placeholder="Khaled Samir"
                     aria-describedby="register-username"
                     tabindex="1"
+                    value="{{@old('name')}}"
                     autofocus
             />
           </div>
@@ -56,6 +57,7 @@
               id="register-username"
               name="username"
               placeholder="i3tmd"
+              value="{{@old('username')}}"
               aria-describedby="register-username"
               tabindex="1"
               autofocus
@@ -140,6 +142,7 @@
               id="register-email"
               name="email"
               placeholder="john@example.com"
+              value="{{@old('email')}}"
               aria-describedby="register-email"
               tabindex="2"
             />
@@ -170,11 +173,14 @@
           </div>
           <div class="form-group">
             <div class="custom-control custom-checkbox">
-              <input class="custom-control-input" type="checkbox" id="register-privacy-policy" tabindex="4" />
+              <input required class="custom-control-input" name="policy" type="checkbox" id="register-privacy-policy" tabindex="4" />
               <label class="custom-control-label" for="register-privacy-policy">
                 @lang('data.I agree to') <a target="_blank" href="{{ asset('uploads/pdf/Terms&Privacy.pdf') }}">@lang('data.privacy policy & terms')</a>
               </label>
             </div>
+            @error("policy")
+            <span class="text-danger">{{$message}}</span>
+            @enderror
           </div>
           <button class="btn btn-primary btn-block" tabindex="5">@lang('data.Sign up')</button>
         </form>
