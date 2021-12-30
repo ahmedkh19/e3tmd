@@ -29,7 +29,10 @@ class Setting extends Model
         return Setting::where(['key' => 'withdraw_min'])->get()->first()->value;
     }
 
-    public static function getAdPrice() {
-        return Setting::where(['key' => 'ad_price'])->get()->first()->value;
+    public static function getAdFixedPrice() {
+        return Setting::where(['key' => 'ad_fixed_price'])->get()->first()->value;
+    }
+    public static function getAdAuctionPrice() {
+        return Setting::where(['key' => 'ad_auction_price'])->get()->first()->value;
     }
 }

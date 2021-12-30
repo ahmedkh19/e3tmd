@@ -23,8 +23,13 @@ class SettingDatabaseSeeder extends Seeder
             ],
 
             [
-                'key' => 'ad_price',
+                'key' => 'ad_fixed_price',
                 'value' => 25
+            ],
+
+            [
+                'key' => 'ad_auction_price',
+                'value' => 18
             ],
 
             [

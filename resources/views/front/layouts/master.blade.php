@@ -137,6 +137,9 @@
               <a class="nav-link" href="{{ route('shop') }}">{{ __('front.shop') }}</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ route('home') }}/shop#bids">{{ __('front.bids') }}</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('home') }}/#about">{{ __('front.about') }}</a>
             </li>
           </ul>

@@ -28,7 +28,8 @@ class SettingsController extends Controller
             DB::beginTransaction();
             $images = Setting::where('key', '=', 'slider_images')->first();
             $commission = Setting::where('key', '=', 'commission')->first();
-            $ad_price = Setting::where('key', '=', 'ad_price')->first();
+            $ad_fixed_price = Setting::where('key', '=', 'ad_fixed_price')->first();
+            $ad_auction_price = Setting::where('key', '=', 'ad_auction_price')->first();
             $min_amount = Setting::where('key', '=', 'min_amount')->first();
             $withdraw_min = Setting::where('key', '=', 'withdraw_min')->first();
 
@@ -64,7 +65,8 @@ class SettingsController extends Controller
 
             $images->update(['key' => 'slider_images', 'value' => json_encode($the_images, JSON_UNESCAPED_UNICODE)]);
             $commission->update(['key' => 'commission', 'value' => $request->commission]);
-            $ad_price->update(['key' => 'ad_price', 'value' => $request->ad_price]);
+            $ad_fixed_price->update(['key' => 'ad_fixed_price', 'value' => $request->ad_fixed_price]);
+            $ad_auction_price->update(['key' => 'ad_auction_price', 'value' => $request->ad_auction_price]);
             $min_amount->update(['key' => 'min_amount', 'value' => $request->min_amount]);
             $withdraw_min->update(['key' => 'withdraw_min', 'value' => $request->withdraw_min]);
             DB::commit();

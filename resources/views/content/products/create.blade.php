@@ -294,8 +294,19 @@
           <info>
             <div class="row">
               <div class="form-group col-md-6">
+                <script>
+                    function handleAdPrice(method) {
+                      var fixed_price = "{{ Setting::getAdFixedPrice() }}";
+                      var auction_price = "{{ Setting::getAdAuctionPrice() }}";
+                      var ad_price = fixed_price;
+                      if (method == "Auction") { ad_price = auction_price; }
+                      document.getElementById("ad_price_action_fixed").innerHTML = ad_price;
+                      var method_desciption = " @lang('data.SAR') @lang('data.per advertisement')";
+                      document.getElementById("ad_price_action_fixed_mini").innerHTML = ad_price + method_desciption; 
+                    }
+                </script>
                 <label class="form-label" for="pricing_method">@lang('data.Pricing Method')</label>
-                <select class="select2 w-100" name="pricing_method" id="pricing_method">
+                <select class="select2 w-100" onchange="handleAdPrice(this.value);" name="pricing_method" id="pricing_method">
                   <option label=" "></option>
                   <option value="Fixed"
                           @if (old('pricing_method') === 'Fixed') selected @endif >@lang('data.Fixed price')</option>
@@ -435,12 +446,12 @@
                         <div class="annual-plan">
                           <div class="plan-price mt-2">
                             <sup class="font-medium-1 font-weight-bold text-primary">@lang('data.SAR')</sup>
-                            <span class="pricing-standard-value font-weight-bolder text-primary">{{ Setting::getAdPrice() }}</span>
+                            <span class="pricing-standard-value font-weight-bolder text-primary" id="ad_price_action_fixed">{{ Setting::getAdFixedPrice() }}</span>
                           </div>
                           <small class="annual-pricing d-none text-muted"></small>
                         </div>
                         <ul class="list-group list-group-circle text-left">
-                          <li class="list-group-item">{{ Setting::getAdPrice() }} @lang('data.SAR') @lang('data.per advertisement') </li>
+                          <li class="list-group-item" id="ad_price_action_fixed_mini">{{ Setting::getAdFixedPrice() }}  @lang('data.SAR') @lang('data.per advertisement')</li>
                           <li class="list-group-item">@lang('data.No commission after sale')</li>
                           <li class="list-group-item">@lang('data.Follow up on the sales process')</li>
                           <li class="list-group-item">@lang('data.The option to request a data change before handing over the account')</li>

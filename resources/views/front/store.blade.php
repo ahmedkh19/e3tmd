@@ -10,7 +10,7 @@
       <section class="content-section top_sellers carousel-spotlight ig-carousel pt-0 text-light">
         <div class="container">
           <header class="header">
-            <h2>{{__('data.Most popular products')}}</h2>
+            <h2 id="bids">{{__('data.Most popular products')}}</h2>
           </header>
           <div class="position-relative">
             <div class="row">
@@ -348,5 +348,18 @@
 
     </main>
     <script src="/front/assets/js/shop_slider.js"></script>
+    <script>
+        if ( window.location.href.indexOf("shop#bids") != -1 ) {
 
+            document.getElementById("mp-2-02-tab").setAttribute("aria-selected", true);
+            document.getElementById("mp-2-02-tab").classList = "nav-link active show";
+            document.getElementById("mp-2-02-c").classList = "tab-pane fade active show";
+            document.getElementById("ma-2-02-c").style.display = "";
+
+            document.getElementById("mp-2-01-tab").setAttribute("aria-selected", false);
+            document.getElementById("mp-2-01-tab").classList = "nav-link";
+            document.getElementById("mp-2-01-c").classList = "tab-pane fade";
+            document.getElementById("ma-2-01-c").style.display = "none";
+        }
+    </script>
 @stop

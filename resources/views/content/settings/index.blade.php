@@ -74,16 +74,27 @@
               </div>
 
 
-              <label for="ad_price_field">{{ __('data.Ad price') }}</label>
+              <label for="ad_fixed_price_field">{{ __('data.Ad Fixed price') }}</label>
               <div class="input-group mb-2">
                 <input
-                        id="ad_price_field"
+                        id="ad_fixed_price_field"
                         type="text"
-                        name="ad_price"
-                        value="@if (old('ad_price')){{old('ad_price')}}@else{{$settings[1]->value}}@endif"
+                        name="ad_fixed_price"
+                        value="@if (old('ad_fixed_price')){{old('ad_fixed_price')}}@else{{$settings[1]->value}}@endif"
                         class="form-control"
-                        placeholder="info@wasla.net"
-                        aria-label="ad_price_field"
+                        aria-label="ad_fixed_price_field"
+                />
+              </div>
+
+              <label for="ad_auction_price_field">{{ __('data.Ad Auction price') }}</label>
+              <div class="input-group mb-2">
+                <input
+                        id="ad_auction_price_field"
+                        type="text"
+                        name="ad_auction_price"
+                        value="@if (old('ad_auction_price')){{old('ad_auction_price')}}@else{{$settings[2]->value}}@endif"
+                        class="form-control"
+                        aria-label="ad_auction_price_field"
                 />
               </div>
 
@@ -94,7 +105,7 @@
                         name="min_amount"
                         class="form-control"
                         placeholder="3"
-                        value="@if (old('min_amount')){{old('min_amount')}}@else{{$settings[2]->value}}@endif"
+                        value="@if (old('min_amount')){{old('min_amount')}}@else{{$settings[3]->value}}@endif"
                         aria-label="min_amount"
                         id="min_amount_field"
                 />
@@ -108,7 +119,7 @@
                         name="withdraw_min"
                         class="form-control"
                         placeholder="3"
-                        value="@if (old('min_amount')){{old('min_amount')}}@else{{$settings[3]->value}}@endif"
+                        value="@if (old('min_amount')){{old('min_amount')}}@else{{$settings[4]->value}}@endif"
                         aria-label="withdraw_min"
                         id="withdraw_min_field"
                 />
@@ -123,7 +134,7 @@
 
                 <output id="images_result" class="row">
                                 
-                @foreach (json_decode($settings[4]->value) as $image)
+                @foreach (json_decode($settings[5]->value) as $image)
                     <div>
                        <span class="remove_img position-absolute" onclick="this.parentNode.remove();">x</span>
                        <img src="{{ URL( 'front/assets/img/content/slider/' . $image ) }}" class="thumbnail" />

@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->string('pricing_method');
             $table->boolean('isSold')->default(0);
             $table->boolean('isPaid')->default(0);
-            $table->decimal('price', 18, 4)->unsigned()->nullable();
+            $table->decimal('price', 18, 2)->unsigned()->nullable();
             $table->unsignedInteger('commission')->unsigned()->nullable();
             $table->string("os")->nullable()->default("o"); // mean other
             $table->string("currency")->default("rs");
