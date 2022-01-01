@@ -21,14 +21,12 @@
 <!-- Dashboard Ecommerce Starts -->
 <section id="dashboard-ecommerce">
   <div class="row match-height">
+  @if (Auth::user()->roles_name[0] == "Vendor" || Auth::user()->roles_name[0] == "Owner")
     <!-- Statistics Card -->
     <div class="col-xl-12 col-md-12 col-12">
       <div class="card card-statistics">
         <div class="card-header">
           <h4 class="card-title">@lang('data.Statistics')</h4>
-          <div class="d-flex align-items-center">
-            <p class="card-text font-small-2 mr-25 mb-0">Updated 1 month ago</p>
-          </div>
         </div>
         <div class="card-body statistics-body">
           <div class="row">
@@ -40,11 +38,12 @@
                   </div>
                 </div>
                 <div class="media-body my-auto">
-                  <h4 class="font-weight-bolder mb-0">230k</h4>
+                  <h4 class="font-weight-bolder mb-0">{{App\Http\Controllers\Admin\DashboardController::sales()}}</h4>
                   <p class="card-text font-small-3 mb-0">@lang('data.Sales')</p>
                 </div>
               </div>
             </div>
+            @if (Auth::user()->roles_name[0] == "Owner")
             <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
               <div class="media">
                 <div class="avatar bg-light-info mr-2">
@@ -53,24 +52,12 @@
                   </div>
                 </div>
                 <div class="media-body my-auto">
-                  <h4 class="font-weight-bolder mb-0">8.549k</h4>
+                  <h4 class="font-weight-bolder mb-0">{{App\Models\User::where("roles_name","=",'["Member"]')->count()}}</h4>
                   <p class="card-text font-small-3 mb-0">@lang('data.Customers')</p>
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
-              <div class="media">
-                <div class="avatar bg-light-danger mr-2">
-                  <div class="avatar-content">
-                    <i data-feather="box" class="avatar-icon"></i>
-                  </div>
-                </div>
-                <div class="media-body my-auto">
-                  <h4 class="font-weight-bolder mb-0">1.423k</h4>
-                  <p class="card-text font-small-3 mb-0">@lang('data.Products')</p>
-                </div>
-              </div>
-            </div>
+            @endif
             <div class="col-xl-3 col-sm-6 col-12">
               <div class="media">
                 <div class="avatar bg-light-success mr-2">
@@ -79,7 +66,7 @@
                   </div>
                 </div>
                 <div class="media-body my-auto">
-                  <h4 class="font-weight-bolder mb-0">$9745</h4>
+                  <h4 class="font-weight-bolder mb-0">{{App\Http\Controllers\Admin\DashboardController::Revenue()[4]}}</h4>
                   <p class="card-text font-small-3 mb-0">@lang('data.Revenue')</p>
                 </div>
               </div>
@@ -89,6 +76,7 @@
       </div>
     </div>
     <!--/ Statistics Card -->
+    @endif
   </div>
 
   <div class="row match-height">
@@ -152,32 +140,33 @@
         </div>
         <!--/ Congratulations Card -->
 
+       @if (Auth::user()->roles_name[0] == "Vendor" || Auth::user()->roles_name[0] == "Owner")
         <!-- Orders Chart Card starts -->
         <div class="col-lg-12 col-sm-12 col-12">
           <div class="card">
             <div class="card-header flex-column align-items-start pb-0">
               <div class="avatar bg-light-primary p-50 m-0">
                 <div class="avatar-content">
-                  <i data-feather="users" class="font-medium-5"></i>
+                  <i data-feather="box" class="font-medium-5"></i>
                 </div>
               </div>
-              <h2 class="font-weight-bolder mt-1">92.6k</h2>
-              <p class="card-text">Orders</p>
+              <h2 class="font-weight-bolder mt-1">{{ App\Http\Controllers\Admin\DashboardController::getOrders()[0] }}</h2>
+              <p class="card-text">@lang('data.Products')</p>
             </div>
             <div id="gained-chart"></div>
           </div>
         </div>
         <!-- Orders Chart Card ends -->
-
+       @endif
       </div>
     </div>
 
+    @if (Auth::user()->roles_name[0] == "Vendor" || Auth::user()->roles_name[0] == "Owner")
     <!-- Revenue Card -->
     <div class="col-lg-8 col-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h4 class="card-title">@lang('data.Revenue')</h4>
-          <i data-feather="settings" class="font-medium-3 text-muted cursor-pointer"></i>
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-start mb-3">
@@ -185,14 +174,14 @@
               <p class="card-text mb-50">@lang('data.This Month')</p>
               <h3 class="font-weight-bolder">
                 <sup class="font-medium-1 font-weight-bold">$</sup>
-                <span class="text-primary">86,589</span>
+                <span class="text-primary">{{App\Http\Controllers\Admin\DashboardController::Revenue()[0]}}</span>
               </h3>
             </div>
             <div>
               <p class="card-text mb-50">@lang('data.Last Month')</p>
               <h3 class="font-weight-bolder">
                 <sup class="font-medium-1 font-weight-bold">$</sup>
-                <span>73,683</span>
+                <span>{{App\Http\Controllers\Admin\DashboardController::Revenue()[1]}}</span>
               </h3>
             </div>
           </div>
@@ -201,7 +190,7 @@
       </div>
     </div>
     <!--/ Revenue Card -->
-
+    @endif
   </div>
 
 
@@ -217,7 +206,156 @@
 @section('page-script')
   {{-- Page js files --}}
   <script src="{{ asset(mix('js/scripts/pages/dashboard-ecommerce.js')) }}"></script>
-  <script src="{{ asset(mix('js/scripts/cards/card-analytics.js')) }}"></script>
-  <script src="{{ asset(mix('js/scripts/pages/dashboard-analytics.js')) }}"></script>
+  
+  <script>
+  <?php 
+      $products_week = App\Http\Controllers\Admin\DashboardController::getOrders()[1];
+      $revenue_this_month = App\Http\Controllers\Admin\DashboardController::Revenue()[2];
+      $revenue_last_month = App\Http\Controllers\Admin\DashboardController::Revenue()[3];
+  ?>
+$(window).on('load', function () {
+  gainedChartOptions = {
+    chart: {
+      height: 100,
+      type: 'area',
+      toolbar: {
+        show: false
+      },
+      sparkline: {
+        enabled: true
+      }
+    },
+    colors: [window.colors.solid.primary],
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth',
+      width: 2.5
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 0.9,
+        opacityFrom: 0.7,
+        opacityTo: 0.5,
+        stops: [0, 80, 100]
+      }
+    },
+    series: [
+      {
+        name: 'Accounts',
+        data: [{{$products_week[0]}}, {{$products_week[1]}}, {{$products_week[2]}}, {{$products_week[3]}}, {{$products_week[4]}}, {{$products_week[5]}}, {{$products_week[6]}}]
+      }
+    ],
+    yaxis: [
+      {
+        y: 0,
+        offsetX: 0,
+        offsetY: 0,
+        padding: { left: 0, right: 0 }
+      }
+    ],
+    tooltip: {
+      x: { show: false }
+    }
+  };
+  gainedChart = new ApexCharts(document.querySelector('#gained-chart'), gainedChartOptions);
+  gainedChart.render();
+
+  revenueChartOptions = {
+    chart: {
+      height: 240,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      type: 'line',
+      offsetX: -10
+    },
+    stroke: {
+      curve: 'smooth',
+      dashArray: [0, 12],
+      width: [4, 3]
+    },
+    grid: {
+      borderColor: '#e7eef7'
+    },
+    legend: {
+      show: false
+    },
+    colors: ['#d0ccff', '#ebe9f1'],
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'dark',
+        inverseColors: false,
+        gradientToColors: [window.colors.solid.primary, '#ebe9f1'],
+        shadeIntensity: 1,
+        type: 'horizontal',
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [0, 100, 100, 100]
+      }
+    },
+    markers: {
+      size: 0,
+      hover: {
+        size: 5
+      }
+    },
+    xaxis: {
+      labels: {
+        style: {
+          colors: '#b9b9c3',
+          fontSize: '1rem'
+        }
+      },
+      axisTicks: {
+        show: false
+      },
+      categories: ['1','5','9','13','17','21','26','31'],
+      axisBorder: {
+        show: false
+      },
+      tickPlacement: 'on'
+    },
+    yaxis: {
+      tickAmount: 5,
+      labels: {
+        style: {
+          colors: '#b9b9c3',
+          fontSize: '1rem'
+        },
+        formatter: function (val) {
+          return val > 999 ? (val / 1000).toFixed(0) + 'k' : val;
+        }
+      }
+    },
+    grid: {
+      padding: {
+        top: -20,
+        bottom: -10,
+        left: 20
+      }
+    },
+    tooltip: {
+      x: { show: false }
+    },
+    series: [
+      {
+        name: 'This Month',
+        data: [{{$revenue_this_month[0]}},{{$revenue_this_month[1]}},{{$revenue_this_month[2]}},{{$revenue_this_month[3]}},{{$revenue_this_month[4]}},{{$revenue_this_month[5]}},{{$revenue_this_month[6]}},{{$revenue_this_month[7]}}]
+      },
+      {
+        name: 'Last Month',
+        data: [{{$revenue_last_month[0]}},{{$revenue_last_month[1]}},{{$revenue_last_month[2]}},{{$revenue_last_month[3]}},{{$revenue_last_month[4]}},{{$revenue_last_month[5]}},{{$revenue_last_month[6]}},{{$revenue_last_month[7]}}]
+      }
+    ]
+  };
+  revenueChart = new ApexCharts(document.querySelector('#revenue-chart'), revenueChartOptions);
+  revenueChart.render();
+
+});
+
+  </script>
   <script src="{{ asset(mix('js/scripts/pages/app-invoice-list.js')) }}"></script>
 @endsection

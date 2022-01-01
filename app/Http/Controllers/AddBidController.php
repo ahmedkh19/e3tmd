@@ -23,6 +23,10 @@ class AddBidController extends Controller
             $bidamount = floatval($request->amount);
             
             if ( $userid && $bidamount && $product ) {
+            
+                if ( Auth::user()->roles_name[0] != "Member" ) {
+                    return redirect()->back()->with('bid_message', 'عذرا لا يمكن اتمام الطلب يرجي فتح حساب عضو والتواصل مع البائعين');
+                }
 
                 if ( $product->isSold ) {
                     return redirect()->back()->with('bid_message', 'هذا الحساب تم بيعه');

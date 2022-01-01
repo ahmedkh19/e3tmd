@@ -75,6 +75,7 @@
           </span>
           </button>
         </div>
+{{--
         <div class="line">
           <i data-feather="chevron-right" class="font-medium-2"></i>
         </div>
@@ -89,6 +90,7 @@
           </span>
           </button>
         </div>
+--}}
       </div>
       <!--bs-stepper-header end-->
 
@@ -473,14 +475,11 @@
               <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
               <span class="align-middle d-sm-inline-block d-none">@lang('data.Previous')</span>
             </button>
-            <button class="btn btn-primary btn-next" type="button">
-              <span class="align-middle d-sm-inline-block d-none">@lang('data.Next')</span>
-              <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-            </button>
+            <button class="btn btn-success ">@lang('data.Submit')</button>
           </div>
         </div>
 
-
+{{--
         <div id="social-links" class="content">
           <div class="content-header">
             <h5 class="mb-0">@lang('data.Account Data(Optional)')</h5>
@@ -581,6 +580,7 @@
       </form>
 
     </div>
+--}}
   </section>
   <!-- /Horizontal Wizard -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>

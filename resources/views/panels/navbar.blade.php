@@ -75,16 +75,21 @@
             </span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-            <a class="dropdown-item" href="{{url('page/profile')}}">
+            <?php $id = auth()->id(); $profile = "users/$id/edit"; ?>
+            @if (\App\Models\User::find( auth()->id() )->roles[0]->name == "Owner")
+            <a class="dropdown-item" href="{{url($profile)}}">
               <i class="mr-50" data-feather="user"></i> Profile
             </a>
-            <a class="dropdown-item" href="{{url('app/chat')}}">
+            @endif
+            <a class="dropdown-item" href="{{url('chat')}}">
               <i class="mr-50" data-feather="message-square"></i> Chats
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{url('page/account-settings')}}">
+            @if (\App\Models\User::find( auth()->id() )->roles[0]->name == "Owner")
+            <a class="dropdown-item" href="{{url('settings')}}">
               <i class="mr-50" data-feather="settings"></i> Settings
             </a>
+            @endif
             <a class="dropdown-item" href="{{route('logout')}}">
               <i class="mr-50" data-feather="power"></i> Logout
             </a>
