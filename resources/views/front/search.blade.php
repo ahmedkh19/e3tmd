@@ -32,7 +32,7 @@
                             <h4 class="owl_item_title text-lt text-white"><a target="_blank" href="{{ URL( '/product/' . $result->slug) }}">{{ $result->name }}</a></h4>
                             <div class="d-flex justify-content-between">
                                 <span class="fw-bolder text-lt">{{ $result->categories }}</span>
-                                <span class="fw-bolder text-success text-lt">{{ $result->price ? $result->price . currency($result->currency,false): $result->start_bid_amount . currency($result->currency,false); }}</span>
+                                <span class="fw-bolder text-success text-lt">{{ $result->price ? $result->price . currency($result->currency,false): $result->start_bid_amount . currency($result->currency,false) }}</span>
                             </div>
                         <div class="my-2 small text-info">
                             <div><i class="fas fa-clock  mr-1"></i> <span> {{ date('d M Y', strtotime($result->created_at)); }}</span></div>
@@ -56,7 +56,7 @@
                 @endif
                 @endforeach
             @else
-            <span class="alert alert-error">No Results Found</span>
+            <span class="alert alert-error">{{__('data.No Results Found')}}</span>
             @endif
         @endif
         </div>
@@ -124,7 +124,7 @@
                 <li class="page-item">
                     <a @if($before) href="{{ URL('/search?search=' . $search. '&type='. $type . '&page=' . $before) }}" @endif class="page-link" aria-label="Previous">
                     <span class="ti-angle-left small-7" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">{{__('data.Previous')}}</span>
                     </a>
                 </li>
                 @if($one) <li class="page-item @if($one == $page) active @endif"><a href="{{ URL('/search?search=' . $search. '&type='. $type . '&page=' . $one) }}" class="page-link">{{ $one }}</a></li> @endif
@@ -133,7 +133,7 @@
                 <li class="page-item">
                     <a @if($next) href="{{ URL('/search?search=' . $search. '&type='. $type . '&page=' . $next) }}" @endif class="page-link" aria-label="Next">
                     <span class="ti-angle-right small-7" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">{{__('data.Next')}}</span>
                     </a>
                 </li>
             </ul>

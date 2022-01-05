@@ -52,14 +52,12 @@ Route::get('sub_categories/{id}', function($ids) {
 /*
  * USER SEARCH AUTH
  */
-Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/search-users/{search}', function ($search) {
-        return User::select('id', 'username', 'email')
+        return User::select('id','username')
             ->where('username', 'LIKE', "$search%")->get();
     });
 
-});
 
 /*
  * Create Payment API

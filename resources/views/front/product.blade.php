@@ -67,7 +67,7 @@
                   @endif
 
                     <div class="alert alert-no-border alert-share d-flex mb-6" role="alert">
-                      <span class="flex-1 fw-600 text-uppercase text-warning">Share:</span>
+                      <span class="flex-1 fw-600 text-uppercase text-warning">{{__('data.Share')}}:</span>
                       <div class="social-buttons text-unset">
                         <a class="social-twitter mx-2" href="http://twitter.com/share?text={{ $product->name }}&url={{ url()->current() }}"><i class="fab fa-twitter"></i></a>
                         <a class="social-dribbble mx-2" href="https://api.whatsapp.com/send?text={{ $product->name }}%0A%0A{{ url()->current() }}"><i class="fab fa-whatsapp"></i></a>
@@ -115,7 +115,7 @@
                         @if ($product->pricing_method == 'Fixed' )
                           @if( (Auth::check() && Auth::user()->id != $product->user_id) || !Auth::check() )
                             @if ( Auth::user()->roles_name[0] != "Member" )
-                            <a class="discount">يرجي فتح حساب عضو والتواصل مع البائعين</a>
+                            <a class="discount">{{ __('data.Please open a member account to contact the sellers') }}</a>
                             @else
                             <a href="{{ route('chat.create', $EncryptionClass->encryptAES($product->id, env('AES_ENCRYPTION_KEY') )) }}" class="discount">تواصل مع البائع</a>
                             @endif
@@ -128,7 +128,8 @@
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input class="col-4" step="any" name="amount" value="{{ $highest_bid ? $highest_bid +1 :$product->start_bid_amount + 1 }}" type="number">
-                                    <button style="margin-left:10px;color:#fff;cursor:pointer" type="submit" class="col-6 discount">اضف سعر</button>
+                                    <button style="margin-left:10px;color:#fff;cursor:pointer" type="submit" class="col-6 discount">
+                                        {{ __('data.Add a new price') }}</button>
                                 </form>
                               @endif
                             @else

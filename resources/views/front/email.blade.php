@@ -31,10 +31,10 @@
     <body>
         <div class="card">
           <div class="container">
-            <h4><b>الاسم : </b><br><span class="row">{{ $data['name'] }}</span></h4>
-            <h4><b>البريد : </b><br><span class="row">{{ $data['email'] }}</span></h4>
-            <h4><b>الموضوع : </b><br><span class="row">{{ $data['subject'] }}</span></h4>
-            <h4><b>الرسالة : </b><br><span class="row">{{ $data['message'] }}</span></h4>
+            <h4><b>{{__('data.Name')}} : </b><br><span class="row">{{ $data['name'] }}</span></h4>
+            <h4><b>{{__('data.Email')}} : </b><br><span class="row">{{ $data['email'] }}</span></h4>
+            <h4><b>{{__('data.Subject')}} : </b><br><span class="row">{{ $data['subject'] }}</span></h4>
+            <h4><b>{{__('data.Message')}} : </b><br><span class="row">{{ $data['message'] }}</span></h4>
           </div>
         </div>
     </body>

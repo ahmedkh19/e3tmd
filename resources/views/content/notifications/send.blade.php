@@ -84,7 +84,7 @@
                         <label class="form-label" for="description">@lang('data.Users')</label>
                       </div>
                       <div class="col-sm-9">
-                        <input id="userInput2" multiple placeholder="User Name" type="text" name="" list="Users" class="UsersInput form-control" />
+                        <input id="userInput2" multiple placeholder="{{__('data.Username')}}" type="text" name="" list="Users" class="UsersInput form-control" />
                         <p id="UsersMess" class="text-danger"></p>
                           <div id="SelectedUser" type="text" name="" class="form-control" ></div>
                           <input type="hidden" id="final_users" name="final_users" value="">
@@ -203,7 +203,7 @@
               element.addEventListener('click',()=>{
                 if(deleteXArray  ){
                   if(idCheck.includes(element.id)){
-                    UsersMess.textContent = `هذا المستخدم تم تحدبده مسبقاً`
+                    UsersMess.textContent = `{{__('data.This user has already been selected')}}`
 
                   }else{
                     element.remove()
@@ -319,7 +319,7 @@
             });
             if(data.length === 0){
               parDiv.remove()
-              UsersMess.textContent = `...لا يوجد مقترحات لعرضها`
+              UsersMess.textContent = `...{{__('data.No Results Found')}}`
             }
           }else{
             console.log('error');
@@ -328,7 +328,7 @@
         }
 
       }else{
-        UsersMess.textContent = `يجب علي الأقل إدخال تلاثة أحرف`
+        UsersMess.textContent = `{{__('data.At least 3 characters must be entered')}}`
       }
 
     })

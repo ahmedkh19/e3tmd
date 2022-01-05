@@ -28,7 +28,7 @@
             </g>
           </g>
         </svg></span>
-        <h2 class="brand-text mb-0">Vuexy</h2>
+        <h2 class="brand-text mb-0">{{ env('APP_NAME') }}</h2>
         </a>
       </li>
     </ul>
@@ -76,19 +76,19 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
             <a class="dropdown-item" href="{{route('users.edit', auth()->id())}}">
-              <i class="mr-50" data-feather="user"></i> Profile
+              <i class="mr-50" data-feather="user"></i> {{__('data.Profile')}}
             </a>
             <a class="dropdown-item" href="{{url('chat')}}">
-              <i class="mr-50" data-feather="message-square"></i> Chats
+              <i class="mr-50" data-feather="message-square"></i> {{__('data.Chats')}}
             </a>
             <div class="dropdown-divider"></div>
             @if (\App\Models\User::find( auth()->id() )->roles[0]->name == "Owner")
             <a class="dropdown-item" href="{{url('settings')}}">
-              <i class="mr-50" data-feather="settings"></i> Settings
+              <i class="mr-50" data-feather="settings"></i> {{__('data.Settings')}}
             </a>
             @endif
             <a class="dropdown-item" href="{{route('logout')}}">
-              <i class="mr-50" data-feather="power"></i> Logout
+              <i class="mr-50" data-feather="power"></i> {{__('data.Logout')}}
             </a>
           </div>
         </li>

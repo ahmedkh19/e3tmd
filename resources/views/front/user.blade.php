@@ -29,13 +29,13 @@
                   <li class="py-2 py-lg-0">
                     <a id="mp-2-01-tab" data-toggle="tab" href="#mp-2-01-c" role="tab" aria-controls="mp-2-01-c" aria-selected="true" class="profile-nav-link text-uppercase text-center active show">
                       <span class="pr-icon-nav ti-layout-cta-left lead-4 d-block mb-3"></span>
-                      <span class="small-2 fw-400">About</span>
+                      <span class="small-2 fw-400">{{__('data.About')}}</span>
                     </a>
                   </li>
                   <li class="py-2 py-lg-0">
                     <a id="mp-2-02-tab" data-toggle="tab" href="#mp-2-02-c" role="tab" aria-controls="mp-2-02-c" aria-selected="false" class="profile-nav-link text-uppercase text-center">
                       <span class="pr-icon-nav ti-game lead-4 d-block mb-3"></span>
-                      <span class="small-2 fw-400">Accounts</span>
+                      <span class="small-2 fw-400">{{__('data.Accounts')}}</span>
                     </a>
                   </li>
                 </ul>
@@ -68,18 +68,18 @@
                   <div class="col-lg-7 mb-9 mb-lg-0">
     
                     <div id="about" class="mb-8">
-                      <h4>About</h4>
+                      <h4>{{__('data.About')}}</h4>
                       <hr class="w-10 border-top-2 mt-5 mb-5 ml-0 mr-auto border-warning">
                       <div class="row">
                         <div class="col-10 col-lg-11">
                         @if ($user->information->gender == "male")
-                          <span class="lead-1"><i class="fa fa-male"></i> Male</span>
+                          <span class="lead-1"><i class="fa fa-male"></i> {{__('data.Male')}}</span>
                         @elseif ($user->information->gender == "Female")
-                          <span class="lead-1"><i class="fa fa-female"></i> Female</span>
+                          <span class="lead-1"><i class="fa fa-female"></i> {{__('data.Female')}}</span>
                         @endif
                         </div>
                         <div class="col-10 col-lg-11">
-                          <span class="lead-1"><i class="fa fa-calendar"></i> Joined in: {{ date('d M Y', strtotime($user->created_at)); }}</span>
+                          <span class="lead-1"><i class="fa fa-calendar"></i> {{__('data.Joined in')}}: {{ date('d M Y', strtotime($user->created_at)); }}</span>
                         </div>
                       </div>
                     </div>
@@ -88,7 +88,7 @@
                     <div id="comments" class="mb-0">
                       <div class="row">
                         <div class="col-12">
-                          <h4 class="mb-4">Comments ({{ count($comments) }})</h4>
+                          <h4 class="mb-4">{{__('data.Comments')}} ({{ count($comments) }})</h4>
                           <hr class="w-10 border-top-2 mt-5 mb-7 ml-0 mr-auto border-warning">
                         </div>
                       </div>
@@ -108,11 +108,11 @@
                                 <img class="rounded" src="@if(Auth::user()->avatar) {{ URL( '/uploads/images/avatars/' . Auth::user()->avatar) }} @else  {{ URL( '/uploads/images/avatars/user.jpg') }} @endif" alt="{{ Auth::user()->name }}">
                               </div>
                               <div class="form-group col-9 col-sm-10">
-                                <textarea class="form-control form-control" rows="4" placeholder="Your Message" name="message" required="">{{ @old("message") }}</textarea>
+                                <textarea class="form-control form-control" rows="4" placeholder="{{__('data.Your Message')}}" name="message" required="">{{ @old("message") }}</textarea>
                               </div>
                             </div>
                             <div class="d-flex align-items-center justify-content-end">
-                              <div><button class="btn btn-warning" type="submit">Send</button></div>
+                              <div><button class="btn btn-warning" type="submit">{{__('data.Send')}}</button></div>
                             </div>
                           </form>
                         </div>
@@ -153,7 +153,7 @@
                                 <div class="col-9 col-sm-10">
                                   <div class="comment-main border border-secondary"> 
                                     <div class="d-md-flex comment-header border-bottom border-secondary px-4 py-3">
-                                        <h6 class="comment-username fw-500 mb-0">No Comments</h6>
+                                        <h6 class="comment-username fw-500 mb-0">{{ __('data.No comments') }}</h6>
                                     </div>
                                   </div>
                                 </div>  
@@ -169,7 +169,7 @@
                   </div>
                   <div class="col-lg-5">
                     <div class="card bg-dark_A-20 border border-secondary mb-6">
-                      <div class="px-4 pt-3"><span class="fw-600 text-uppercase small-1"><span><i class="fas fa-share-alt text-warning mr-2"></i></span>Socials</span></div>
+                      <div class="px-4 pt-3"><span class="fw-600 text-uppercase small-1"><span><i class="fas fa-share-alt text-warning mr-2"></i></span>{{__('data.Social')}}</span></div>
                       <div class="px-5 py-6">
 
                         <div class="mb-6">
@@ -178,7 +178,7 @@
                               <i class="fa fa-mobile"></i>
                             </div>
                             <div class="col-9 item_content flex-1 flex-grow pl-0 pl-sm-3 pr-3">
-                              <p class="item_title text-lt small-1 mb-0">@if($user->mobile) {{ $user->mobile }} @else Nothing here. @endif</p>
+                              <p class="item_title text-lt small-1 mb-0">@if($user->mobile) {{ $user->mobile }} @else {{__('data.Undefined')}}. @endif</p>
                             </div>
                           </div>
                         </div>
@@ -189,7 +189,7 @@
                               <i class="fab fa-twitter"></i>
                             </div>
                             <div class="col-9 item_content flex-1 flex-grow pl-0 pl-sm-3 pr-3">
-                              <p class="item_title text-lt small-1 mb-0">@if($user->information->twitter) {{ $user->information->twitter }} @else Nothing here. @endif</p>
+                              <p class="item_title text-lt small-1 mb-0">@if($user->information->twitter) {{ $user->information->twitter }} @else {{__('data.Undefined')}}. @endif</p>
                             </div>
                           </div>
                         </div>
@@ -200,7 +200,7 @@
                               <i class="fab fa-facebook"></i>
                             </div>
                             <div class="col-9 item_content flex-1 flex-grow pl-0 pl-sm-3 pr-3">
-                              <p class="item_title text-lt small-1 mb-0">@if($user->information->facebook) {{ $user->information->facebook }} @else Nothing here. @endif</p>
+                              <p class="item_title text-lt small-1 mb-0">@if($user->information->facebook) {{ $user->information->facebook }} @else {{__('data.Undefined')}}. @endif</p>
                             </div>
                           </div>
                         </div>
@@ -211,7 +211,7 @@
                               <i class="fab fa-instagram"></i>
                             </div>
                             <div class="col-9 item_content flex-1 flex-grow pl-0 pl-sm-3 pr-3">
-                              <p class="item_title text-lt small-1 mb-0">@if($user->information->instagram) {{ $user->information->instagram }} @else Nothing here. @endif</p>
+                              <p class="item_title text-lt small-1 mb-0">@if($user->information->instagram) {{ $user->information->instagram }} @else {{__('data.Undefined')}}. @endif</p>
                             </div>
                           </div>
                         </div>           
@@ -222,7 +222,7 @@
                               <i class="fab fa-twitch"></i>
                             </div>
                             <div class="col-9 item_content flex-1 flex-grow pl-0 pl-sm-3 pr-3">
-                              <p class="item_title text-lt small-1 mb-0">@if($user->information->twitch) {{ $user->information->twitch }} @else Nothing here. @endif</p>
+                              <p class="item_title text-lt small-1 mb-0">@if($user->information->twitch) {{ $user->information->twitch }} @else {{__('data.Undefined')}}. @endif</p>
                             </div>
                           </div>
                         </div>
@@ -317,7 +317,7 @@
                         <li onclick="pagination('prev')" class="page-item">
                             <a class="page-link" aria-label="Previous">
                             <span class="ti-angle-left small-7" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                            <span class="sr-only">{{__('data.Previous')}}</span>
                             </a>
                         </li>
                         @for ($i = 1; $i <= ceil($accounts_count/10); $i++)
@@ -326,7 +326,7 @@
                         <li onclick="pagination('next')" class="page-item">
                             <a class="page-link" aria-label="Next">
                             <span class="ti-angle-right small-7" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                            <span class="sr-only">{{__('data.Next')}}</span>
                             </a>
                         </li>
                         </ul>

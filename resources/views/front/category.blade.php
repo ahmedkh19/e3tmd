@@ -31,10 +31,10 @@
                             <h4 class="owl_item_title text-lt text-white"><a href="{{ URL( '/product/' . $result->slug) }}" target="_blank">{{ $result->name }}</a></h4>
                             <div class="d-flex justify-content-between">
                                 <span class="fw-bolder text-lt">{{ $result->categories }}</span>
-                                <span class="fw-bolder text-lt text-success">{{ $result->price ? $result->price . currency($result->currency,false): $result->start_bid_amount . currency($result->currency,false); }}</span>
+                                <span class="fw-bolder text-lt text-success">{{ $result->price ? $result->price . currency($result->currency,false): $result->start_bid_amount . currency($result->currency,false) }}</span>
                             </div>
                         <div class="my-2 small text-info">
-                            <div><i class="fas fa-clock  mr-1"></i> <span> {{ date('d M Y', strtotime($result->created_at)); }}</span></div>
+                            <div><i class="fas fa-clock  mr-1"></i> <span> {{ date('d M Y', strtotime($result->created_at)) }}</span></div>
                         </div>
                         <div class="text-danger">@if ($result->auction_end) <i class="fas fa-hourglass"> {{ $result->auction_end }}</i> @else <i class="fas fa-eye"> {{ $result->viewed }}</i> @endif</div>
                         </div>
@@ -43,7 +43,7 @@
                 <!--card-->
                 @endforeach
             @else
-            <span class="alert alert-error">No Results Found</span>
+            <span class="alert alert-error">{{__('data.No Results Found')}}</span>
             @endif
         @endif
         </div>
@@ -111,7 +111,7 @@
                 <li class="page-item">
                     <a @if($before) href="{{ URL('/categories/' . $categoryslug . '?&page=' . $before) }}" @endif class="page-link" aria-label="Previous">
                     <span class="ti-angle-left small-7" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">{{__('data.Previous')}}</span>
                     </a>
                 </li>
                 @if($one) <li class="page-item @if($one == $page) active @endif"><a href="{{ URL('/categories/' . $categoryslug . '?&page=' . $one) }}" class="page-link">{{ $one }}</a></li> @endif
@@ -120,7 +120,7 @@
                 <li class="page-item">
                     <a @if($next) href="{{ URL('/categories/' . $categoryslug . '?&page=' . $next) }}}" @endif class="page-link" aria-label="Next">
                     <span class="ti-angle-right small-7" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">{{__('data.Next')}}</span>
                     </a>
                 </li>
             </ul>
