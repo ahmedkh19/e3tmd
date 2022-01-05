@@ -54,11 +54,11 @@ function BalanceDeduction($id, $amount) {
         $user = User::where('id', '=' , $id)->first();
         if ( $user->balance >= $amount) {
             $user->balance -= $amount ;
+            $user->update();
+            return true;
         } else {
             return false;
         }
-        $user->update();
-        return true;
     } catch (\Exception $ex) {
         return false;
 

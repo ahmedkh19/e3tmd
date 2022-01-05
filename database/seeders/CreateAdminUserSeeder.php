@@ -24,7 +24,9 @@ class CreateAdminUserSeeder extends Seeder
             'balance' => 1250,
             'mobile' => '+966509735559',
             'roles_name' => ['Owner'],
-            'status' => 1
+            'status' => 1,
+            'email_verified_at' => now(),
+
         ]);
 
         $user2 = User::create([
@@ -35,7 +37,8 @@ class CreateAdminUserSeeder extends Seeder
             'balance' => 100,
             'mobile' => '+966509735512',
             'roles_name' => ['Owner'],
-            'status' => 1
+            'status' => 1,
+            'email_verified_at' => now(),
         ]);
 
         $user3 = User::create([
@@ -46,7 +49,9 @@ class CreateAdminUserSeeder extends Seeder
             'balance' => 500,
             'mobile' => '+966509735551',
             'roles_name' => ['Owner'],
-            'status' => 1
+            'status' => 1,
+            'email_verified_at' => now(),
+
         ]);
 
         $role = Role::create(['name' => 'Owner']);

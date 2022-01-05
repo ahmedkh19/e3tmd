@@ -31,10 +31,11 @@
   <!-- Horizontal Wizard -->
   <!--Ahmed Khan ...........here main form -->
   <section class="horizontal-wizard" >
+    @include('content.alerts.success')
+    @include('content.alerts.errors')
+
     <div class="bs-stepper horizontal-wizard-example">
       <!--bs-stepper-header start-->
-      @include('content.alerts.success')
-      @include('content.alerts.errors')
       <div class="bs-stepper-header">
         <div class="step" data-target="#account-details">
           <button type="button" class="step-trigger">

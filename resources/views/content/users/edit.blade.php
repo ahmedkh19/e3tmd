@@ -1,6 +1,6 @@
 @extends('layouts/contentLayoutMaster')
 
-@section('title', 'User Edit')
+@section('title', __('data.User edit'))
 
 @section('vendor-style')
   {{-- Vendor Css files --}}
@@ -287,10 +287,12 @@
             </div>
           </div>
             <div class="col-md-12">
+              @if($user->hasRole(['Owner']) || $user->hasPermissionTo('user-edit') )
               <div class="form-group">
                 <label for="role">@lang('data.Role')</label>
                 {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
               </div>
+                @endif
             </div>
             <div class="col-12 d-flex flex-sm-row flex-column mt-2">
               <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">@lang('data.Submit')</button>
@@ -347,38 +349,6 @@
                   </div>
                 </div>
               </div>
-            <!--
-              <div class="col-12">
-                <h4 class="mb-1 mt-2">
-                  <i data-feather="map-pin" class="font-medium-4 mr-25"></i>
-                  <span class="align-middle">@lang('data.Address')</span>
-                </h4>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="form-group">
-                  <label for="address-1">@lang('data.Address Line')</label>
-                  <input
-                    id="address-1"
-                    type="text"
-                    class="form-control"
-                    value="A-65, Belvedere Streets"
-                    name="address"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="form-group">
-                  <label for="city">@lang('data.City')</label>
-                  <input id="city" type="text" class="form-control" placeholder="Riyadh" name="city" />
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="form-group">
-                  <label for="country2">Country</label>
-                  <input id="country2" type="text" class="form-control" name="country2" placeholder="United States" />
-                </div>
-              </div>
-             -->
 
               <div class="col-12 d-flex flex-sm-row flex-column mt-2">
                 <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">Save Changes</button>
@@ -392,7 +362,10 @@
         <!-- Social Tab starts -->
         <div class="tab-pane" id="social" aria-labelledby="social-tab" role="tabpanel">
           <!-- users edit social form start -->
-          <h1>@lang('data.Usernames')</h1>
+          <h4 class="mb-1">
+            <i data-feather="share-2" class="font-medium-4 mr-25"></i>
+            <span class="align-middle">@lang('data.Usernames')</span>
+          </h4>
             <div class="row">
               <div class="col-lg-4 col-md-6 form-group">
                 <label for="twitter-input">@lang('data.Twitter')</label>

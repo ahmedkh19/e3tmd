@@ -89,7 +89,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if ($user->hasRole(['Owner']) || $id === auth()->id() || $user->hasPermissionTo('user-edit')) {
+        if ($user->hasRole(['Owner']) || $id == auth()->id() || $user->hasPermissionTo('user-edit')) {
             $userInformation = UserInformation::where('user_id', '=', $id)->first();
             $roles = Role::pluck('name','name')->all();
             $userRole = $user->roles->pluck('name','name')->all();
@@ -108,12 +108,15 @@ class UserController extends Controller
             'mobile' => 'required|unique:users,mobile,'. $id.'|phone:country',
             'email' => 'required|email|unique:users,email,'. $id . '',
         ]);
-
         try {
 
 
             $user = User::find($id);
-            //User
+            if (!$user->hasRole(['Owner']) && !$id == auth()->id() && !$user->hasPermissionTo('user-edit'))
+                return abort(404);
+
+
+                //User
             $input['name'] = $request->name;
             $input['username'] = $request->username;
             $input['email'] = $request->email;
@@ -124,7 +127,8 @@ class UserController extends Controller
                 $input['password'] = Hash::make($input['password']);
             }
             $input['status'] = $request->status;
-            $input['roles_name'] = $request->roles;
+            if ($user->hasRole(['Owner']) || $user->hasPermissionTo('user-edit'))
+                $input['roles_name'] = $request->roles;
             if (!empty($request->avatar)) {
                 deleteImage("avatars",$user->avatar);
                 $input['avatar'] = uploadImage('avatars', $request->avatar);
@@ -155,15 +159,22 @@ class UserController extends Controller
             $user->update($input);
             if (!empty($information))
             $userInformation->update($information);
+            if ($user->hasRole(['Owner']) || $user->hasPermissionTo('user-edit')) {
+                DB::table('model_has_roles')->where('model_id', $id)->delete();
+                $user->assignRole($request->input('roles'));
+            }
 
-            DB::table('model_has_roles')->where('model_id', $id)->delete();
-            $user->assignRole($request->input('roles'));
+            if (!$user->hasRole(['Owner']) && !$user->hasPermissionTo('user-edit')) {
+                return redirect()->back()
+                    ->with('success', __('data.User updated successfully'));
+
+            }
             return redirect()->route('users.index')
-                ->with('success', 'User updated successfully');
+                ->with('success', __('data.User updated successfully'));
 
         } catch (\Exception $ex) {
             return redirect()->back()
-                ->with('error', __('data.An error occurred, please try again later'));
+                ->with('error', __('data.An error occurred, please try again later') . $ex);
         }
     }
 
@@ -181,10 +192,10 @@ class UserController extends Controller
             deleteImage("avatars",$find->avatar);
             deleteImage("avatars",$find->cover);
             return redirect()->route('users.index')
-                ->with('success','User deleted successfully');
+                ->with('success',__('data.User deleted successfully'));
         } else {
             return redirect()->route('users.index')
-                ->with('error','User not found');
+                ->with('error',__('data.User not found'));
         }
     }
 

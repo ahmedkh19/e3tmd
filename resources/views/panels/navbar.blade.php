@@ -75,12 +75,9 @@
             </span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-            <?php $id = auth()->id(); $profile = "users/$id/edit"; ?>
-            @if (\App\Models\User::find( auth()->id() )->roles[0]->name == "Owner")
-            <a class="dropdown-item" href="{{url($profile)}}">
+            <a class="dropdown-item" href="{{route('users.edit', auth()->id())}}">
               <i class="mr-50" data-feather="user"></i> Profile
             </a>
-            @endif
             <a class="dropdown-item" href="{{url('chat')}}">
               <i class="mr-50" data-feather="message-square"></i> Chats
             </a>

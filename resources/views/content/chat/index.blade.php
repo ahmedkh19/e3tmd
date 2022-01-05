@@ -18,7 +18,7 @@
     <div class="mb-1 start-chat-icon">
       <i data-feather="message-square"></i>
     </div>
-    <h4 class="sidebar-toggle start-chat-text">Start Conversation</h4>
+    <h4 class="sidebar-toggle start-chat-text">@lang('data.Start Conversation')</h4>
   </div>
   <!--/ To load Conversation -->
 
