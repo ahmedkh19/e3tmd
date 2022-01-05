@@ -114,7 +114,7 @@
                     @if(!$product->isSold)
                         @if ($product->pricing_method == 'Fixed' )
                           @if( (Auth::check() && Auth::user()->id != $product->user_id) || !Auth::check() )
-                            @if ( Auth::user()->roles_name[0] != "Member" )
+                            @if ( !auth()->user()->hasRoles('Member') )
                             <a class="discount">{{ __('data.Please open a member account to contact the sellers') }}</a>
                             @else
                             <a href="{{ route('chat.create', $EncryptionClass->encryptAES($product->id, env('AES_ENCRYPTION_KEY') )) }}" class="discount">تواصل مع البائع</a>
