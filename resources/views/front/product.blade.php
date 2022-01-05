@@ -119,7 +119,6 @@
 
                             <a href="{{ route('chat.create', $EncryptionClass->encryptAES($product->id, env('AES_ENCRYPTION_KEY') )) }}" class="discount">تواصل مع البائع</a>
                             @endif
-                          @endif
                         @else
                           @if($product->auction_end > date("Y-m-d H:i:s"))
                             @if(Auth::check())
