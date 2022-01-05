@@ -151,19 +151,19 @@
                   <span class="alert" style="display:none" role="alert"></span>
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <input class="form-control form-control-lg" type="text" name="name" placeholder="Your Name" required="">
+                      <input class="form-control form-control-lg" type="text" name="name" placeholder="{{__('data.Name')}}" required="">
                     </div>
                     <div class="form-group col-md-12">
-                      <input class="form-control form-control-lg" type="email" name="email" placeholder="Your Email Address" required="">
+                      <input class="form-control form-control-lg" type="email" name="email" placeholder="{{__('data.Email')}}" required="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <input name="subject" type="text" class="form-control" placeholder="Subject" maxlength="100" required="">
+                    <input name="subject" type="text" class="form-control" placeholder="{{__('data.Subject')}}" maxlength="100" required="">
                   </div>
                   <div class="form-group">
-                    <textarea class="form-control form-control-lg" rows="4" placeholder="Your Message" name="message" required=""></textarea>
+                    <textarea class="form-control form-control-lg" rows="4" placeholder="{{__('data.Message')}}" name="message" required=""></textarea>
                   </div>
-                  <button class="btn btn-lg btn-warning" type="submit">{{__('data.Send it over')}}</button>
+                  <button class="btn btn-lg btn-warning" type="submit">{{__('data.Send')}}</button>
               </form>
             </div>
 
