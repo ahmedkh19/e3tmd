@@ -95,7 +95,6 @@
               </div>
               <div class="text-center">
                 <h1 class="mb-1 text-white">@lang('data.Your credit is :') <strong> {{ \App\Models\User::getBalance() }}</strong></h1>
-                @cannot('product-create')
                 <button style="height: 50px" type="button" class="btn btn-primary send" data-toggle="modal" data-target="#exampleModal">@lang('data.Add credit')</button>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -131,7 +130,6 @@
                     </div>
                   </div>
                 </div>
-                @endcannot
 
 
               </div>

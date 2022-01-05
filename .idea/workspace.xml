@@ -23,17 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/dashboard/dashboard-ecommerce.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/dashboard/dashboard-ecommerce.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -398,7 +390,7 @@
       <workItem from="1639565909675" duration="145000" />
       <workItem from="1641020953164" duration="189000" />
       <workItem from="1641031285034" duration="655000" />
-      <workItem from="1641357288493" duration="11397000" />
+      <workItem from="1641357288493" duration="12073000" />
     </task>
     <servers />
   </component>
@@ -465,7 +457,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php</url>
-          <line>98</line>
+          <line>99</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">

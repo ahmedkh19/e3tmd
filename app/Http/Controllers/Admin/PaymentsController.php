@@ -205,7 +205,7 @@ class PaymentsController extends Controller
 
             if (!$amount || Setting::getMinAmount() > $amount) return \redirect()->back();
 
-            if (auth()->user()->can('withdraw-create')) return \redirect()->back();
+//            if (auth()->user()->can('withdraw-create')) return \redirect()->back();
             $postFields = [
                 'NotificationOption' => 'Lnk',
                 'InvoiceValue'       => $amount,
