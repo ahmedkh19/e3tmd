@@ -60,13 +60,13 @@ class UserController extends Controller
     {
         if (\Auth::check()) {
             if (!User::where("id","=",$userid)->first()) {
-                return \Redirect::back()->with(['error_comment' => 'this user does not exsists']);
+                return \Redirect::back()->with(['error_comment' => __('data.User not found')]);
             }
             if (\Auth::user()->id == $userid) {
-                return \Redirect::back()->with(['error_comment' => 'You cant comment to yourself']);
+                return \Redirect::back()->with(['error_comment' => __("data.You can't comment to yourself")]);
             }
             if (UserComments::where("commenter_id","=",\Auth::user()->id)->where("to","=",$userid)->first()) {
-                return \Redirect::back()->with(['error_comment' => 'Sorry, You Commented Before']);
+                return \Redirect::back()->with(['error_comment' => __('data.You have already commented')]);
             }
             if (!$request->message) {
                 return \Redirect::back()->with(['error_comment' => 'Bad Comment']);
@@ -76,9 +76,9 @@ class UserController extends Controller
                 'comment' => $request->message,
                 'commenter_id' => \Auth::user()->id,
             ]);
-            return \Redirect::back()->with(['success_comment' => 'Comment Added']);
+            return \Redirect::back()->with(['success_comment' => __('data.Comment added successfully')]);
         } else {
-            return \Redirect::back()->with(['error_comment' => 'You must login first']);
+            return \Redirect::back()->with(['error_comment' => __('You must log in first')]);
         }
     }
 

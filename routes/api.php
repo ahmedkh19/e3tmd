@@ -137,7 +137,7 @@ Route::middleware('throttle:1,1440' /* one in a day */)->post('/contact', functi
         return response()->json(['error' => $validator->messages()], 200);
     }
 
-    $to = 'test@gmail.com';
+    $to = env('mail_admin');
     
     Mail::to($to)->send(new Contact($request->all()));
     

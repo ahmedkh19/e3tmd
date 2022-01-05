@@ -55,9 +55,12 @@ class UserController extends Controller
        // return $request;
         try {
 
-            $input = $request->all();
+            $input['name'] = $request->name;
+            $input['username'] = $request->username;
+            $input['email'] = $request->email;
+            $input['status'] = $request->status;
             $input['mobile'] = $request->input('mobile');
-            $input['password'] = Hash::make($input['password']);
+            $input['password'] = Hash::make($request->password);
             $input['roles_name'] = $request->input('roles');
             if (!empty($request->avatar)) {
                 $input['avatar'] = uploadImage('avatars', $request->avatar);
@@ -67,13 +70,37 @@ class UserController extends Controller
             if (!empty($request->cover)) {
                 $input['cover'] = uploadImage('avatars', $request->cover);
             }
+            //User information
+            if (!empty($request->birth_date))
+                $information['birth_date'] = $request->birth_date;
+
+            if (!empty($request->gender))
+                $information['gender'] = $request->gender;
+            if (!empty($request->twitter))
+                $information['twitter'] = $request->twitter;
+
+            if (!empty($request->facebook))
+                $information['facebook'] = $request->facebook;
+
+            if (!empty($request->instagram))
+                $information['instagram'] = $request->instagram;
+
+            if (!empty($request->twitch))
+                $information['twitch'] = $request->twitch;
+
             $user = User::create($input);
+            if (!empty($information)) {
+                $information['user_id'] = $user->id;
+                UserInformation::create($information);
+
+            }
+
             $user->assignRole($request->input('roles'));
             return redirect()->route('users.index')
                 ->with('success', __('data.Created successfully'));
         } catch (\Exception $ex) {
             return redirect()->back()
-                ->with('error', __('data.An error occurred, please try again'));
+                ->with('error', __('data.An error occurred, please try again') . $ex);
         }
     }
 
@@ -89,7 +116,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if ($user->hasRole(['Owner']) || $id == auth()->id() || $user->hasPermissionTo('user-edit')) {
+        if (auth()->user()->hasRole(['Owner']) || $id == auth()->id() || auth()->user()->hasPermissionTo('user-edit')) {
             $userInformation = UserInformation::where('user_id', '=', $id)->first();
             $roles = Role::pluck('name','name')->all();
             $userRole = $user->roles->pluck('name','name')->all();
@@ -112,7 +139,7 @@ class UserController extends Controller
 
 
             $user = User::find($id);
-            if (!$user->hasRole(['Owner']) && !$id == auth()->id() && !$user->hasPermissionTo('user-edit'))
+            if (!auth()->user()->hasRole(['Owner']) && !$id == auth()->id() && !auth()->user()->hasPermissionTo('user-edit'))
                 return abort(404);
 
 
@@ -127,7 +154,7 @@ class UserController extends Controller
                 $input['password'] = Hash::make($input['password']);
             }
             $input['status'] = $request->status;
-            if ($user->hasRole(['Owner']) || $user->hasPermissionTo('user-edit'))
+            if (auth()->user()->hasRole(['Owner']) || auth()->user()->hasPermissionTo('user-edit'))
                 $input['roles_name'] = $request->roles;
             if (!empty($request->avatar)) {
                 deleteImage("avatars",$user->avatar);
@@ -159,12 +186,12 @@ class UserController extends Controller
             $user->update($input);
             if (!empty($information))
             $userInformation->update($information);
-            if ($user->hasRole(['Owner']) || $user->hasPermissionTo('user-edit')) {
+            if (auth()->user()->hasRole(['Owner']) || auth()->user()->hasPermissionTo('user-edit')) {
                 DB::table('model_has_roles')->where('model_id', $id)->delete();
                 $user->assignRole($request->input('roles'));
             }
 
-            if (!$user->hasRole(['Owner']) && !$user->hasPermissionTo('user-edit')) {
+            if (!auth()->user()->hasRole(['Owner']) && !auth()->user()->hasPermissionTo('user-edit')) {
                 return redirect()->back()
                     ->with('success', __('data.User updated successfully'));
 

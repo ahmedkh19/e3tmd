@@ -119,7 +119,7 @@
                       id="cover-img"
               />
               <div class="media-body mt-50">
-                <h4>Cover</h4>
+                <h4>{{__('data.Cover')}}</h4>
                 <div class="col-12 d-flex mt-1 px-0">
                   <label class="btn btn-primary mr-75 mb-0" for="change-cover">
                     <span class="d-none d-sm-block">@lang('data.Change')</span>
@@ -248,7 +248,7 @@
               });
 
               let handleChange = function() {
-                var text = (iti.isValidNumber()) ? "Correct" : 'Not correct';
+                var text = (iti.isValidNumber()) ? "{{__('data.Correct')}}" : '{{__('data.Not correct')}}';
                 var textNode = document.createTextNode(text);
                 output.innerHTML = "";
                 output.appendChild(textNode);
@@ -287,7 +287,7 @@
             </div>
           </div>
             <div class="col-md-12">
-              @if($user->hasRole(['Owner']) || $user->hasPermissionTo('user-edit') )
+              @if(auth()->user()->hasRole(['Owner']) || auth()->user()->hasPermissionTo('user-edit') )
               <div class="form-group">
                 <label for="role">@lang('data.Role')</label>
                 {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
@@ -351,8 +351,8 @@
               </div>
 
               <div class="col-12 d-flex flex-sm-row flex-column mt-2">
-                <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">Save Changes</button>
-                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">{{__('data.Save Changes')}}</button>
+                <button type="reset" class="btn btn-outline-secondary">{{__('data.Reset')}}</button>
               </div>
             </div>
           <!-- users edit Info form ends -->
@@ -446,8 +446,8 @@
               </div>
 
               <div class="col-12 d-flex flex-sm-row flex-column mt-2">
-                <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">Save Changes</button>
-                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">{{__('data.Save Changes')}}</button>
+                <button type="reset" class="btn btn-outline-secondary">{{__('data.Reset')}}</button>
               </div>
 
             </div>

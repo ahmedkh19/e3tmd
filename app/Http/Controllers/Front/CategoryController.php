@@ -18,7 +18,7 @@ class CategoryController extends Controller
 
         if (!count($query)) {
             return view('front.category')
-                ->with("error_category", "this category does not exists")
+                ->with("error_category", __('data.This category does not exist'))
                 ->with("categoryname", $categoryslug);
         }
 
@@ -28,7 +28,7 @@ class CategoryController extends Controller
 
         if (!count($query)) {
             return view('front.category')
-                ->with("error_category", "No results found")
+                ->with("error_category", __('data.No Results Found'))
                 ->with("categoryname", $categoryslug);
         }
 

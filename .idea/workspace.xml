@@ -23,7 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f520ea0-9c47-4bf9-9e05-9359434291a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/front/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -388,7 +398,7 @@
       <workItem from="1639565909675" duration="145000" />
       <workItem from="1641020953164" duration="189000" />
       <workItem from="1641031285034" duration="655000" />
-      <workItem from="1641357288493" duration="8063000" />
+      <workItem from="1641357288493" duration="11397000" />
     </task>
     <servers />
   </component>
@@ -420,10 +430,14 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="743" y="262" width="424" height="491" key="FileChooserDialogImpl/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1641020959009" />
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1641367048595">
+    <state x="652" y="299" width="616" height="554" key="find.popup" timestamp="1641370485494">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1641367048595" />
+    <state x="652" y="299" width="616" height="554" key="find.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1641370485494" />
+    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup" timestamp="1641369382713">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="623" y="217" width="672" height="648" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@0.0.1920.1032" timestamp="1641369382713" />
     <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1080@1920.0.1920.1080" timestamp="1638481761633" />
   </component>
   <component name="XDebuggerManager">
@@ -448,6 +462,11 @@
           <url>file://$PROJECT_DIR$/app/Helpers/general.php</url>
           <line>40</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php</url>
+          <line>98</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentsController.php</url>

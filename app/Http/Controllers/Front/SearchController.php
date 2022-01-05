@@ -18,12 +18,12 @@ class SearchController extends Controller
 
         if (!$search) {
             return view("front.search")
-                ->with("error_search", "Please type something in the search")
+                ->with("error_search", __('data.Please type what you want to search for'))
                 ->with("search", $search);
         }
         if (!$type) {
             return view("front.search")
-                ->with("error_search","Please choose type")
+                ->with("error_search",__('data.Please choose type'))
                 ->with("search", $search);
         }
 
